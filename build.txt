@@ -1,0 +1,3 @@
+displayName = Aurora
+author = nakamurash
+version = 0.1
