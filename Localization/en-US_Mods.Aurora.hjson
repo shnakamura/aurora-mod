@@ -1,2 +1,26 @@
-# This file will automatically update with entries for new content after a build and reload.
+Items: {
+	AncientTwig: {
+		DisplayName: Ancient Twig
+		Tooltip: ""
+	}
 
+	Nut: {
+		DisplayName: Nut
+		Tooltip: ""
+	}
+
+	WildlifeFragment: {
+		DisplayName: Wildlife Fragment
+		Tooltip: ""
+	}
+
+	BearClaws: {
+		DisplayName: Bear Claws
+		Tooltip: ""
+	}
+
+	BigIron: {
+		DisplayName: Big Iron
+		Tooltip: ""
+	}
+}
