@@ -6,8 +6,4 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 
-	<ItemGroup>
-	  <Folder Include="Content\Items\Materials\" />
-	</ItemGroup>
-
 </Project>
