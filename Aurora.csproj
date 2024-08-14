@@ -1,16 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<!-- Import tModLoader mod properties -->
+	
 	<Import Project="..\tModLoader.targets" />
 
-	<!-- General -->
 	<PropertyGroup>
-		
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 
-	<!-- References -->
 	<ItemGroup>
-		
+	  <Folder Include="Content\Items\Materials\" />
 	</ItemGroup>
 
 </Project>
