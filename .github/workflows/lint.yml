@@ -1,4 +1,4 @@
-name: Linter
+name: Lint
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
     - name: Restore .NET dependencies
       run: dotnet restore
       
-    - name: Setup tModLoader targets
+    - name: Create tModLoader.targets file
       run: |
         mkdir -p ../tMod
         echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
