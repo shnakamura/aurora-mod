@@ -8,7 +8,6 @@ on:
 
 jobs:
   lint:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,22 +21,16 @@ jobs:
     - name: Restore .NET dependencies
       run: dotnet restore
       
-    - name: Pull tModLoader
+    - name: Setup tModLoader targets
       run: |
-        cd ..
-        mkdir ./tMod
-        touch tModLoader.targets
-        
+        mkdir -p ../tMod
         echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-            <Import Project=".\tMod\tMLMod.targets" />
-        </Project>' > tModLoader.targets
+            <Import Project="../tMod/tMLMod.targets" />
+        </Project>' > ../tModLoader.targets
         
-        cd ./tMod
+        cd ../tMod
         wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
         unzip tModLoader.zip
-        cd ..
-        cd ./Aurora
         
-      
     - name: Lint
-      run: dotnet format style Aurora.sln --verify-no-changes
+      run: dotnet format --verify-no-changes --config .editorconfig Aurora.sln

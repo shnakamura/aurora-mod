@@ -2,6 +2,14 @@
 	
 	<Import Project="..\tModLoader.targets" />
 
+    <PropertyGroup>
+        <RootNamespace>Aurora</RootNamespace>
+        <AssemblyName>Aurora</AssemblyName>
+        <TargetFramework>net8.0</TargetFramework>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
