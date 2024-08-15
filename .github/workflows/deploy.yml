@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [master]
+    branches: [stable]
   
 env:
     TML_PATH_OVERRIDE: ./bin/Saves
