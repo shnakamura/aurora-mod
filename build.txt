@@ -1,3 +1,10 @@
 displayName = Aurora
 author = nakamurash
 version = 0.1
+homepage = https://github.com/shnakamura/Aurora
+
+hideCode = false
+hideResources = false
+
+includePDB = true
+includeSource = true
