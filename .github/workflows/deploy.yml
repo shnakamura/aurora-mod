@@ -37,13 +37,13 @@ jobs:
         run: ls -R
         
       - name: Deploy .tmod artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Aurora.tmod
           path: ./bin/Saves/tModLoader/Mods/Aurora.tmod
 
       - name: Deploy .dll artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Aurora.dll
           path: ./bin/Release/net8.0/Aurora.dll

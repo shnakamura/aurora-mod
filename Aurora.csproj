@@ -18,4 +18,9 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
     
+    <!-- GitHub workflows -->
+    <PropertyGroup>
+        <ExtraBuildModFlags Condition="'$(TML_PATH_OVERRIDE)' != ''">$(ExtraBuildModFlags)-savedirectory &quot;$([System.IO.Path]::GetFullPath('.'))/$(TML_PATH_OVERRIDE)&quot; </ExtraBuildModFlags>
+    </PropertyGroup>
+    
 </Project>
