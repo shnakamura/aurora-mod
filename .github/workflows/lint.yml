@@ -1,0 +1,43 @@
+name: Linter
+
+on:
+  push:
+    branches: [ "stable", "dev" ]
+  pull_request:
+    branches: [ "stable", "dev" ]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore .NET dependencies
+      run: dotnet restore
+      
+    - name: Pull tModLoader
+      run: |
+        cd ..
+        mkdir ./tMod
+        touch tModLoader.targets
+        
+        echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+            <Import Project=".\tMod\tMLMod.targets" />
+        </Project>' > tModLoader.targets
+        
+        cd ./tMod
+        wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
+        unzip tModLoader.zip
+        cd ..
+        cd ./Aurora
+        
+      
+    - name: Lint
+      run: dotnet format style Aurora.sln --verify-no-changes
