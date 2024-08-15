@@ -3,16 +3,13 @@ name: Deploy
 on:
   push:
     branches: [stable]
-  
-env:
-    TML_PATH_OVERRIDE: ./bin/Saves
 
 jobs:
-  build:
+  deploy:
     runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Download and install tModLoader
         run: |
