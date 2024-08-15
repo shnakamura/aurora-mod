@@ -23,4 +23,9 @@ Items: {
 		DisplayName: Big Iron
 		Tooltip: ""
 	}
+
+	WoodenClub: {
+		Tooltip: ""
+		DisplayName: Wooden Club
+	}
 }

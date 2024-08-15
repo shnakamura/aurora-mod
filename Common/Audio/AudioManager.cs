@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using Microsoft.Xna.Framework.Audio;
 using ReLogic.Utilities;
 using Terraria.Audio;
@@ -16,7 +15,6 @@ namespace Aurora.Common.Audio;
 ///     after modifiers are updated.
 /// </remarks>
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class AudioManager : ModSystem
 {
     private static readonly SoundStyle[] IgnoredSoundStyles = {
