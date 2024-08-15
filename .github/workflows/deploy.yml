@@ -46,7 +46,6 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK_DEPLOY }}
-          nocontext: true
           title: New version of `Aurora` is ready!
           description: |
-            Click [here](https://github.com/Aurora/Aurora/actions/runs/${{ github.run_id }}) to view.
+            Click [here](https://github.com/shnakamura/Aurora/actions/runs/${{ github.run_id }}) to view.
