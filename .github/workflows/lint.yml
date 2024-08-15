@@ -33,4 +33,4 @@ jobs:
         unzip tModLoader.zip
         
     - name: Lint
-      run: dotnet format --verify-no-changes --config .editorconfig Aurora.sln
+      run: dotnet format --verify-no-changes Aurora.sln
