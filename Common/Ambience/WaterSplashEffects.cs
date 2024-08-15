@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
@@ -8,7 +7,6 @@ namespace Aurora.Common.Ambience;
 ///     everytime the player enters/leaves any water source.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WaterSplashEffects : ModPlayer
 {
     /// <summary>
