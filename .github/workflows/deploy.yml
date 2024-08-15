@@ -4,6 +4,9 @@ on:
   push:
     branches: [dev, stable]
 
+env:
+  TML_PATH_OVERRIDE: ./bin/Saves
+
 jobs:
   deploy:
     runs-on: windows-latest
@@ -43,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Aurora.dll
-          path: ./bin/Release/net6.0/Aurora.dll
+          path: ./bin/Release/net8.0/Aurora.dll
 
       - name: Deploy action across Discord
         uses: sarisia/actions-status-discord@v1  
