@@ -19,6 +19,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
+	  <Folder Include="Common\Projectiles\Behavior\" />
 	  <Folder Include="Content\Items\Weapons\Melee\Daggers\" />
 	</ItemGroup>
     
