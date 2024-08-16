@@ -27,7 +27,7 @@ public class BearClaws : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient(RecipeGroupID.Wood, 20)
+            .AddIngredient(ItemID.Wood, 20)
             .AddIngredient<AncientTwig>(4)
             .AddTile(TileID.WorkBenches)
             .Register();

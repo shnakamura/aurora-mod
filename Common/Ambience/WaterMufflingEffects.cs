@@ -14,7 +14,7 @@ public sealed class WaterMufflingEffects : ModPlayer
     ///     The audio muffling intensity.
     /// </summary>
     /// <remarks>
-    ///     This will range from <c>0f</c> (None) - <c>1f</c> (Full).
+    ///     This will range from <c>0f</c> (None) - <c>0.9f</c> (Full).
     /// </remarks>
     public float Intensity {
         get => _intensity;
@@ -28,6 +28,7 @@ public sealed class WaterMufflingEffects : ModPlayer
 
         UpdateIntensity();
         UpdateModifier();
+        
     }
 
     private void UpdateIntensity() {
@@ -40,10 +41,10 @@ public sealed class WaterMufflingEffects : ModPlayer
     }
 
     private void UpdateModifier() {
-        if (Intensity <= 0f) {
+        if (Intensity < 0f) {
             return;
         }
-
+        
         AudioManager.AddModifier(
             $"{nameof(Aurora)}:{nameof(WaterMufflingEffects)}",
             60,

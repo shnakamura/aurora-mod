@@ -31,6 +31,35 @@ Items: {
 
 	CopperDagger: {
 		DisplayName: Copper Dagger
+
+	BarkBallista: {
+		DisplayName: Bark Ballista
+		Tooltip: ""
+	}
+
+	WildWarriorGarb: {
+		DisplayName: Wild Warrior Garb
+		Tooltip: ""
+	}
+
+	WildWarriorGreaves: {
+		DisplayName: Wild Warrior Greaves
+		Tooltip: ""
+	}
+
+	WildWarriorHelmet: {
+		DisplayName: Wild Warrior Helmet
+		Tooltip: ""
+	}
+
+	WildWarriorMask: {
+		DisplayName: Wild Warrior Mask
+		Tooltip: ""
+	}
+
+	WildNature: {
+		DisplayName: Wild Nature
+
 		Tooltip: ""
 	}
 }

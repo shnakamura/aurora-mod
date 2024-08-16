@@ -1,7 +1,7 @@
 displayName = Aurora
 author = nakamurash
-version = 0.1
-homepage = https://github.com/shnakamura/Aurora
+version = 0.0.1
+homepage = https://discord.gg/WzpbgbUkKe 
 
 hideCode = false
 hideResources = false
