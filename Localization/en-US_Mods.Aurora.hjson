@@ -31,6 +31,8 @@ Items: {
 
 	CopperDagger: {
 		DisplayName: Copper Dagger
+		Tooltip: ""
+	}
 
 	BarkBallista: {
 		DisplayName: Bark Ballista
@@ -59,7 +61,6 @@ Items: {
 
 	WildNature: {
 		DisplayName: Wild Nature
-
 		Tooltip: ""
 	}
 }

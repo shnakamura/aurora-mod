@@ -12,13 +12,11 @@ public static class ProjectileComponentExtensions
     /// <param name="projectile">The projectile on which the component is to be enabled.</param>
     /// <param name="initializer">An optional delegate to initialize the component after it has been enabled.</param>
     /// <typeparam name="T">The type of the component to enable, which must inherit from <see cref="ProjectileComponent"/>.</typeparam>
-    /// <returns><see langword="true"/> if the component was successfully enabled; otherwise, <see langword="false"/>.</returns>
-    public static bool TryEnableComponent<T>(this Projectile projectile, Action<T>? initializer = null) where T : ProjectileComponent
-    {
+    /// <returns><c>true</c> if the component was successfully enabled; otherwise, <c>false</c>.</returns>
+    public static bool TryEnableComponent<T>(this Projectile projectile, Action<T>? initializer = null) where T : ProjectileComponent {
         var hasComponent = projectile.TryGetGlobalProjectile(out T? component);
     
-        if (!hasComponent)
-        {
+        if (!hasComponent) {
             return false;
         }
 

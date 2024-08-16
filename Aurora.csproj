@@ -5,22 +5,10 @@
     <PropertyGroup>
         <RootNamespace>Aurora</RootNamespace>
         <AssemblyName>Aurora</AssemblyName>
-        <TargetFramework>net8.0</TargetFramework>
-        <PlatformTarget>AnyCPU</PlatformTarget>
+        <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
-
-	<PropertyGroup>
-		<Nullable>enable</Nullable>
-	</PropertyGroup>
-	
-	<PropertyGroup>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	</PropertyGroup>
-	
-	<ItemGroup>
-	  <Folder Include="Common\Projectiles\Behavior\" />
-	  <Folder Include="Content\Items\Weapons\Melee\Daggers\" />
-	</ItemGroup>
     
 </Project>

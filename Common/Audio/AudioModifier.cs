@@ -1,8 +1,7 @@
 namespace Aurora.Common.Audio;
 
 /// <summary>
-///     Provides an audio modifier which is responsible for
-///     manipulating an <see cref="AudioParameters" /> instance.
+///     Provides an audio modifier which is responsible for manipulating an <see cref="AudioParameters" /> instance.
 /// </summary>
 public struct AudioModifier
 {

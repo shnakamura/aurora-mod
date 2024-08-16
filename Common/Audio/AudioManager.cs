@@ -12,7 +12,7 @@ namespace Aurora.Common.Audio;
 ///     This system splits logic into two parts: updating registered <see cref="AudioModifier" />
 ///     instances that occurs in <see cref="ModSystem.PostUpdateEverything" /> and updating an
 ///     <see cref="AudioParameters" /> instance, which occurs in <see cref="ModSystem.PostUpdateEverything" />
-///     after modifiers are updated.
+///     after all modifiers have been updated.
 /// </remarks>
 [Autoload(Side = ModSide.Client)]
 public sealed class AudioManager : ModSystem
@@ -25,8 +25,8 @@ public sealed class AudioManager : ModSystem
         SoundID.Grab
     };
 
-    private static List<ActiveSound?> sounds = new();
-    private static List<AudioModifier> modifiers = new();
+    private static List<ActiveSound?>? sounds = new();
+    private static List<AudioModifier>? modifiers = new();
 
     private static AudioParameters parameters;
 
@@ -102,7 +102,7 @@ public sealed class AudioManager : ModSystem
                 continue;
             }
 
-            modifier.Callback(ref newParameters, modifier.TimeLeft / (float)modifier.TimeMax);
+            modifier.Callback?.Invoke(ref newParameters, modifier.TimeLeft / (float)modifier.TimeMax);
 
             modifiers[i] = modifier;
         }
@@ -114,7 +114,6 @@ public sealed class AudioManager : ModSystem
         for (var i = 0; i < sounds.Count; i++) {
             var sound = sounds[i];
             
-
             if (!sound.IsPlaying) {
                 sounds.RemoveAt(i--);
                 continue;
