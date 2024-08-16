@@ -1,0 +1,64 @@
+AncientTwig: {
+    DisplayName: Ancient Twig
+    Tooltip: ""
+}
+
+Nut: {
+    DisplayName: Nut
+    Tooltip: ""
+}
+
+WildlifeFragment: {
+    DisplayName: Wildlife Fragment
+    Tooltip: ""
+}
+
+BearClaws: {
+    DisplayName: Bear Claws
+    Tooltip: ""
+}
+
+BigIron: {
+    DisplayName: Big Iron
+    Tooltip: ""
+}
+
+WoodenClub: {
+    Tooltip: ""
+    DisplayName: Wooden Club
+}
+
+CopperDagger: {
+    DisplayName: Copper Dagger
+    Tooltip: ""
+}
+
+BarkBallista: {
+    DisplayName: Bark Ballista
+    Tooltip: ""
+}
+
+WildWarriorGarb: {
+    DisplayName: Wild Warrior Garb
+    Tooltip: ""
+}
+
+WildWarriorGreaves: {
+    DisplayName: Wild Warrior Greaves
+    Tooltip: ""
+}
+
+WildWarriorHelmet: {
+    DisplayName: Wild Warrior Helmet
+    Tooltip: ""
+}
+
+WildWarriorMask: {
+    DisplayName: Wild Warrior Mask
+    Tooltip: ""
+}
+
+WildNature: {
+    DisplayName: Wild Nature
+    Tooltip: ""
+}
