@@ -28,4 +28,11 @@ Items: {
 		Tooltip: ""
 		DisplayName: Wooden Club
 	}
+
+	CopperDagger: {
+		DisplayName: Copper Dagger
+		Tooltip: ""
+	}
 }
+
+Projectiles.CopperDaggerProjectile.DisplayName: Copper Dagger Projectile
