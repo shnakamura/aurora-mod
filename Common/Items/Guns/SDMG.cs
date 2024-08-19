@@ -1,10 +1,8 @@
-using EndlessEscapade.Common.Items.Components;
-using EndlessEscapade.Content.Gores;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+using Aurora.Common.Items.Components;
+using Aurora.Common.Items.Effects;
+using Aurora.Content.Gores;
 
-namespace EndlessEscapade.Common.Items.Guns;
+namespace Aurora.Common.Items.Guns;
 
 public sealed class SDMG : GlobalItem
 {
@@ -13,6 +11,8 @@ public sealed class SDMG : GlobalItem
     }
 
     public override void SetDefaults(Item entity) {
-        entity.TryEnableComponent<ItemBulletCasings>(c => { c.CasingType = ModContent.GoreType<BulletCasing>(); });
+        base.SetDefaults(entity);
+
+        entity.TryEnableComponent<ItemBulletCasings>(c => { c.Data.Type = ModContent.GoreType<BulletCasing>(); });
     }
 }

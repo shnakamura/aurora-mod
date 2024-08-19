@@ -1,7 +1,6 @@
-using Aurora.Utilities.Extensions;
 using Terraria.Audio;
 
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common.Ambience.Tracks;
 
 public sealed class CricketsTrack : ModAmbience
 {

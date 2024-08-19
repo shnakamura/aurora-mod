@@ -19,12 +19,12 @@ public class WoodPecker : ModNPC
         AIType = NPCID.BirdRed;
         AnimationType = NPCID.BirdRed;
 
-        NPC.TryEnableComponent<NPCDeathEffects>(
+        NPC.TryEnableComponent<NPCHitEffects>(
             c => {
-                c.AddGore($"{nameof(Aurora)}/{Name}0");
-                c.AddGore($"{nameof(Aurora)}/{Name}1", 2);
+                c.AddGore($"{nameof(Aurora)}/{Name}0", 1, static npc => npc.life <= 0);
+                c.AddGore($"{nameof(Aurora)}/{Name}1", 2, static npc => npc.life <= 0);
                 
-                c.AddDust(DustID.Blood, 5);
+                c.AddDust(DustID.Blood, 5, static npc => npc.life <= 0);
             }
         );
     }

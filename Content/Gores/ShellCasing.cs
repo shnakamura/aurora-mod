@@ -1,10 +1,7 @@
-using Microsoft.Xna.Framework;
-using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ModLoader;
 
-namespace EndlessEscapade.Content.Gores;
+namespace Aurora.Content.Gores;
 
 public class ShellCasing : ModGore
 {

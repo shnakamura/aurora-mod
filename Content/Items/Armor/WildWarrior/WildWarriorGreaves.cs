@@ -18,7 +18,7 @@ public class WildWarriorGreaves : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>(1)
+            .AddIngredient<WildlifeFragment>()
             .AddTile(TileID.WorkBenches)
             .Register();
     }
