@@ -10,5 +10,9 @@
         <PlatformTarget>AnyCPU</PlatformTarget>
         <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Common\Projectiles\" />
+    </ItemGroup>
     
 </Project>

@@ -7,7 +7,7 @@ namespace Aurora.Common.Projectiles.Behavior;
 /// <summary>
 ///     Provides behavior of a projectile that should stick to NPCs and/or tiles.
 /// </summary>
-public sealed class ProjectileStickyBehavior : ProjectileComponent
+public sealed class ProjectileSticky : ProjectileComponent
 {
     public struct StickyData
     {
@@ -36,7 +36,10 @@ public sealed class ProjectileStickyBehavior : ProjectileComponent
         /// <summary>
         ///     The point array holding for sticking javelins.
         /// </summary>
-        public Point[] Javelins { get; private set; }
+        /// <remarks>
+        ///     This is used only by Terraria inside of <see cref="Projectile.KillOldestJavelin"/>.
+        /// </remarks>
+        public Point[] Javelins { get; set; }
 
         /// <summary>
         ///     Whether the projectile can stick to NPCs or not.
@@ -48,10 +51,7 @@ public sealed class ProjectileStickyBehavior : ProjectileComponent
         /// </summary>
         public bool CanStickToTiles => (Flags & (ProjectileStickyFlags.Tiles | ProjectileStickyFlags.All)) != 0;
 
-        public StickyData(ProjectileStickyFlags flags, int npcMaxStack) {
-            Flags = flags;
-            NPCMaxStack = npcMaxStack;
-        }
+        public StickyData() { }
     }
 
     public delegate void NPCStickCallback(Projectile? projectile, NPC? npc);
@@ -81,9 +81,9 @@ public sealed class ProjectileStickyBehavior : ProjectileComponent
     public bool IsStickingToAnything => IsStickingToNPC || IsStickingToTile;
 
     /// <summary>
-    ///     The sticky data associated with the projectile.
+    ///     The sticky data parameters associated with the projectile.
     /// </summary>
-    public StickyData Data = new(ProjectileStickyFlags.None, 5);
+    public StickyData Data = new();
 
     /// <summary>
     ///     Invoked when the projectile sticks to an NPC.
@@ -98,7 +98,7 @@ public sealed class ProjectileStickyBehavior : ProjectileComponent
     public override GlobalProjectile Clone(Projectile? from, Projectile to) {
         var clone = base.Clone(from, to);
 
-        if (!Enabled || clone is not ProjectileStickyBehavior component) {
+        if (!Enabled || clone is not ProjectileSticky component) {
             return clone;
         }
 
