@@ -1,6 +1,6 @@
 name: "🐛 Bug Report"
 description: Create an issue for a bug report.
-title: "<title>"
+title: "bug: <title>"
 labels: [
   "Bug",
   "New Issue"

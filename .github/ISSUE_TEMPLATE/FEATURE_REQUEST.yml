@@ -1,6 +1,6 @@
 name: "⭐ Feature Request"
 description: Create an issue for a feature request.
-title: "<title>"
+title: "feat: <title>"
 labels: [
   "Feature",
   "New Issue"
@@ -19,4 +19,4 @@ body:
       label: "Reasonings"
       description: Please provide reasons why your request should be taken into account.
     validations:
-      required: true
+      required: false
