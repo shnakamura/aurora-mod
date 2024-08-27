@@ -9,29 +9,29 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: "Summary"
-      description: Please enter an explicit description of your issue.
+      label: "# Summary"
+      description: Enter a clear issue description.
     validations:
       required: true
   - type: textarea
     id: reproduction
     attributes:
-      label: "Reproduction"
-      description: Please demonstrate the steps to replicate your issue, if known about.
+      label: "# Reproduction"
+      description: Steps to reproduce, if known.
     validations:
       required: false
   - type: textarea
     id: screenshot
     attributes:
-      label: "Screenshots"
-      description: Please attach screenshots to help further demonstrate your issue, if necessary.
+      label: "# Screenshots"
+      description: Attach screenshots, if helpful.
     validations:
       required: false
   - type: textarea
     id: logs
     attributes:
-      label: "Logs"
-      description: Please copy and paste any relevant log output, if any.
+      label: "# Logs"
+      description: Paste relevant log output, if any.
       render: bash
     validations:
       required: false
