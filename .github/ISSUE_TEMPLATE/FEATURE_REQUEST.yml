@@ -13,10 +13,3 @@ body:
       description: Please provide a brief explanation of the request.
     validations:
       required: true
-  - type: textarea
-    id: reasonings
-    attributes:
-      label: "Reasonings"
-      description: Please provide reasons why your request should be taken into account.
-    validations:
-      required: false

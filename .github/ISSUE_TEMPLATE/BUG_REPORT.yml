@@ -7,16 +7,16 @@ labels: [
 ]
 body:
   - type: textarea
-    id: description
+    id: summary
     attributes:
-      label: "Description"
+      label: "Summary"
       description: Please enter an explicit description of your issue.
     validations:
       required: true
   - type: textarea
-    id: reprod
+    id: reproduction
     attributes:
-      label: "Reproduction steps"
+      label: "Reproduction"
       description: Please demonstrate the steps to replicate your issue, if known about.
     validations:
       required: false
@@ -24,7 +24,7 @@ body:
     id: screenshot
     attributes:
       label: "Screenshots"
-      description: Please attach screenshots to help further demonstrate your issue.
+      description: Please attach screenshots to help further demonstrate your issue, if necessary.
     validations:
       required: false
   - type: textarea
