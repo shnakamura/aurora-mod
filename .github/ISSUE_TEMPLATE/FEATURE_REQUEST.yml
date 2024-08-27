@@ -9,14 +9,14 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: "# Summary"
+      label: "Summary"
       description: Briefly describe the request.
     validations:
       required: true
   - type: textarea
     id: requirements
     attributes:
-      label: "# Requirements"
+      label: "Requirements"
       description: List the request's requirements.
     validations:
       required: true

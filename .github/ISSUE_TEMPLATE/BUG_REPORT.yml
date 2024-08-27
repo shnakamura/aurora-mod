@@ -9,28 +9,28 @@ body:
   - type: textarea
     id: summary
     attributes:
-      label: "# Summary"
+      label: "Summary"
       description: Enter a clear issue description.
     validations:
       required: true
   - type: textarea
     id: reproduction
     attributes:
-      label: "# Reproduction"
+      label: "Reproduction"
       description: Steps to reproduce, if known.
     validations:
       required: false
   - type: textarea
     id: screenshot
     attributes:
-      label: "# Screenshots"
+      label: "Screenshots"
       description: Attach screenshots, if helpful.
     validations:
       required: false
   - type: textarea
     id: logs
     attributes:
-      label: "# Logs"
+      label: "Logs"
       description: Paste relevant log output, if any.
       render: bash
     validations:
