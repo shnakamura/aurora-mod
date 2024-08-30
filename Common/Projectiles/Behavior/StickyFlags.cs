@@ -1,7 +1,7 @@
 namespace Aurora.Common.Projectiles.Behavior;
 
 [Flags]
-public enum ProjectileStickyFlags : byte
+public enum StickyFlags : byte
 {
     /// <summary>
     ///     The projectile can not stick to anything.
