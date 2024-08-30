@@ -1,4 +1,4 @@
-namespace Aurora.Utilities.Extensions;
+namespace Aurora.Utilities;
 
 /// <summary>
 ///     Provides basic <see cref="Player"/> extension methods.

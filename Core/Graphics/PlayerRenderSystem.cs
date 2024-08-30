@@ -1,4 +1,4 @@
-namespace Aurora.Common.Graphics;
+namespace Aurora.Core.Graphics;
 
 /// <summary>
 ///     Handles the rendering of the player's full texture and storing it as a <see cref="RenderTarget2D"/>.

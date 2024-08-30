@@ -12,14 +12,6 @@ public sealed class ProjectileSticky : ProjectileComponent
     public struct StickyData
     {
         /// <summary>
-        ///     The flags of what the projectile can stick to or not.
-        /// </summary>
-        /// <remarks>
-        ///     Defaults to <see cref="ProjectileStickyFlags.None" />.
-        /// </remarks>
-        public ProjectileStickyFlags Flags { get; set; } = ProjectileStickyFlags.None;
-
-        /// <summary>
         ///     The maximum amount of projectiles that can stick to an NPC at once.
         /// </summary>
         public int NPCMaxStack {
@@ -32,14 +24,19 @@ public sealed class ProjectileSticky : ProjectileComponent
         }
 
         private int _npcMaxStack;
+        
+        /// <summary>
+        ///     The flags of what the projectile can stick to or not.
+        /// </summary>
+        /// <remarks>
+        ///     Defaults to <see cref="ProjectileStickyFlags.None" />.
+        /// </remarks>
+        public ProjectileStickyFlags Flags = ProjectileStickyFlags.None;
 
         /// <summary>
         ///     The point array holding for sticking javelins.
         /// </summary>
-        /// <remarks>
-        ///     This is used only by Terraria inside of <see cref="Projectile.KillOldestJavelin"/>.
-        /// </remarks>
-        public Point[] Javelins { get; set; }
+        public Point[] Javelins;
 
         /// <summary>
         ///     Whether the projectile can stick to NPCs or not.
@@ -93,7 +90,7 @@ public sealed class ProjectileSticky : ProjectileComponent
     /// <summary>
     ///     Invoked when the projectile sticks to a tile.
     /// </summary>
-    public event TileStickCallback OnStickToTile;
+    public event TileStickCallback? OnStickToTile;
 
     public override GlobalProjectile Clone(Projectile? from, Projectile to) {
         var clone = base.Clone(from, to);
@@ -134,7 +131,7 @@ public sealed class ProjectileSticky : ProjectileComponent
 
         IsStickingToTile = binaryReader.ReadBoolean();
         IsStickingToNPC = binaryReader.ReadBoolean();
-        
+
         Index = binaryReader.ReadInt32();
     }
 

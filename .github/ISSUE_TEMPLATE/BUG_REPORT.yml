@@ -21,7 +21,7 @@ body:
     validations:
       required: false
   - type: textarea
-    id: screenshot
+    id: screenshots
     attributes:
       label: "Screenshots"
       description: Attach screenshots, if helpful.

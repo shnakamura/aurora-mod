@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using ReLogic.Utilities;
 using Terraria.Audio;
 
-namespace Aurora.Common.Audio;
+namespace Aurora.Core.Audio;
 
 /// <summary>
 ///     Handles the registration and updating of <see cref="AudioModifier" /> instances.

@@ -1,4 +1,3 @@
-using Aurora.Common.Audio;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;

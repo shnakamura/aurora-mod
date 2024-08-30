@@ -1,8 +1,7 @@
 using System.Reflection;
 using Microsoft.Xna.Framework.Audio;
-using Terraria.Audio;
 
-namespace Aurora.Common.Audio;
+namespace Aurora.Core.Audio;
 
 /// <summary>
 ///     Provides an implementation of an audio low pass filter.

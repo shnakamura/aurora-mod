@@ -1,4 +1,4 @@
-using Aurora.Utilities.Extensions;
+using Aurora.Utilities;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience.Tracks;

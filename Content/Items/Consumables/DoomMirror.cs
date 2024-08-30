@@ -1,4 +1,3 @@
-using Aurora.Common.Graphics;
 using Terraria.DataStructures;
 using Terraria.ModLoader.IO;
 

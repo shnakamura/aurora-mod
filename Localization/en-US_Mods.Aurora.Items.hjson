@@ -82,3 +82,13 @@ CopperTomahawk: {
 	DisplayName: Copper Tomahawk
 	Tooltip: ""
 }
+
+DoomMirror: {
+	DisplayName: Doom Mirror
+	Tooltip: ""
+}
+
+CrabPincers: {
+	DisplayName: Crab Pincers
+	Tooltip: ""
+}

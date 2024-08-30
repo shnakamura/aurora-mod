@@ -1,5 +1,5 @@
-using Aurora.Common.Audio;
-using Aurora.Utilities.Extensions;
+using Aurora.Core.Audio;
+using Aurora.Utilities;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;

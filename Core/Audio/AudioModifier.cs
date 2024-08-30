@@ -1,4 +1,4 @@
-namespace Aurora.Common.Audio;
+namespace Aurora.Core.Audio;
 
 /// <summary>
 ///     Provides an audio modifier which is responsible for manipulating an <see cref="AudioParameters" /> instance.

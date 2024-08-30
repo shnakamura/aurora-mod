@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework.Audio;
 
-namespace Aurora.Common.Audio;
+namespace Aurora.Core.Audio;
 
 /// <summary>
 ///     An implementation of an audio filter used by <see cref="AudioManager" />.
