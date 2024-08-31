@@ -1,25 +1,24 @@
 using Aurora.Content.Items.Materials;
 
-namespace Aurora.Content.Items.Tools;
+namespace Aurora.Content.Items.Weapons.Melee;
 
-public class WildHammer : ModItem
+public class BearClawsItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
         Item.autoReuse = true;
+        Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 6;
-        Item.knockBack = 4f;
-        
-        Item.width = 34;
-        Item.height = 34;
+        Item.damage = 4;
+        Item.knockBack = 1.5f;
 
-        Item.hammer = 35;
+        Item.width = 32;
+        Item.height = 28;
 
-        Item.useTime = 22;
-        Item.useAnimation = 30;
+        Item.useTime = 10;
+        Item.useAnimation = 10;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
     }
@@ -28,7 +27,8 @@ public class WildHammer : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>()
+            .AddIngredient(ItemID.Wood, 20)
+            .AddIngredient<AncientTwigItem>(4)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

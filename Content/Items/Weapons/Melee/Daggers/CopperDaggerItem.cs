@@ -2,7 +2,7 @@ using Terraria.Enums;
 
 namespace Aurora.Content.Items.Weapons.Melee.Daggers;
 
-public class CopperDagger : ModItem
+public class CopperDaggerItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
@@ -26,6 +26,6 @@ public class CopperDagger : ModItem
         Item.rare = ItemRarityID.White;
 
         Item.shootSpeed = 2f;
-        Item.shoot = ModContent.ProjectileType<Projectiles.Melee.Daggers.CopperDagger>(); 
+        Item.shoot = ModContent.ProjectileType<Projectiles.Melee.Daggers.CopperDaggerProjectile>(); 
     }
 }

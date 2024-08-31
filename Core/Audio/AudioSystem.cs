@@ -8,14 +8,8 @@ namespace Aurora.Core.Audio;
 /// <summary>
 ///     Handles the registration and updating of <see cref="AudioModifier" /> instances.
 /// </summary>
-/// <remarks>
-///     This system splits logic into two parts: updating registered <see cref="AudioModifier" />
-///     instances that occurs in <see cref="ModSystem.PostUpdateEverything" /> and updating an
-///     <see cref="AudioParameters" /> instance, which occurs in <see cref="ModSystem.PostUpdateEverything" />
-///     after all modifiers have been updated.
-/// </remarks>
 [Autoload(Side = ModSide.Client)]
-public sealed class AudioManager : ModSystem
+public sealed class AudioSystem : ModSystem
 {
     private static readonly SoundStyle[] IgnoredSoundStyles = {
         SoundID.MenuClose,

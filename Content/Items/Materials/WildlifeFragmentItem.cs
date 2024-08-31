@@ -2,7 +2,7 @@ using Terraria.ID;
 
 namespace Aurora.Content.Items.Materials;
 
-public class WildlifeFragment : ModItem
+public class WildlifeFragmentItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
@@ -21,8 +21,8 @@ public class WildlifeFragment : ModItem
         CreateRecipe()
             .AddRecipeGroup(RecipeGroupID.IronBar)
             .AddIngredient(RecipeGroupID.Wood, 4)
-            .AddIngredient<AncientTwig>(2)
-            .AddIngredient<Nut>()
+            .AddIngredient<AncientTwigItem>(2)
+            .AddIngredient<NutItem>()
             .AddTile(TileID.WorkBenches)
             .Register();
     }

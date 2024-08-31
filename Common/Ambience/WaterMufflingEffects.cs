@@ -6,7 +6,7 @@ namespace Aurora.Common.Ambience;
 
 /// <summary>
 ///     Handles water audio muffling effects for the player through an <see cref="AudioModifier" />
-///     instance registered in <see cref="AudioManager" />.
+///     instance registered in <see cref="AudioSystem" />.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
 public sealed class WaterMufflingEffects : ModPlayer
@@ -46,7 +46,7 @@ public sealed class WaterMufflingEffects : ModPlayer
             return;
         }
         
-        AudioManager.AddModifier(
+        AudioSystem.AddModifier(
             $"{nameof(Aurora)}:{nameof(WaterMufflingEffects)}",
             60,
             (ref AudioParameters parameters, float progress) => { parameters.LowPass = Intensity * progress; }

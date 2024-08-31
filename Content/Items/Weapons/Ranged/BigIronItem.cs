@@ -1,6 +1,6 @@
 namespace Aurora.Content.Items.Weapons.Ranged;
 
-public class BigIron : ModItem
+public class BigIronItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();

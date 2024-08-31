@@ -2,7 +2,7 @@ using Terraria.Enums;
 
 namespace Aurora.Content.Projectiles.Melee.Daggers;
 
-public class CopperDagger : ProjectileDaggerBase
+public class CopperDaggerProjectile : DaggerProjectileBase
 {
     public override void SetDefaults() {
         base.SetDefaults();

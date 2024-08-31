@@ -3,7 +3,7 @@ using Terraria.ModLoader.IO;
 
 namespace Aurora.Content.Items.Consumables;
 
-public class DoomMirror : ModItem
+public class DoomMirrorItem : ModItem
 {
     private sealed class DoomMirrorPlayerImpl : ModPlayer
     {

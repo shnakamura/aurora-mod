@@ -29,11 +29,11 @@ public sealed class TileNutDrops : GlobalTile
         var position = new Vector2(i, j) * 16f + offset;
 
         if (Main.rand.NextBool(5)) {
-            Item.NewItem(new EntitySource_TileBreak(i, j), position, ModContent.ItemType<Nut>(), Main.rand.Next(4));
+            Item.NewItem(new EntitySource_TileBreak(i, j), position, ModContent.ItemType<NutItem>(), Main.rand.Next(4));
         }
 
         if (Main.rand.NextBool(10)) {
-            Item.NewItem(new EntitySource_TileBreak(i, j), position, ModContent.ItemType<AncientTwig>(), Main.rand.Next(4));
+            Item.NewItem(new EntitySource_TileBreak(i, j), position, ModContent.ItemType<AncientTwigItem>(), Main.rand.Next(4));
         }
     }
 }

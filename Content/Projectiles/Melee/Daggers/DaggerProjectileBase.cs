@@ -2,7 +2,7 @@ using Terraria.Enums;
 
 namespace Aurora.Content.Projectiles.Melee.Daggers;
 
-public abstract class ProjectileDaggerBase : ModProjectile
+public abstract class DaggerProjectileBase : ModProjectile
 {
     public const int FadeInDuration = 7;
     public const int FadeOutDuration = 4;

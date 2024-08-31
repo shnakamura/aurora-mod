@@ -1,7 +1,7 @@
 namespace Aurora.Core.Audio;
 
 /// <summary>
-///     A container with all audio parameters supported by <see cref="AudioManager" />.
+///     A container with all audio parameters supported by <see cref="AudioSystem" />.
 /// </summary>
 public struct AudioParameters
 {

@@ -3,7 +3,7 @@ using Aurora.Common.NPCs.Effects;
 
 namespace Aurora.Content.NPCs;
 
-public class WoodPecker : ModNPC
+public class WoodPeckerNPC : ModNPC
 {
     public override void SetStaticDefaults() {
         base.SetStaticDefaults();

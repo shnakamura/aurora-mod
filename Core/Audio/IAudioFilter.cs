@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 namespace Aurora.Core.Audio;
 
 /// <summary>
-///     An implementation of an audio filter used by <see cref="AudioManager" />.
+///     An implementation of an audio filter used by <see cref="AudioSystem" />.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
 public interface IAudioFilter : ILoadable

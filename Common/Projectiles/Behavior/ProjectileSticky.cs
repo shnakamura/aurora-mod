@@ -7,7 +7,7 @@ namespace Aurora.Common.Projectiles.Behavior;
 /// <summary>
 ///     Provides a component that handles the behavior of a projectile that should stick to NPCs and/or tiles.
 /// </summary>
-public sealed class Sticky : ProjectileComponent
+public sealed class ProjectileSticky : ProjectileComponent
 {
     public struct StickyData
     {
@@ -28,7 +28,7 @@ public sealed class Sticky : ProjectileComponent
         /// <summary>
         ///     The flags of what the projectile can stick to or not.
         /// </summary>
-        public StickyFlags Flags;
+        public ProjectileStickyFlags Flags;
 
         /// <summary>
         ///     The point array holding for sticking javelins.
@@ -38,14 +38,14 @@ public sealed class Sticky : ProjectileComponent
         /// <summary>
         ///     Whether the projectile can stick to NPCs or not.
         /// </summary>
-        public bool CanStickToNPCs => (Flags & (StickyFlags.NPCs | StickyFlags.All)) != 0;
+        public bool CanStickToNPCs => (Flags & (ProjectileStickyFlags.NPCs | ProjectileStickyFlags.All)) != 0;
 
         /// <summary>
         ///     Whether the projectile can stick to tiles or not.
         /// </summary>
-        public bool CanStickToTiles => (Flags & (StickyFlags.Tiles | StickyFlags.All)) != 0;
+        public bool CanStickToTiles => (Flags & (ProjectileStickyFlags.Tiles | ProjectileStickyFlags.All)) != 0;
 
-        public StickyData(StickyFlags flags, int npcMaxStack) {
+        public StickyData(ProjectileStickyFlags flags, int npcMaxStack) {
             Flags = flags;
             NPCMaxStack = npcMaxStack;
         }
@@ -85,7 +85,7 @@ public sealed class Sticky : ProjectileComponent
     /// <summary>
     ///     The sticky data parameters associated with the projectile.
     /// </summary>
-    public StickyData Data = new(StickyFlags.None, 5);
+    public StickyData Data = new(ProjectileStickyFlags.None, 5);
 
     /// <summary>
     ///     Invoked when the projectile sticks to an NPC.

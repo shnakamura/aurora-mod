@@ -4,7 +4,7 @@ using Aurora.Utilities;
 
 namespace Aurora.Content.Projectiles.Ranged;
 
-public class CopperTomahawk : ModProjectile
+public class CopperTomahawkProjectile : ModProjectile
 {
     public override void SetDefaults() {
         base.SetDefaults();
@@ -19,9 +19,5 @@ public class CopperTomahawk : ModProjectile
         Projectile.height = 16;
 
         Projectile.penetrate = -1;
-
-        Projectile.TryEnableComponent<Gravity>();
-        Projectile.TryEnableComponent<HorizontalRotation>();
-        Projectile.TryEnableComponent<Sticky>(static c => { c.Data.Flags = StickyFlags.All; });
     }
 }

@@ -3,7 +3,7 @@ using Terraria.DataStructures;
 
 namespace Aurora.Content.Projectiles.Summon;
 
-public class CrabPincers : ModProjectile
+public class CrabPincersProjectile : ModProjectile
 {
     private float scale;
     private float leftRotation;

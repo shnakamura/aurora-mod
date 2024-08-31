@@ -1,25 +1,22 @@
-using Aurora.Content.Items.Materials;
+namespace Aurora.Content.Items.Weapons.Melee;
 
-namespace Aurora.Content.Items.Tools;
-
-public class WildPickaxe : ModItem
+public class WoodenClubItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
         Item.autoReuse = true;
+        Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 3;
-        Item.knockBack = 1.5f;
-        
-        Item.width = 34;
-        Item.height = 30;
+        Item.damage = 12;
+        Item.knockBack = 4f;
 
-        Item.pick = 40;
+        Item.width = 32;
+        Item.height = 34;
 
-        Item.useTime = 15;
-        Item.useAnimation = 22;
+        Item.useTime = 25;
+        Item.useAnimation = 25;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
     }
@@ -28,7 +25,7 @@ public class WildPickaxe : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>()
+            .AddIngredient(ItemID.Wood, 15)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

@@ -2,23 +2,23 @@ using Aurora.Content.Items.Materials;
 
 namespace Aurora.Content.Items.Armor.WildWarrior;
 
-[AutoloadEquip(EquipType.Legs)]
-public class WildWarriorGreaves : ModItem
+[AutoloadEquip(EquipType.Body)]
+public class WildWarriorGarb : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
-        Item.width = 22;
-        Item.height = 16;
+        Item.width = 38;
+        Item.height = 22;
         
-        Item.defense = 1;
+        Item.defense = 2;
     }
 
     public override void AddRecipes() {
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>()
+            .AddIngredient<WildlifeFragmentItem>(2)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

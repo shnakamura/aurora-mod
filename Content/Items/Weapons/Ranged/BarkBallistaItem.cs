@@ -2,7 +2,7 @@ using Aurora.Content.Items.Materials;
 
 namespace Aurora.Content.Items.Weapons.Ranged;
 
-public class BarkBallista : ModItem
+public class BarkBallistaItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
@@ -31,7 +31,7 @@ public class BarkBallista : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>(2)
+            .AddIngredient<WildlifeFragmentItem>(2)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

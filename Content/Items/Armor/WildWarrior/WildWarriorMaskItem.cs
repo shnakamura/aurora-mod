@@ -3,7 +3,7 @@ using Aurora.Content.Items.Materials;
 namespace Aurora.Content.Items.Armor.WildWarrior;
 
 [AutoloadEquip(EquipType.Head)]
-public class WildWarriorMask : ModItem
+public class WildWarriorMaskItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
@@ -18,7 +18,7 @@ public class WildWarriorMask : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>(2)
+            .AddIngredient<WildlifeFragmentItem>(2)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

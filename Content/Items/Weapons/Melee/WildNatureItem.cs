@@ -1,25 +1,24 @@
 using Aurora.Content.Items.Materials;
 
-namespace Aurora.Content.Items.Tools;
+namespace Aurora.Content.Items.Weapons.Melee;
 
-public class WildAxe : ModItem
+public class WildNatureItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
         Item.autoReuse = true;
+        Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 4;
-        Item.knockBack = 3f;
-        
-        Item.width = 36;
-        Item.height = 32;
+        Item.damage = 11;
+        Item.knockBack = 2f;
 
-        Item.axe = 8;
+        Item.width = 44;
+        Item.height = 52;
 
-        Item.useTime = 20;
-        Item.useAnimation = 28;
+        Item.useTime = 21;
+        Item.useAnimation = 21;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
     }
@@ -28,7 +27,7 @@ public class WildAxe : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient<WildlifeFragment>()
+            .AddIngredient<WildlifeFragmentItem>(2)
             .AddTile(TileID.WorkBenches)
             .Register();
     }

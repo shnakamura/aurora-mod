@@ -23,7 +23,7 @@ public class CrabPincers : ModItem
         Item.useAnimation = 30;
         Item.useStyle = ItemUseStyleID.Swing;
 
-        Item.shoot = ModContent.ProjectileType<Projectiles.Summon.CrabPincers>();
+        Item.shoot = ModContent.ProjectileType<Projectiles.Summon.CrabPincersProjectile>();
 
         Item.UseSound = SoundID.Item1;
     }

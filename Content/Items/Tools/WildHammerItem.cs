@@ -1,22 +1,25 @@
-namespace Aurora.Content.Items.Weapons.Melee;
+using Aurora.Content.Items.Materials;
 
-public class WoodenClub : ModItem
+namespace Aurora.Content.Items.Tools;
+
+public class WildHammerItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
         Item.autoReuse = true;
-        Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 12;
+        Item.damage = 6;
         Item.knockBack = 4f;
-
-        Item.width = 32;
+        
+        Item.width = 34;
         Item.height = 34;
 
-        Item.useTime = 25;
-        Item.useAnimation = 25;
+        Item.hammer = 35;
+
+        Item.useTime = 22;
+        Item.useAnimation = 30;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
     }
@@ -25,7 +28,7 @@ public class WoodenClub : ModItem
         base.AddRecipes();
 
         CreateRecipe()
-            .AddIngredient(ItemID.Wood, 15)
+            .AddIngredient<WildlifeFragmentItem>()
             .AddTile(TileID.WorkBenches)
             .Register();
     }
