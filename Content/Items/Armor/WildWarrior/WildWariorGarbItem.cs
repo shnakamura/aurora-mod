@@ -3,7 +3,7 @@ using Aurora.Content.Items.Materials;
 namespace Aurora.Content.Items.Armor.WildWarrior;
 
 [AutoloadEquip(EquipType.Body)]
-public class WildWarriorGarb : ModItem
+public class WildWarriorGarbItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();

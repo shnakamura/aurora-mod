@@ -1,0 +1,8 @@
+Sound: {
+    SoundPath: "Aurora/Assets/Sounds/Ambience/WaterSubmergedLoop"
+    Type: Ambient
+    Volume: 0.8
+    IsLooped: true
+}
+
+Flags: ["Submerged"]

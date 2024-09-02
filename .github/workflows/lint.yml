@@ -8,29 +8,25 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-        
-    - name: Restore .NET dependencies
-      run: dotnet restore
-      
-    - name: Create tModLoader.targets file
-      run: |
-        mkdir -p ../tMod
-        echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-            <Import Project="../tMod/tMLMod.targets" />
-        </Project>' > ../tModLoader.targets
-        
-        cd ../tMod
-        wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
-        unzip tModLoader.zip
-        
-    - name: Lint
-      run: dotnet format --verify-no-changes Aurora.sln
+      - uses: actions/checkout@v4
+
+      - name: Download and install tModLoader
+        run: |
+          curl -s -L https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip -o tModLoader.zip
+          unzip -q -o tModLoader.zip
+          rm tModLoader.zip
+          
+      - name: Create tModLoader.targets file
+        shell: bash
+        run: |
+          cat >> ../tModLoader.targets << EOF
+          <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+            <Import Project="tModLoader\tMLMod.targets" />
+          </Project>
+          EOF
+          
+      - name: Run linter
+        run: dotnet format --verify-no-changes Aurora.sln

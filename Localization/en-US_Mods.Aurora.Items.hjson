@@ -92,3 +92,93 @@ CrabPincers: {
 	DisplayName: Crab Pincers
 	Tooltip: ""
 }
+
+WildWarriorGarbItem: {
+	DisplayName: Wild Warrior Garb Item
+	Tooltip: ""
+}
+
+WildWarriorGreavesItem: {
+	DisplayName: Wild Warrior Greaves Item
+	Tooltip: ""
+}
+
+WildWarriorHelmetItem: {
+	DisplayName: Wild Warrior Helmet Item
+	Tooltip: ""
+}
+
+WildWarriorMaskItem: {
+	DisplayName: Wild Warrior Mask Item
+	Tooltip: ""
+}
+
+DoomMirrorItem: {
+	DisplayName: Doom Mirror Item
+	Tooltip: ""
+}
+
+AncientTwigItem: {
+	DisplayName: Ancient Twig Item
+	Tooltip: ""
+}
+
+NutItem: {
+	DisplayName: Nut Item
+	Tooltip: ""
+}
+
+WildlifeFragmentItem: {
+	DisplayName: Wildlife Fragment Item
+	Tooltip: ""
+}
+
+WildAxeItem: {
+	DisplayName: Wild Axe Item
+	Tooltip: ""
+}
+
+WildHammerItem: {
+	DisplayName: Wild Hammer Item
+	Tooltip: ""
+}
+
+WildPickaxeItem: {
+	DisplayName: Wild Pickaxe Item
+	Tooltip: ""
+}
+
+BearClawsItem: {
+	DisplayName: Bear Claws Item
+	Tooltip: ""
+}
+
+CopperDaggerItem: {
+	DisplayName: Copper Dagger Item
+	Tooltip: ""
+}
+
+WildNatureItem: {
+	DisplayName: Wild Nature Item
+	Tooltip: ""
+}
+
+WoodenClubItem: {
+	DisplayName: Wooden Club Item
+	Tooltip: ""
+}
+
+BarkBallistaItem: {
+	DisplayName: Bark Ballista Item
+	Tooltip: ""
+}
+
+BigIronItem: {
+	DisplayName: Big Iron Item
+	Tooltip: ""
+}
+
+CopperTomahawkItem: {
+	DisplayName: Copper Tomahawk Item
+	Tooltip: ""
+}
