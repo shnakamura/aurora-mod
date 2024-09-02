@@ -11,7 +11,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+          
+      - name: Restore .NET dependencies
+        run: dotnet restore
 
       - name: Download and install tModLoader
         run: |
