@@ -1,3 +1,4 @@
+using Aurora.Content.Dusts;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
@@ -23,7 +24,7 @@ public sealed class WaterSplashEffects : ModPlayer
         if (Player.wetCount != 5) {
             return;
         }
-
+        
         SoundEngine.PlaySound(in WaterSplashSound, Player.Center);
     }
 }
