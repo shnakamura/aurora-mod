@@ -17,15 +17,15 @@ public sealed class AmbienceTrack : IAmbienceTrack
     [JsonIgnore]
     public SlotId Slot { get; set; } = SlotId.Invalid;
     
-    public float StepIn { get; } = 0.05f;
+    public float StepIn { get; set; } = 0.05f;
     
-    public float StepOut { get; } = 0.05f;
-    
+    public float StepOut { get; set; } = 0.05f;
+
     [JsonRequired]
-    public SoundStyle Sound { get; } = default;
-    
+    public SoundStyle Sound { get; set; }
+
     [JsonRequired]
-    public string[] Flags { get; } = Array.Empty<string>();
+    public string[] Flags { get; set; } = Array.Empty<string>();
 
     public AmbienceTrack() { }
 }

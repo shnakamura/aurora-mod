@@ -23,13 +23,15 @@ public sealed class AmbienceTrackReader : IAssetReader
             throw AssetLoadException.FromInvalidReader<AmbienceTrack, T>();
         }
 
+        await context;
+        
         using var reader = new StreamReader(stream, Encoding.UTF8);
 
         var hjson = reader.ReadToEnd();
         var json = HjsonValue.Parse(hjson).ToString(Stringify.Plain);
 
         var prefab = JsonConvert.DeserializeObject<T>(json);
-
+        
         return (T)prefab;
     }
 }

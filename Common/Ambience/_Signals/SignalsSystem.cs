@@ -58,7 +58,24 @@ public sealed class SignalsSystem : ModSystem
         }
     }
 
-    public static bool GetSignal(string name) => Flags[name];
+    public static bool GetSignal(string name) {
+        return Flags[name];
+    }
+    
+    public static bool GetSignal(params string[] names) {
+        var success = false;
 
-    public static void RegisterUpdater(string name, SignalUpdater? updater) => Updaters[name] = updater;
+        for (int i = 0; i < names.Length; i++) {
+            if (GetSignal(names[i])) {
+                success = true;
+                break;
+            }
+        }
+
+        return success;
+    }
+
+    public static void RegisterUpdater(string name, SignalUpdater? updater) {
+        Updaters[name] = updater;
+    }
 }
