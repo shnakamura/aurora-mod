@@ -6,15 +6,33 @@ namespace Aurora.Common.Ambience;
 
 public interface IAmbienceTrack
 {
+    /// <summary>
+    ///     The volume of this track. Ranges from <c>0f</c> to <c>1f</c>.
+    /// </summary>
+    float Volume { get; }
+    
+    /// <summary>
+    ///     The volume step-in amount used by this track to perform fade-ins.
+    /// </summary>
     float StepIn { get; }
     
+    /// <summary>
+    ///     The volume step-out amount used by this track to perform fade-outs.
+    /// </summary>
     float StepOut { get; }
     
-    float Volume { get; }
-
+    /// <summary>
+    ///     The sound slot of this track.
+    /// </summary>
     SlotId Slot { get; }
 
+    /// <summary>
+    ///     The sound style of this track.
+    /// </summary>
     SoundStyle Sound { get; }
 
+    /// <summary>
+    ///     The flags used by this track to indicate whether it should be active or not.
+    /// </summary>
     string[] Flags { get; }
 }

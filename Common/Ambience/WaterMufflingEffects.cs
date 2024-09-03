@@ -12,11 +12,8 @@ namespace Aurora.Common.Ambience;
 public sealed class WaterMufflingEffects : ModPlayer
 {
     /// <summary>
-    ///     The audio muffling intensity.
+    ///     The audio muffling intensity. Ranges from <c>0f</c> to <c>0.9f</c>.
     /// </summary>
-    /// <remarks>
-    ///     This will range from <c>0f</c> (None) - <c>0.9f</c> (Full).
-    /// </remarks>
     public float Intensity {
         get => _intensity;
         set => _intensity = MathHelper.Clamp(value, 0f, 0.9f);
@@ -29,7 +26,6 @@ public sealed class WaterMufflingEffects : ModPlayer
 
         UpdateIntensity();
         UpdateModifier();
-        
     }
 
     private void UpdateIntensity() {
