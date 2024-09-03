@@ -1,5 +1,3 @@
-using Aurora.Common.Projectiles.Behavior;
-using Aurora.Common.Projectiles.Components;
 using Aurora.Utilities;
 
 namespace Aurora.Content.Projectiles.Ranged;

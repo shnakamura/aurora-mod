@@ -1,5 +1,5 @@
-using Aurora.Common.NPCs.Components;
-using Aurora.Common.NPCs.Effects;
+using Aurora.Common.NPCs;
+using Aurora.Core.NPCs;
 
 namespace Aurora.Content.NPCs;
 

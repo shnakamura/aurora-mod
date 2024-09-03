@@ -1,6 +1,6 @@
 using Aurora.Utilities;
 
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common.Ambience._Signals;
 
 public static class SignalFlags
 {

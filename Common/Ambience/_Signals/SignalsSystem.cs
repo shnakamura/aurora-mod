@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Terraria.ModLoader.Core;
 
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common.Ambience._Signals;
 
 [Autoload(Side = ModSide.Client)]
 public sealed class SignalsSystem : ModSystem

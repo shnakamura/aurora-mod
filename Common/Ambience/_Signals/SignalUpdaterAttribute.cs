@@ -1,4 +1,4 @@
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common.Ambience._Signals;
 
 public sealed class SignalUpdaterAttribute : Attribute
 {
