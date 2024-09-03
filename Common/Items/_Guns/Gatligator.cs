@@ -10,6 +10,6 @@ public sealed class Gatligator : GlobalItem
     }
 
     public override void SetDefaults(Item entity) {
-        entity.TryEnableComponent<ItemBulletCasings>(c => { c.Data.Type = ModContent.GoreType<BulletCasing>(); });
+        entity.TryEnableComponent<ItemBulletCasings>(static c => { c.Data.Type = ModContent.GoreType<BulletCasing>(); });
     }
 }
