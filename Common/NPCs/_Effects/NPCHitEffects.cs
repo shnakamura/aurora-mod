@@ -6,9 +6,6 @@ namespace Aurora.Common.NPCs;
 /// <summary>
 ///     Provides registration and handles the spawning of NPC effects upon hit.
 /// </summary>
-/// <remarks>
-///     This is useful for automatically spawning effects such as dusts, gores, etc.
-/// </remarks>
 public sealed class NPCHitEffects : NPCComponent
 {
     public delegate bool SpawnPredicate(NPC npc);
