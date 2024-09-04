@@ -55,28 +55,12 @@ public sealed class FootstepsSystem : ModSystem
             if (!tile.HasTile) {
                 return;
             }
-
-            var hasMaterial = tile.TryGetMaterial(out var materialName);
-            var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
-
-            SoundEngine.PlaySound(in sound, Player.Bottom);
+            
+            PlayTileFootstep(tile);
         }
 
         private void UpdateFootsteps() {
             if (!Player.IsGrounded()) {
-                return;
-            }
-
-            var tile = Framing.GetTileSafely(Player.Bottom);
-
-            if (!tile.HasTile) {
-                return;
-            }
-
-            var hasMaterial = tile.TryGetMaterial(out var materialName);
-            var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
-
-            if (!hasMaterial || !hasFootstep) {
                 return;
             }
 
@@ -86,9 +70,26 @@ public sealed class FootstepsSystem : ModSystem
             if (!isWalking) {
                 return;
             }
+            
+            var tile = Framing.GetTileSafely(Player.Bottom);
 
+            if (!tile.HasTile) {
+                return;
+            }
+            
             type = type == LegType.Left ? LegType.Right : LegType.Left;
+            
+            PlayTileFootstep(tile);
+        }
 
+        private void PlayTileFootstep(Tile tile) {
+            var hasMaterial = tile.TryGetMaterial(out var materialName);
+            var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
+
+            if (!hasMaterial || !hasFootstep) {
+                return;
+            }
+            
             SoundEngine.PlaySound(in sound, Player.Bottom);
         }
     }

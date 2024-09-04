@@ -8,6 +8,7 @@
     <s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fsurroundings/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Ftracks/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Ftracks_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fwater/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fassets/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fconverters/@EntryIndexedValue">True</s:Boolean>
     <s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>

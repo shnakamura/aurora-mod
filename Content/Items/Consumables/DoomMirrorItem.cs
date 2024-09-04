@@ -10,22 +10,19 @@ public class DoomMirrorItem : ModItem
         /// <summary>
         ///     The position of this player's last death.
         /// </summary>
-        public Vector2 DeathPosition {
-            get => deathPosition;
-            set {
-                deathPosition = value;
-
-                HasDeathPosition = true;
-            }
-        }
-
+        public Vector2? DeathPosition { get; private set; }
+        
         /// <summary>
-        ///     Whether this player has a last death position or not.
+        ///     Whether this player is teleporting to its last death position or not.
         /// </summary>
-        public bool HasDeathPosition { get; private set; }
+        public bool Teleporting { get; set; }
+        
+        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource) {
+            base.Kill(damage, hitDirection, pvp, damageSource);
 
-        private Vector2 deathPosition;
-
+            DeathPosition = Player.position;
+        }
+        
         public override void LoadData(TagCompound tag) {
             base.LoadData(tag);
 
@@ -37,15 +34,24 @@ public class DoomMirrorItem : ModItem
 
             DeathPosition = tag.Get<Vector2>("deathPosition");
         }
+    }
+    
+    [Autoload(Side = ModSide.Client)]
+    private sealed class DoomMirrorSystemImpl : ModSystem
+    {
+        public override void Load() {
+            base.Load();
+            
+            On_Main.DrawInfernoRings += DrawInfernoRingsHook;
+        }
 
-        public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource) {
-            base.Kill(damage, hitDirection, pvp, damageSource);
+        private void DrawInfernoRingsHook(On_Main.orig_DrawInfernoRings orig, Main self) {
+            orig(self);
 
-            DeathPosition = Player.position;
+            var player = Main.LocalPlayer;
         }
     }
 
-    // TODO: VFX and functionality.
     public override void SetDefaults() {
         base.SetDefaults();
 
@@ -59,5 +65,15 @@ public class DoomMirrorItem : ModItem
         Item.useTime = 25;
         Item.useAnimation = 25;
         Item.useStyle = ItemUseStyleID.HoldUp;
+    }
+
+    public override bool? UseItem(Player player) {
+        if (!player.TryGetModPlayer(out DoomMirrorPlayerImpl modPlayer)) {
+            return false;
+        }
+
+        modPlayer.Teleporting = true;
+        
+        return true;
     }
 }
