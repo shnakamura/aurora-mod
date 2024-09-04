@@ -1,7 +1,7 @@
 namespace Aurora.Core.Graphics;
 
 /// <summary>
-///     Handles the rendering of the player's full texture and storing it as a <see cref="RenderTarget2D"/>.
+///     Handles the rendering of the player's full texture and storing it as a <see cref="RenderTarget2D" />.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
 public sealed class PlayerRenderSystem : ModSystem
@@ -21,7 +21,7 @@ public sealed class PlayerRenderSystem : ModSystem
         );
 
         Main.OnResolutionChanged += ResizeTarget;
-        
+
         On_Main.CheckMonoliths += CheckMonolithsHook;
     }
 
@@ -36,7 +36,7 @@ public sealed class PlayerRenderSystem : ModSystem
 
         var spriteBatch = Main.spriteBatch;
         var device = Main.graphics.GraphicsDevice;
-        
+
         var oldTargets = device.GetRenderTargets();
 
         device.SetRenderTarget(Target);

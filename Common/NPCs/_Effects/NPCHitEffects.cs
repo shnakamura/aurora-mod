@@ -8,8 +8,6 @@ namespace Aurora.Common.NPCs;
 /// </summary>
 public sealed class NPCHitEffects : NPCComponent
 {
-    public delegate bool SpawnPredicate(NPC npc);
-
     public struct GoreSpawnParameters
     {
         /// <summary>
@@ -21,12 +19,12 @@ public sealed class NPCHitEffects : NPCComponent
         ///     The minimum amount of gore to spawn.
         /// </summary>
         public int MinAmount;
-        
+
         /// <summary>
         ///     The maximum amount of gore to spawn.
         /// </summary>
         public int MaxAmount;
-        
+
         /// <summary>
         ///     An optional predicate to determine whether the dust should spawn or not.
         /// </summary>
@@ -38,7 +36,7 @@ public sealed class NPCHitEffects : NPCComponent
             MaxAmount = maxAmount;
             Predicate = predicate;
         }
-        
+
         public GoreSpawnParameters(int type, int amount, SpawnPredicate? predicate = null) : this(type, amount, amount, predicate) { }
     }
 
@@ -58,12 +56,12 @@ public sealed class NPCHitEffects : NPCComponent
         ///     The maximum amount of dust to spawn.
         /// </summary>
         public int MaxAmount;
-        
+
         /// <summary>
         ///     An optional predicate to determine whether the dust should spawn or not.
         /// </summary>
         public SpawnPredicate? Predicate;
-        
+
         /// <summary>
         ///     An optional delegate to set dust properties on spawn.
         /// </summary>
@@ -76,9 +74,17 @@ public sealed class NPCHitEffects : NPCComponent
             Predicate = predicate;
             Initializer = initializer;
         }
-        
-        public DustSpawnParameters(int type, int amount, SpawnPredicate? predicate = null, Action<Dust>? initializer = null) : this(type, amount, amount, predicate, initializer) { }
+
+        public DustSpawnParameters(int type, int amount, SpawnPredicate? predicate = null, Action<Dust>? initializer = null) : this(
+            type,
+            amount,
+            amount,
+            predicate,
+            initializer
+        ) { }
     }
+
+    public delegate bool SpawnPredicate(NPC npc);
 
     /// <summary>
     ///     Whether to spawn the party hat gore for town NPCs during a party or not.
@@ -89,15 +95,15 @@ public sealed class NPCHitEffects : NPCComponent
     public bool SpawnPartyHatGore { get; set; } = true;
 
     /// <summary>
-    ///     The list of registered <see cref="DustSpawnParameters"/> for this component.
+    ///     The list of registered <see cref="DustSpawnParameters" /> for this component.
     /// </summary>
     public readonly List<DustSpawnParameters> DustPool = [];
-    
+
     /// <summary>
-    ///     The list of registered <see cref="GoreSpawnParameters"/> for this component.
+    ///     The list of registered <see cref="GoreSpawnParameters" /> for this component.
     /// </summary>
     public readonly List<GoreSpawnParameters> GorePool = [];
-    
+
     /// <summary>
     ///     Adds a specified amount of gore to the spawn pool from its name.
     /// </summary>
@@ -108,7 +114,7 @@ public sealed class NPCHitEffects : NPCComponent
 
         AddGore(type, amount, predicate);
     }
-    
+
     /// <summary>
     ///     Adds a specified amount of gore to the spawn pool from its name.
     /// </summary>
@@ -129,7 +135,7 @@ public sealed class NPCHitEffects : NPCComponent
     public void AddGore(int type, int amount = 1, SpawnPredicate? predicate = null) {
         AddGore(type, amount, amount, predicate);
     }
-    
+
     /// <summary>
     ///     Adds a specified amount of gore to the spawn pool from its type.
     /// </summary>
@@ -139,7 +145,7 @@ public sealed class NPCHitEffects : NPCComponent
     public void AddGore(int type, int minAmount, int maxAmount, SpawnPredicate? predicate = null) {
         GorePool.Add(new GoreSpawnParameters(type, minAmount, maxAmount, predicate));
     }
-    
+
     /// <summary>
     ///     Adds a specified amount of dust to the spawn pool from its name.
     /// </summary>
@@ -148,10 +154,10 @@ public sealed class NPCHitEffects : NPCComponent
     /// <param name="initializer">An optional initializer to set dust properties on spawn.</param>
     public void AddDust(string name, int amount = 1, SpawnPredicate? predicate = null, Action<Dust>? initializer = null) {
         var type = ModContent.Find<ModDust>(name).Type;
-        
+
         AddDust(type, amount, amount, predicate, initializer);
     }
-    
+
     /// <summary>
     ///     Adds a specified amount of dust to the spawn pool from its type.
     /// </summary>
@@ -161,7 +167,7 @@ public sealed class NPCHitEffects : NPCComponent
     public void AddDust(int type, int amount = 1, SpawnPredicate? predicate = null, Action<Dust>? initializer = null) {
         AddDust(type, amount, amount, predicate, initializer);
     }
-    
+
     /// <summary>
     ///     Adds a specified amount of dust to the spawn pool from its name.
     /// </summary>
@@ -171,7 +177,7 @@ public sealed class NPCHitEffects : NPCComponent
     /// <param name="initializer">An optional initializer to set dust properties on spawn.</param>
     public void AddDust(string name, int minAmount, int maxAmount, SpawnPredicate? predicate = null, Action<Dust>? initializer = null) {
         var type = ModContent.Find<ModDust>(name).Type;
-        
+
         AddDust(type, minAmount, maxAmount, predicate, initializer);
     }
 
@@ -188,7 +194,7 @@ public sealed class NPCHitEffects : NPCComponent
 
     public override void HitEffect(NPC npc, NPC.HitInfo hit) {
         base.HitEffect(npc, hit);
-        
+
         if (!Enabled || npc.life > 0 || Main.netMode == NetmodeID.Server) {
             return;
         }
@@ -204,7 +210,7 @@ public sealed class NPCHitEffects : NPCComponent
 
         foreach (var pool in GorePool) {
             var canSpawn = pool.Predicate == null ? true : pool.Predicate.Invoke(npc);
-            
+
             if (pool.MinAmount <= 0 || !canSpawn) {
                 continue;
             }

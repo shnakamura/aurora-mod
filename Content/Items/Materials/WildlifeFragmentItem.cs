@@ -1,12 +1,10 @@
-using Terraria.ID;
-
 namespace Aurora.Content.Items.Materials;
 
 public class WildlifeFragmentItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
-        
+
         Item.maxStack = Item.CommonMaxStack;
 
         Item.width = 30;

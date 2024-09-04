@@ -6,8 +6,6 @@ namespace Aurora.Common.Projectiles;
 
 public sealed class ProjectileTomahawk : ProjectileComponent
 {
-    private const byte AlphaStep = 15;
-
     public struct DurationData
     {
         public int Ticks;
@@ -16,32 +14,34 @@ public sealed class ProjectileTomahawk : ProjectileComponent
             Ticks = ticks;
         }
     }
-    
+
+    private const byte AlphaStep = 15;
+
     public DurationData HitCooldown = new(60);
-    
+
     public override void SetDefaults(Projectile entity) {
         base.SetDefaults(entity);
 
         if (!Enabled) {
             return;
         }
-        
+
         entity.tileCollide = true;
         entity.friendly = true;
 
         entity.usesLocalNPCImmunity = true;
         entity.localNPCHitCooldown = HitCooldown.Ticks;
-        
+
         entity.penetrate = -1;
     }
-    
+
     public override void SendExtraAI(Projectile projectile, BitWriter bitWriter, BinaryWriter binaryWriter) {
         base.SendExtraAI(projectile, bitWriter, binaryWriter);
 
         if (!Enabled) {
             return;
         }
-        
+
         binaryWriter.Write(HitCooldown.Ticks);
     }
 
@@ -65,15 +65,15 @@ public sealed class ProjectileTomahawk : ProjectileComponent
         if (!Enabled) {
             return;
         }
-        
+
         UpdateFadeOut(projectile);
 
         projectile.alpha = (byte)MathHelper.Clamp(projectile.alpha, 0, byte.MaxValue);
-        
+
         UpdateGravityAI(projectile);
         UpdateStickyAI(projectile);
     }
-    
+
     public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
         base.OnHitNPC(projectile, target, hit, damageDone);
 
@@ -96,9 +96,9 @@ public sealed class ProjectileTomahawk : ProjectileComponent
         owner.heldProj = -1;
 
         ref var index = ref projectile.ai[2];
-        
+
         index = target.whoAmI;
-        
+
         // TODO: Make this have a more subtle movement.
         projectile.velocity = (target.Center - projectile.Center) * 0.75f;
 
@@ -109,7 +109,7 @@ public sealed class ProjectileTomahawk : ProjectileComponent
         if (Enabled) {
             Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
         }
-        
+
         return base.OnTileCollide(projectile, oldVelocity);
     }
 
@@ -120,7 +120,7 @@ public sealed class ProjectileTomahawk : ProjectileComponent
 
         projectile.alpha += AlphaStep;
     }
-    
+
     private static void UpdateGravityAI(Projectile projectile) {
         if (GetStickyFlag(projectile)) {
             return;
@@ -143,7 +143,7 @@ public sealed class ProjectileTomahawk : ProjectileComponent
             projectile.Kill();
             return;
         }
-   
+
         projectile.tileCollide = false;
 
         projectile.gfxOffY = target.gfxOffY;
@@ -156,7 +156,7 @@ public sealed class ProjectileTomahawk : ProjectileComponent
 
     private static void SetStickyFlag(Projectile projectile, bool value) {
         projectile.ai[0] = value ? 1f : 0f;
-        
+
         projectile.netUpdate = true;
     }
 }

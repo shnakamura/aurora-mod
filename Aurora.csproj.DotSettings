@@ -1,26 +1,53 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005Csurroundings/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fsurroundings/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Ftracks/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fassets/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fconverters/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fprojectiles/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Freaders/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Citems_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Citems_005C_005Fguns/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cnpcs_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cprojectiles_005Cbehavior/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cprojectiles_005C_005Fbehavior/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cworld_005C_005Floot/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=content_005Citems_005Cweapons_005Cranged_005C_005Ftomahawks/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=content_005Cprojectiles_005Cranged_005C_005Ftomahawks/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cio_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cio_005C_005Freaders/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Citems_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cnpcs_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cprojectiles_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=utilities_005Cextensions/@EntryIndexedValue">True</s:Boolean>
-	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=utilities_005C_005Fextensions/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
+﻿<wpf:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib"
+                        xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xml:space="preserve">
+	<s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005Csurroundings/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Fsurroundings/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cambience_005C_005Ftracks/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fassets/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fconverters/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Fprojectiles/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cio_005C_005Freaders/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Citems_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Citems_005C_005Fguns/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cnpcs_005C_005Feffects/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cprojectiles_005Cbehavior/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cprojectiles_005C_005Fbehavior/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=common_005Cworld_005C_005Floot/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=content_005Citems_005Cweapons_005Cranged_005C_005Ftomahawks/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=content_005Cprojectiles_005Cranged_005C_005Ftomahawks/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cio_005C_005Fprefabs/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cio_005C_005Freaders/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Citems_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cnpcs_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=core_005Cprojectiles_005C_005Fcomponents/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=utilities_005Cextensions/@EntryIndexedValue">True</s:Boolean>
+    <s:Boolean
+        x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=utilities_005C_005Fextensions/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

@@ -14,4 +14,3 @@ public class CopperDaggerProjectile : ModProjectile
         Projectile.TryEnableComponent<ProjectileDagger>();
     }
 }
-

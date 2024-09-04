@@ -19,13 +19,13 @@ public class DoomMirrorItem : ModItem
             }
         }
 
-        private Vector2 deathPosition;
-        
         /// <summary>
         ///     Whether this player has a last death position or not.
         /// </summary>
         public bool HasDeathPosition { get; private set; }
-        
+
+        private Vector2 deathPosition;
+
         public override void LoadData(TagCompound tag) {
             base.LoadData(tag);
 
@@ -37,14 +37,14 @@ public class DoomMirrorItem : ModItem
 
             DeathPosition = tag.Get<Vector2>("deathPosition");
         }
-        
+
         public override void Kill(double damage, int hitDirection, bool pvp, PlayerDeathReason damageSource) {
             base.Kill(damage, hitDirection, pvp, damageSource);
 
             DeathPosition = Player.position;
         }
     }
-    
+
     // TODO: VFX and functionality.
     public override void SetDefaults() {
         base.SetDefaults();
@@ -52,7 +52,7 @@ public class DoomMirrorItem : ModItem
         Item.maxStack = Item.CommonMaxStack;
 
         Item.consumable = true;
-        
+
         Item.width = 36;
         Item.height = 34;
 

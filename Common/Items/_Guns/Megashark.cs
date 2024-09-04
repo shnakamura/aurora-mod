@@ -11,7 +11,7 @@ public sealed class Megashark : GlobalItem
 
     public override void SetDefaults(Item entity) {
         base.SetDefaults(entity);
-        
+
         entity.TryEnableComponent<ItemBulletCasings>(static c => { c.Data.Type = ModContent.GoreType<BulletCasing>(); });
     }
 }

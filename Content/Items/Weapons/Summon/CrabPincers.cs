@@ -1,4 +1,4 @@
-using Terraria.DataStructures;
+using Aurora.Content.Projectiles.Summon;
 
 namespace Aurora.Content.Items.Weapons.Summon;
 
@@ -23,14 +23,21 @@ public class CrabPincers : ModItem
         Item.useAnimation = 30;
         Item.useStyle = ItemUseStyleID.Swing;
 
-        Item.shoot = ModContent.ProjectileType<Projectiles.Summon.CrabPincersProjectile>();
+        Item.shoot = ModContent.ProjectileType<CrabPincersProjectile>();
 
         Item.UseSound = SoundID.Item1;
     }
 
-    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback) {
+    public override void ModifyShootStats(
+        Player player,
+        ref Vector2 position,
+        ref Vector2 velocity,
+        ref int type,
+        ref int damage,
+        ref float knockback
+    ) {
         base.ModifyShootStats(player, ref position, ref velocity, ref type, ref damage, ref knockback);
-        
+
         var tileCoordinates = Main.MouseWorld.ToTileCoordinates();
 
         position = Main.MouseWorld;
@@ -43,7 +50,7 @@ public class CrabPincers : ModItem
                 break;
             }
         }
-        
+
         player.UpdateMaxTurrets();
     }
 }

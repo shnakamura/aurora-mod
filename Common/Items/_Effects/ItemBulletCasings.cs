@@ -15,7 +15,7 @@ public sealed class ItemBulletCasings : ItemComponent
         ///     Defaults to <c>-1</c>.
         /// </remarks>
         public int Type = -1;
-        
+
         /// <summary>
         ///     The amount of gore to spawn.
         /// </summary>
@@ -23,7 +23,7 @@ public sealed class ItemBulletCasings : ItemComponent
         ///     Defaults to <c>1</c>.
         /// </remarks>
         public int Amount = 1;
-        
+
         public GoreData(int type, int amount) {
             Type = type;
             Amount = amount;
@@ -34,12 +34,12 @@ public sealed class ItemBulletCasings : ItemComponent
     ///     The parameters used to spawn bullet casings for the item.
     /// </summary>
     public GoreData Data = new(-1, 1);
-    
+
     public override bool? UseItem(Item item, Player player) {
         if (!Enabled || Data.Type < 0 || Data.Amount <= 0) {
             return base.UseItem(item, player);
         }
-        
+
         var texture = TextureAssets.Gore[Data.Type].Value;
         var position = player.Center + new Vector2(12f * player.direction, -6f);
 

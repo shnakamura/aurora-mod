@@ -8,8 +8,6 @@ namespace Aurora.Common.Projectiles;
 
 public sealed class ProjectileDagger : ProjectileComponent
 {
-    private const byte AlphaStep = 15;
-    
     public struct DurationData
     {
         public int Ticks;
@@ -19,20 +17,22 @@ public sealed class ProjectileDagger : ProjectileComponent
         }
     }
 
-    public DurationData ShortswordDuration = new(15);
-    public DurationData ShortswordHitCooldown = new(60);
-    
-    public DurationData StickyDuration = new(180);
+    private const byte AlphaStep = 15;
 
     public int FullDuration => ShortswordDuration.Ticks + StickyDuration.Ticks;
-    
+
+    public DurationData ShortswordDuration = new(15);
+    public DurationData ShortswordHitCooldown = new(60);
+
+    public DurationData StickyDuration = new(180);
+
     public override void SetDefaults(Projectile entity) {
         base.SetDefaults(entity);
 
         if (!Enabled) {
             return;
         }
-        
+
         entity.DamageType = DamageClass.Melee;
 
         entity.ownerHitCheck = true;
@@ -41,11 +41,11 @@ public sealed class ProjectileDagger : ProjectileComponent
 
         entity.usesLocalNPCImmunity = true;
         entity.localNPCHitCooldown = ShortswordHitCooldown.Ticks;
-        
+
         entity.aiStyle = -1;
         entity.penetrate = -1;
         entity.extraUpdates = 1;
-        
+
         entity.timeLeft = FullDuration;
     }
 
@@ -59,10 +59,10 @@ public sealed class ProjectileDagger : ProjectileComponent
         if (!Enabled) {
             return;
         }
-        
+
         binaryWriter.Write(ShortswordDuration.Ticks);
         binaryWriter.Write(ShortswordHitCooldown.Ticks);
-        
+
         binaryWriter.Write(StickyDuration.Ticks);
     }
 
@@ -75,7 +75,7 @@ public sealed class ProjectileDagger : ProjectileComponent
 
         ShortswordDuration.Ticks = binaryReader.ReadInt32();
         ShortswordHitCooldown.Ticks = binaryReader.ReadInt32();
-        
+
         StickyDuration.Ticks = binaryReader.ReadInt32();
     }
 
@@ -85,7 +85,7 @@ public sealed class ProjectileDagger : ProjectileComponent
         if (!Enabled) {
             return;
         }
-        
+
         UpdateFadeOut(projectile);
 
         projectile.alpha = (byte)MathHelper.Clamp(projectile.alpha, 0, byte.MaxValue);
@@ -93,7 +93,7 @@ public sealed class ProjectileDagger : ProjectileComponent
         UpdateShortswordAI(projectile);
         UpdateStickyAI(projectile);
     }
-    
+
     public override void OnHitNPC(Projectile projectile, NPC target, NPC.HitInfo hit, int damageDone) {
         base.OnHitNPC(projectile, target, hit, damageDone);
 
@@ -116,9 +116,9 @@ public sealed class ProjectileDagger : ProjectileComponent
         owner.heldProj = -1;
 
         ref var index = ref projectile.ai[2];
-        
+
         index = target.whoAmI;
-        
+
         // TODO: Make this have a more subtle movement.
         projectile.velocity = (target.Center - projectile.Center) * 0.75f - projectile.velocity;
 
@@ -131,12 +131,12 @@ public sealed class ProjectileDagger : ProjectileComponent
         if (!Enabled) {
             return;
         }
-        
+
         DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-        
+
         var start = projectile.Center;
         var end = start + projectile.velocity.SafeNormalize(-Vector2.UnitY) * 10f;
-        
+
         Utils.PlotTileLine(start, end, projectile.width, DelegateMethods.CutTiles);
     }
 
@@ -144,12 +144,12 @@ public sealed class ProjectileDagger : ProjectileComponent
         if (!Enabled) {
             return base.Colliding(projectile, projHitbox, targetHitbox);
         }
-        
+
         var start = projectile.Center;
         var end = start + projectile.velocity * 6f;
-        
+
         var _unused = 0f;
-        
+
         return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), start, end, projectile.width, ref _unused);
     }
 
@@ -163,20 +163,20 @@ public sealed class ProjectileDagger : ProjectileComponent
         var offsetX = 0;
         var offsetY = 0;
         var originX = 0f;
-        
+
         ProjectileLoader.DrawOffset(projectile, ref offsetX, ref offsetY, ref originX);
 
         var projectileOffset = new Vector2(offsetX, offsetY);
         var positionOffset = new Vector2(0f, projectile.gfxOffY);
         var position = projectile.Center - Main.screenPosition + projectileOffset + positionOffset;
-        
+
         var frame = texture.Frame(1, Main.projFrames[projectile.type], 0, projectile.frame);
 
         var originOffset = new Vector2(originX, 0f);
         var origin = texture.Size() / 2f + originOffset;
-        
+
         var effects = projectile.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-        
+
         Main.EntitySpriteDraw(
             texture,
             position,
@@ -187,7 +187,7 @@ public sealed class ProjectileDagger : ProjectileComponent
             projectile.scale,
             effects
         );
-        
+
         return false;
     }
 
@@ -203,11 +203,11 @@ public sealed class ProjectileDagger : ProjectileComponent
         if (GetStickyFlag(projectile)) {
             return;
         }
-        
+
         ref var timer = ref projectile.ai[1];
 
         timer++;
-        
+
         var owner = Main.player[projectile.owner];
 
         if (!owner.active || timer > ShortswordDuration.Ticks) {
@@ -223,7 +223,7 @@ public sealed class ProjectileDagger : ProjectileComponent
 
         projectile.direction = Math.Sign(projectile.velocity.X);
         projectile.spriteDirection = projectile.direction;
-        
+
         projectile.rotation = projectile.velocity.ToRotation() + MathHelper.PiOver2 - MathHelper.PiOver4 * -projectile.spriteDirection;
     }
 
@@ -240,7 +240,7 @@ public sealed class ProjectileDagger : ProjectileComponent
             projectile.Kill();
             return;
         }
-   
+
         projectile.tileCollide = false;
 
         projectile.gfxOffY = target.gfxOffY;
@@ -253,7 +253,7 @@ public sealed class ProjectileDagger : ProjectileComponent
 
     private static void SetStickyFlag(Projectile projectile, bool value) {
         projectile.ai[0] = value ? 1f : 0f;
-        
+
         projectile.netUpdate = true;
     }
 }

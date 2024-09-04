@@ -2,12 +2,10 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Aurora.Common.Ambience;
-using Aurora.Utilities;
 using Hjson;
 using Newtonsoft.Json;
 using ReLogic.Content;
 using ReLogic.Content.Readers;
-using ReLogic.Utilities;
 
 namespace Aurora.Core.IO;
 
@@ -24,14 +22,14 @@ public sealed class AmbienceTrackReader : IAssetReader
         }
 
         await context;
-        
+
         using var reader = new StreamReader(stream, Encoding.UTF8);
 
         var hjson = reader.ReadToEnd();
         var json = HjsonValue.Parse(hjson).ToString(Stringify.Plain);
 
         var prefab = JsonConvert.DeserializeObject<T>(json);
-        
+
         return (T)prefab;
     }
 }

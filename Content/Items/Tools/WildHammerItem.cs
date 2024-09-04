@@ -12,7 +12,7 @@ public class WildHammerItem : ModItem
         Item.DamageType = DamageClass.Melee;
         Item.damage = 6;
         Item.knockBack = 4f;
-        
+
         Item.width = 34;
         Item.height = 34;
 

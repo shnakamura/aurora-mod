@@ -10,7 +10,7 @@ public class WildWarriorHelmetItem : ModItem
 
         Item.width = 22;
         Item.height = 16;
-        
+
         Item.defense = 2;
     }
 

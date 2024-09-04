@@ -12,9 +12,11 @@ public sealed class TacticalShotgun : GlobalItem
     public override void SetDefaults(Item entity) {
         base.SetDefaults(entity);
 
-        entity.TryEnableComponent<ItemBulletCasings>(static c => {
-            c.Data.Type = ModContent.GoreType<ShellCasing>();
-            c.Data.Amount = 6;
-        });
+        entity.TryEnableComponent<ItemBulletCasings>(
+            static c => {
+                c.Data.Type = ModContent.GoreType<ShellCasing>();
+                c.Data.Amount = 6;
+            }
+        );
     }
 }

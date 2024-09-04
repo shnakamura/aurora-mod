@@ -11,7 +11,7 @@ public sealed class SignalsSystem : ModSystem
 
     public static Dictionary<string, bool> Flags = new();
     public static Dictionary<string, SignalUpdater?> Updaters = new();
-    
+
     public override void Load() {
         base.Load();
 
@@ -29,7 +29,7 @@ public sealed class SignalsSystem : ModSystem
                 RegisterUpdater(name, callback);
             }
         }
-        
+
         RegisterUpdater("Purity", static (in SignalContext context) => context.Player.ZonePurity);
         RegisterUpdater("Forest", static (in SignalContext context) => context.Player.ZonePurity);
         RegisterUpdater("Day", static (in SignalContext _) => Main.dayTime);
@@ -38,10 +38,10 @@ public sealed class SignalsSystem : ModSystem
 
     public override void Unload() {
         base.Unload();
-        
+
         Flags?.Clear();
         Flags = null;
-        
+
         Updaters?.Clear();
         Updaters = null;
     }
@@ -61,11 +61,11 @@ public sealed class SignalsSystem : ModSystem
     public static bool GetSignal(string name) {
         return Flags[name];
     }
-    
+
     public static bool GetSignal(params string[] names) {
         var success = false;
 
-        for (int i = 0; i < names.Length; i++) {
+        for (var i = 0; i < names.Length; i++) {
             if (GetSignal(names[i])) {
                 success = true;
                 break;

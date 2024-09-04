@@ -40,7 +40,7 @@ public sealed class RainAmbienceEffects : ILoadable
                 dust.color = new Color(250, 212, 246);
                 break;
         }
-        
+
         dust.scale += 0.5f * Main.cloudAlpha;
 
         self.active = false;

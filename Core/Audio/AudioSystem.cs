@@ -107,7 +107,7 @@ public sealed class AudioSystem : ModSystem
     private static void UpdateSounds() {
         for (var i = 0; i < sounds.Count; i++) {
             var sound = sounds[i];
-            
+
             if (!sound.IsPlaying) {
                 sounds.RemoveAt(i--);
                 continue;
@@ -137,7 +137,7 @@ public sealed class AudioSystem : ModSystem
 
         var isSoundActive = SoundEngine.TryGetActiveSound(slot, out var sound);
         var isSoundDisposed = sound?.Sound?.IsDisposed == true;
-        
+
         if (isSoundActive && isSoundActive && !isSoundDisposed) {
             sounds.Add(sound);
         }

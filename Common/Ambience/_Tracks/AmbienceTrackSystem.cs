@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using Aurora.Common.Ambience._Signals;
 using Aurora.Core.IO;
-using Microsoft.Xna.Framework.Input;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using Terraria.Audio;
@@ -13,10 +12,10 @@ namespace Aurora.Common.Ambience;
 public sealed class AmbienceTrackSystem : ModSystem
 {
     /// <summary>
-    ///     The list of registered <see cref="AmbienceTrack"/> instances.
+    ///     The list of registered <see cref="AmbienceTrack" /> instances.
     /// </summary>
     public static List<IAmbienceTrack> Tracks { get; private set; } = new();
-    
+
     public override void Load() {
         base.Load();
 
@@ -25,17 +24,17 @@ public sealed class AmbienceTrackSystem : ModSystem
 
     public override void Unload() {
         base.Unload();
-        
+
         Tracks?.Clear();
         Tracks = null;
     }
 
     public override void PostUpdateWorld() {
         base.PostUpdateWorld();
-        
+
         UpdateTracks();
     }
-    
+
     public static void LoadTracks(Mod mod) {
         var files = mod.RootContentSource.EnumerateAssets();
 
@@ -48,7 +47,7 @@ public sealed class AmbienceTrackSystem : ModSystem
 
             var pathWithoutExtension = Path.ChangeExtension(path, null);
             var asset = mod.Assets.Request<AmbienceTrack>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
-            
+
             Tracks.Add(asset.Value);
         }
     }
@@ -58,7 +57,7 @@ public sealed class AmbienceTrackSystem : ModSystem
             var track = Tracks[i];
 
             var isActive = SignalsSystem.GetSignal(track.Flags);
-            
+
             if (isActive) {
                 track.Volume += track.StepIn;
             }
@@ -77,7 +76,7 @@ public sealed class AmbienceTrackSystem : ModSystem
                 else {
                     track.Slot = SoundEngine.PlaySound(track.Sound);
                     track.Volume = 0f;
-                
+
                     SoundEngine.TryGetActiveSound(track.Slot, out sound);
 
                     sound.Volume = 0f;

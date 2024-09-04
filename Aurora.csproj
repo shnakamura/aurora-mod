@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	
-	<Import Project="..\tModLoader.targets" />
+
+    <Import Project="..\tModLoader.targets"/>
 
     <PropertyGroup>
         <Nullable>enable</Nullable>
@@ -14,5 +14,5 @@
         <Using Include="Microsoft.Xna.Framework"/>
         <Using Include="Microsoft.Xna.Framework.Graphics"/>
     </ItemGroup>
-    
+
 </Project>

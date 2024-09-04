@@ -12,7 +12,7 @@ public class WildAxeItem : ModItem
         Item.DamageType = DamageClass.Melee;
         Item.damage = 4;
         Item.knockBack = 3f;
-        
+
         Item.width = 36;
         Item.height = 32;
 

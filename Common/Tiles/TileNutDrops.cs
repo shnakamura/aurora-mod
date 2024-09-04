@@ -15,10 +15,10 @@ public sealed class TileNutDrops : GlobalTile
         TileID.PineTree,
         TileID.VanityTreeSakura
     };
-    
+
     public override void Drop(int i, int j, int type) {
         base.Drop(i, j, type);
-        
+
         var tile = Framing.GetTileSafely(i, --j);
 
         if (tile.TileType != TileID.Trees || Framing.GetTileSafely(i, j - 1).HasTile) {

@@ -1,6 +1,5 @@
 using Aurora.Core.Audio;
 using Aurora.Utilities;
-using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
 
@@ -41,7 +40,7 @@ public sealed class WaterMufflingEffects : ModPlayer
         if (Intensity <= 0f) {
             return;
         }
-        
+
         AudioSystem.AddModifier(
             $"{nameof(Aurora)}:{nameof(WaterMufflingEffects)}",
             60,

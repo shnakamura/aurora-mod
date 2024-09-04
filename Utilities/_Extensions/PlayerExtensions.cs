@@ -1,7 +1,7 @@
 namespace Aurora.Utilities;
 
 /// <summary>
-///     Provides <see cref="Player"/> extension methods.
+///     Provides <see cref="Player" /> extension methods.
 /// </summary>
 public static class PlayerExtensions
 {

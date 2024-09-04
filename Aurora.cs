@@ -12,13 +12,13 @@ namespace Aurora;
 public sealed class Aurora : Mod
 {
     /// <summary>
-    ///     Aurora's <see cref="Mod"/> instance.
+    ///     Aurora's <see cref="Mod" /> instance.
     /// </summary>
     public static Aurora Instance => ModContent.GetInstance<Aurora>();
-    
+
     public override IContentSource CreateDefaultContentSource() {
         RegisterAssetReaders();
-        
+
         return base.CreateDefaultContentSource();
     }
 
@@ -32,7 +32,7 @@ public sealed class Aurora : Mod
         if (Main.dedServ) {
             return;
         }
-        
+
         var collection = Main.instance.Services.Get<AssetReaderCollection>();
 
         collection.TryRegisterReader(new AmbienceTrackReader(), AmbienceTrackReader.Extension);
@@ -42,7 +42,7 @@ public sealed class Aurora : Mod
         if (Main.dedServ) {
             return;
         }
-        
+
         var collection = Main.instance.Services.Get<AssetReaderCollection>();
 
         collection.TryRemoveReader(AmbienceTrackReader.Extension);

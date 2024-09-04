@@ -12,7 +12,7 @@ public class WildPickaxeItem : ModItem
         Item.DamageType = DamageClass.Melee;
         Item.damage = 3;
         Item.knockBack = 1.5f;
-        
+
         Item.width = 34;
         Item.height = 30;
 

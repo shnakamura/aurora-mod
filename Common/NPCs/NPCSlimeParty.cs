@@ -16,14 +16,14 @@ public sealed class NPCSlimeParty : GlobalNPC
         Purple = 18,
         White = 19
     }
-    
+
     /// <summary>
     ///     The color of the NPC's hat.
     /// </summary>
     public HatColor Color { get; set; }
-    
+
     public override bool InstancePerEntity { get; } = true;
-    
+
     public override bool AppliesToEntity(NPC entity, bool lateInstantiation) {
         return entity.type == NPCID.BlueSlime;
     }
@@ -40,7 +40,7 @@ public sealed class NPCSlimeParty : GlobalNPC
         if (!BirthdayParty.PartyIsUp) {
             return;
         }
-        
+
         var texture = TextureAssets.Extra[ExtrasID.TownNPCHats].Value;
         var frame = texture.Frame(20, 1, (byte)Color % 20);
         var origin = frame.Size() / 2f;
@@ -49,11 +49,11 @@ public sealed class NPCSlimeParty : GlobalNPC
         var npcOffset = new Vector2(0f, npc.gfxOffY);
 
         var position = npc.Center - screenPos - hatOffset - npcOffset;
-        
+
         var effects = npc.direction == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
-        
+
         spriteBatch.Draw(
-            texture, 
+            texture,
             position,
             frame,
             drawColor,

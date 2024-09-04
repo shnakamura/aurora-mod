@@ -10,7 +10,7 @@ public class WildWarriorGarbItem : ModItem
 
         Item.width = 38;
         Item.height = 22;
-        
+
         Item.defense = 2;
     }
 

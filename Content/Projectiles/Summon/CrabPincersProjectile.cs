@@ -5,20 +5,20 @@ namespace Aurora.Content.Projectiles.Summon;
 
 public class CrabPincersProjectile : ModProjectile
 {
-    private float scale;
     private float leftRotation;
     private float rightRotation;
-    
+    private float scale;
+
     public override void SetStaticDefaults() {
         base.SetStaticDefaults();
-        
+
         ProjectileID.Sets.MinionSacrificable[Type] = true;
         ProjectileID.Sets.MinionTargettingFeature[Type] = true;
     }
 
     public override void SetDefaults() {
         base.SetDefaults();
-        
+
         Projectile.usesLocalNPCImmunity = true;
         Projectile.netImportant = true;
         Projectile.ignoreWater = true;
@@ -38,7 +38,7 @@ public class CrabPincersProjectile : ModProjectile
 
     public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone) {
         base.OnHitNPC(target, hit, damageDone);
-        
+
         leftRotation += MathHelper.ToRadians(30f);
         rightRotation -= MathHelper.ToRadians(30f);
     }
@@ -49,7 +49,7 @@ public class CrabPincersProjectile : ModProjectile
 
     public override void OnSpawn(IEntitySource source) {
         base.OnSpawn(source);
-        
+
         var tileCoordinates = Projectile.position.ToTileCoordinates();
         var collisionPosition = new Vector2(tileCoordinates.X, tileCoordinates.Y + 1) * 16f;
 
@@ -58,7 +58,7 @@ public class CrabPincersProjectile : ModProjectile
 
     public override void AI() {
         base.AI();
-        
+
         Projectile.velocity.Y += 0.3f;
 
         scale = MathHelper.Lerp(scale, 1f, 0.1f);
@@ -73,7 +73,8 @@ public class CrabPincersProjectile : ModProjectile
         List<int> behindNPCs,
         List<int> behindProjectiles,
         List<int> overPlayers,
-        List<int> overWiresUI) {
+        List<int> overWiresUI
+    ) {
         base.DrawBehind(index, behindNPCsAndTiles, behindNPCs, behindProjectiles, overPlayers, overWiresUI);
 
         behindNPCsAndTiles.Add(index);
@@ -81,12 +82,13 @@ public class CrabPincersProjectile : ModProjectile
 
     public override bool PreDraw(ref Color lightColor) {
         base.PreDraw(ref lightColor);
-        
+
         var position = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
 
         var eyes = ModContent.Request<Texture2D>(Texture + "_Eyes").Value;
 
-        Main.EntitySpriteDraw(eyes,
+        Main.EntitySpriteDraw(
+            eyes,
             position + new Vector2(0f, eyes.Height),
             null,
             lightColor,
@@ -98,7 +100,8 @@ public class CrabPincersProjectile : ModProjectile
 
         var leftPincer = ModContent.Request<Texture2D>(Texture + "_Left").Value;
 
-        Main.EntitySpriteDraw(leftPincer,
+        Main.EntitySpriteDraw(
+            leftPincer,
             position + new Vector2(-24f, leftPincer.Height / 2f),
             null,
             lightColor,
@@ -110,7 +113,8 @@ public class CrabPincersProjectile : ModProjectile
 
         var rightPincer = ModContent.Request<Texture2D>(Texture + "_Right").Value;
 
-        Main.EntitySpriteDraw(rightPincer,
+        Main.EntitySpriteDraw(
+            rightPincer,
             position + new Vector2(24f, rightPincer.Height / 2f),
             null,
             lightColor,

@@ -4,7 +4,7 @@ public class NutItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
-        
+
         Item.maxStack = Item.CommonMaxStack;
 
         Item.width = 22;
