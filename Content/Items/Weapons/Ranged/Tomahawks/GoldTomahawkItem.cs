@@ -13,8 +13,8 @@ public class GoldTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 15;
         Item.knockBack = 3f;
+        Item.damage = 15;
 
         Item.width = 28;
         Item.height = 24;

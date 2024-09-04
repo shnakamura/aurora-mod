@@ -11,8 +11,8 @@ public class WildNatureItem : ModItem
         Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 11;
         Item.knockBack = 2f;
+        Item.damage = 11;
 
         Item.width = 44;
         Item.height = 52;

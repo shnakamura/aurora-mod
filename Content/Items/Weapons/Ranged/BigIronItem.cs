@@ -9,8 +9,8 @@ public class BigIronItem : ModItem
         Item.noMelee = true;
 
         Item.DamageType = DamageClass.Ranged;
-        Item.damage = 16;
         Item.knockBack = 2f;
+        Item.damage = 16;
 
         Item.width = 42;
         Item.height = 22;

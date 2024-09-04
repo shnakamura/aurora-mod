@@ -11,8 +11,8 @@ public class BarkBallistaItem : ModItem
         Item.noMelee = true;
 
         Item.DamageType = DamageClass.Ranged;
-        Item.damage = 18;
         Item.knockBack = 3f;
+        Item.damage = 18;
 
         Item.width = 48;
         Item.height = 24;

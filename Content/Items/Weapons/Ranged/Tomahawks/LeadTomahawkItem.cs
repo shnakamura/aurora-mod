@@ -13,8 +13,8 @@ public class LeadTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 8;
         Item.knockBack = 3f;
+        Item.damage = 8;
 
         Item.width = 28;
         Item.height = 24;

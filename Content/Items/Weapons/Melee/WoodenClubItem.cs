@@ -9,8 +9,8 @@ public class WoodenClubItem : ModItem
         Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 12;
         Item.knockBack = 4f;
+        Item.damage = 12;
 
         Item.width = 32;
         Item.height = 34;

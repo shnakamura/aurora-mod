@@ -13,8 +13,8 @@ public class IronTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 6;
         Item.knockBack = 2.5f;
+        Item.damage = 6;
 
         Item.width = 28;
         Item.height = 24;

@@ -11,8 +11,8 @@ public class BearClawsItem : ModItem
         Item.useTurn = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 4;
         Item.knockBack = 1.5f;
+        Item.damage = 4;
 
         Item.width = 32;
         Item.height = 28;

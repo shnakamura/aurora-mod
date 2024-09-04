@@ -13,8 +13,8 @@ public class SilverTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 10;
         Item.knockBack = 3f;
+        Item.damage = 10;
 
         Item.width = 28;
         Item.height = 24;

@@ -13,8 +13,8 @@ public class CopperTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 4;
         Item.knockBack = 2f;
+        Item.damage = 4;
 
         Item.width = 28;
         Item.height = 24;

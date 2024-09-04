@@ -15,8 +15,8 @@ public class CopperDaggerItem : ModItem
         Item.noMelee = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 5;
         Item.knockBack = 1f;
+        Item.damage = 5;
 
         Item.width = 24;
         Item.height = 24;

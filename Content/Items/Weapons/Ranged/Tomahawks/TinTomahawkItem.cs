@@ -13,8 +13,8 @@ public class TinTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 3;
         Item.knockBack = 2f;
+        Item.damage = 3;
 
         Item.width = 28;
         Item.height = 24;

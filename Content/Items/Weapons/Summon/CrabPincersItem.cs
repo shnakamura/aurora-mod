@@ -2,18 +2,18 @@ using Aurora.Content.Projectiles.Summon;
 
 namespace Aurora.Content.Items.Weapons.Summon;
 
-public class CrabPincers : ModItem
+public class CrabPincersItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
 
         Item.noUseGraphic = true;
-        Item.sentry = true;
         Item.noMelee = true;
+        Item.sentry = true;
 
         Item.DamageType = DamageClass.Summon;
-        Item.damage = 20;
         Item.knockBack = 2f;
+        Item.damage = 20;
         Item.mana = 20;
 
         Item.width = 42;
@@ -21,11 +21,10 @@ public class CrabPincers : ModItem
 
         Item.useTime = 30;
         Item.useAnimation = 30;
+        Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
 
         Item.shoot = ModContent.ProjectileType<CrabPincersProjectile>();
-
-        Item.UseSound = SoundID.Item1;
     }
 
     public override void ModifyShootStats(

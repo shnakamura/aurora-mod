@@ -13,8 +13,8 @@ public class TungstenTomahawkItem : ModItem
         Item.autoReuse = true;
 
         Item.DamageType = DamageClass.Melee;
-        Item.damage = 12;
         Item.knockBack = 4f;
+        Item.damage = 12;
 
         Item.width = 28;
         Item.height = 24;
