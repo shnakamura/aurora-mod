@@ -3,6 +3,7 @@ using System.IO;
 using Aurora.Core.IO;
 using Aurora.Utilities;
 using ReLogic.Content;
+using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
 
@@ -19,22 +20,22 @@ public sealed class FootstepsSystem : ModSystem
             if (!tile.HasTile || !tile.TryGetMaterial(out var materialName)) {
                 return;
             }
-            
+
             Main.NewText(materialName);
         }
     }
- 
+
     public static List<Footstep> Footsteps { get; private set; } = new();
-    
+
     public override void PostSetupContent() {
         base.PostSetupContent();
-        
+
         LoadFootsteps(Mod);
     }
 
     public override void Unload() {
         base.Unload();
-        
+
         Footsteps?.Clear();
         Footsteps = null;
     }
