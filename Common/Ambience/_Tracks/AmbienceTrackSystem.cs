@@ -45,9 +45,11 @@ public sealed class AmbienceTrackSystem : ModSystem
             }
 
             var pathWithoutExtension = Path.ChangeExtension(path, null);
+            
             var asset = mod.Assets.Request<AmbienceTrack>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
-
-            Tracks.Add(asset.Value);
+            var track = asset.Value;
+            
+            Tracks.Add(track);
         }
     }
 

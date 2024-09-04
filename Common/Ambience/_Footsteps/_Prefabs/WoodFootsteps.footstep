@@ -1,0 +1,11 @@
+Sound: {
+    SoundPath: "Aurora/Assets/Sounds/Footsteps/Wood"
+    Type: Ambient
+    Volume: 0.2
+    PitchVariance: 0.1
+    SoundLimitBehavior: ReplaceOldest
+}
+
+Variants: 5
+
+Material: "Wood"

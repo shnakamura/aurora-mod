@@ -13,4 +13,8 @@ public static class PlayerExtensions
     public static bool IsDrowning(this Player player, bool includeSlopes = false) {
         return Collision.DrownCollision(player.position, player.width, player.height, player.gravDir, includeSlopes);
     }
+
+    public static bool IsGrounded(this Player player) {
+        return player.velocity.Y == 0f;
+    }
 }

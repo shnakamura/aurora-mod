@@ -12,19 +12,60 @@ public sealed class FootstepsSystem : ModSystem
 {
     private sealed class FootstepsSystemPlayerImpl : ModPlayer
     {
+        private enum LegType
+        {
+            Left,
+            Right
+        }
+
+        private LegType type;
+
         public override void PostUpdate() {
             base.PostUpdate();
 
-            var tile = Framing.GetTileSafely(Player.Bottom);
+            UpdateLegs();
+            UpdateSounds();
+        }
 
+        private void UpdateLegs() {
+            var frame = Player.legFrame.Y / Player.legFrame.Height;
+
+            if (frame != 0 || Player.IsGrounded()) {
+                return;
+            }
+            
+            type = LegType.Left;
+        }
+        
+        private void UpdateSounds() {
+            var frame = Player.legFrame.Y / Player.legFrame.Height;
+
+            if (Player.velocity.X == 0f || !Player.IsGrounded()) {
+                return;
+            }
+            
+            var tile = Framing.GetTileSafely(Player.Bottom);
+            
+            if (!tile.HasTile) {
+                return;
+            }
+            
             var hasMaterial = tile.TryGetMaterial(out var materialName);
             var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
 
-            if (!tile.HasTile || !hasMaterial || !hasFootstep) {
+            if (!hasMaterial || !hasFootstep) {
                 return;
             }
-
-            SoundEngine.PlaySound(in sound, Player.Center);
+            
+            var isWalking = type == LegType.Left && (frame == 16 || frame == 17) || type == LegType.Right && (frame == 9 || frame == 10);
+            
+            if (!isWalking) {
+                return;
+            }
+            
+            type = type == LegType.Left ? LegType.Right : LegType.Left;
+            
+            SoundEngine.PlaySound(in sound, Player.Bottom);
         }
     }
 
@@ -54,9 +95,14 @@ public sealed class FootstepsSystem : ModSystem
             }
 
             var pathWithoutExtension = Path.ChangeExtension(path, null);
+            
             var asset = mod.Assets.Request<Footstep>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
+            var footstep = asset.Value;
 
-            footsteps[asset.Value.Material] = asset.Value.Sound;
+            footsteps[footstep.Material] = footstep.Sound with {
+                Variants = new ReadOnlySpan<int>(footstep.Variants),
+                VariantsWeights = new ReadOnlySpan<float>(footstep.Variants)
+            };
         }
     }
 }

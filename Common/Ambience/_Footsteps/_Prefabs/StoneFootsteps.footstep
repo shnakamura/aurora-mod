@@ -1,11 +1,11 @@
 Sound: {
-    SoundPath: "Aurora/Assets/Sounds/Footsteps/Grass"
+    SoundPath: "Aurora/Assets/Sounds/Footsteps/Stone"
     Type: Ambient
     Volume: 0.2
     PitchVariance: 0.15
     SoundLimitBehavior: ReplaceOldest
 }
 
-Variants: 6
+Variants: 5
 
-Material: "Grass"
+Material: "Stone"

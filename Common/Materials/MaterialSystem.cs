@@ -24,7 +24,36 @@ public sealed class MaterialSystem : ModSystem
             materials[tile.Type] = attribute.Name;
         }
         
-        PopulateMaterials();
+        RegisterMaterial("Grass", TileID.LivingMahoganyLeaves);
+        
+        RegisterMaterial(
+            "Stone", 
+            TileID.GrayBrick, 
+            TileID.StoneSlab, 
+            TileID.Mudstone
+        );
+      
+        RegisterMaterial(
+            "Wood", 
+            TileID.Platforms,
+            TileID.WoodBlock,
+            TileID.AshWood,
+            TileID.Shadewood,
+            TileID.Pearlwood,
+            TileID.BorealWood,
+            TileID.LivingWood,
+            TileID.DynastyWood,
+            TileID.Ebonwood,
+            TileID.SpookyWood
+        );
+        
+        RegisterMaterialFromSet(TileID.Sets.Grass, "Grass");
+        RegisterMaterialFromSet(TileID.Sets.Conversion.Grass, "Grass");
+        
+        RegisterMaterialFromSet(TileID.Sets.Stone, "Stone");
+        RegisterMaterialFromSet(TileID.Sets.Conversion.Stone, "Stone");
+        
+        RegisterMaterialFromSet(TileID.Sets.CrackedBricks, "Stone");
     }
 
     public override void Unload() {
@@ -34,27 +63,20 @@ public sealed class MaterialSystem : ModSystem
         materials = null;
     }
 
-    public static void RegisterMaterial(int tileType, string materialName) {
-        materials[tileType] = materialName;
-    }
-
     public static bool TryGetMaterial(int tileType, out string materialName) {
         return materials.TryGetValue(tileType, out materialName);
     }
 
-    private static void PopulateMaterials() {
-        for (int i = 0; i < TileLoader.TileCount; i++) {
-            if (TileID.Sets.Grass[i]) {
-                RegisterMaterial(i, "Grass");
-            }
-            else if (TileID.Sets.Dirt[i]) {
-                RegisterMaterial(i, "Dirt");
-            }
-            else if (TileID.Sets.Snow[i]) {
-                RegisterMaterial(i, "Snow");
-            }
-            else if (TileID.Sets.Stone[i]) {
-                RegisterMaterial(i, "Stone");
+    public static void RegisterMaterial(string materialName, params int[] tileTypes) {
+        for (int i = 0; i < tileTypes.Length; i++) {
+            materials[tileTypes[i]] = materialName;
+        }
+    }
+    
+    private static void RegisterMaterialFromSet(bool[] set, string materialName) {
+        for (int i = 0; i < set.Length; i++) {
+            if (set[i]) {
+                RegisterMaterial(materialName, i);
             }
         }
     }

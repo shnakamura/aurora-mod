@@ -6,5 +6,7 @@ public interface IFootstep
 {
     SoundStyle Sound { get; }
 
+    int Variants { get; }
+
     string Material { get; }
 }
