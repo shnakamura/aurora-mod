@@ -1,0 +1,5 @@
+Sound: {
+    SoundPath: "Aurora/Assets/Sounds/Footsteps/Grass"
+    Type: Ambient
+    Volume: 0.8
+}

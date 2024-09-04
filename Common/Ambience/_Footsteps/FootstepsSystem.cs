@@ -17,15 +17,18 @@ public sealed class FootstepsSystem : ModSystem
 
             var tile = Framing.GetTileSafely(Player.Bottom);
 
-            if (!tile.HasTile || !tile.TryGetMaterial(out var materialName)) {
+            var hasMaterial = tile.TryGetMaterial(out var materialName);
+            var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
+
+            if (!tile.HasTile || !hasMaterial || !hasFootstep) {
                 return;
             }
 
-            Main.NewText(materialName);
+            SoundEngine.PlaySound(in sound, Player.Center);
         }
     }
 
-    public static List<Footstep> Footsteps { get; private set; } = new();
+    private static Dictionary<string, SoundStyle> footsteps = new();
 
     public override void PostSetupContent() {
         base.PostSetupContent();
@@ -36,8 +39,8 @@ public sealed class FootstepsSystem : ModSystem
     public override void Unload() {
         base.Unload();
 
-        Footsteps?.Clear();
-        Footsteps = null;
+        footsteps?.Clear();
+        footsteps = null;
     }
 
     public static void LoadFootsteps(Mod mod) {
@@ -53,7 +56,7 @@ public sealed class FootstepsSystem : ModSystem
             var pathWithoutExtension = Path.ChangeExtension(path, null);
             var asset = mod.Assets.Request<Footstep>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
 
-            Footsteps.Add(asset.Value);
+            footsteps[asset.Value.Material] = asset.Value.Sound;
         }
     }
 }

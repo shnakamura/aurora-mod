@@ -1,4 +1,4 @@
-namespace Aurora.Common.Ambience._Signals;
+namespace Aurora.Common.Ambience;
 
 public readonly ref struct SignalContext
 {

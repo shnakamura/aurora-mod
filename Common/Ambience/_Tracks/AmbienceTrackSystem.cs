@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.IO;
-using Aurora.Common.Ambience._Signals;
 using Aurora.Core.IO;
 using ReLogic.Content;
 using ReLogic.Utilities;

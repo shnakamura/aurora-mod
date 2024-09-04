@@ -9,5 +9,5 @@ public sealed class Footstep : IFootstep
     public SoundStyle Sound { get; set; }
 
     [JsonRequired]
-    public string[] Materials { get; set; }
+    public string Material { get; set; }
 }
