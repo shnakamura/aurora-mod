@@ -7,7 +7,7 @@ Aurora introduces unique, fantasy-inspired content and quality-of-life features 
 
 ## Builds
 ### Deployments
-If you wish to acquire one of our official builds, you can download them from our automatic deployments by checking our [Deployments](https://github.com/shnakamura/Aurora/actions/workflows/deploy.yml) section.
+If you wish to acquire one of our official builds, you can download them from our automatic deployments by checking our [Workflows](https://github.com/shnakamura/Aurora/actions/workflows/deploy.yml) section.
 ### Building
 Alternatively, if you don't want to be limited to builds from the [stable](https://github.com/shnakamura/Aurora/tree/stable) branch, you can clone this repository and build the mod yourself if you're familiar with the [tModLoader development environment](https://github.com/tModLoader/tModLoader/wiki/tModLoader-guide-for-developers).
 ## Community
