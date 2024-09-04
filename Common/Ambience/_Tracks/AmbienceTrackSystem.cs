@@ -18,7 +18,7 @@ public sealed class AmbienceTrackSystem : ModSystem
 
     public override void PostSetupContent() {
         base.PostSetupContent();
-        
+
         LoadTracks(Mod);
     }
 

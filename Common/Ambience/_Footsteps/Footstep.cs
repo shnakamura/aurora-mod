@@ -3,11 +3,11 @@ using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
 
-public sealed class Footstep
+public sealed class Footstep : IFootstep
 {
     [JsonRequired]
-    public SoundStyle Sound;
+    public SoundStyle Sound { get; set; }
 
     [JsonRequired]
-    public string[] Materials;
+    public string[] Materials { get; set; }
 }
