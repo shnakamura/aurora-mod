@@ -6,6 +6,8 @@ public class CopperDaggerItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();
+
+        Item.maxStack = Item.CommonMaxStack;
         
         Item.noUseGraphic = true;
         Item.autoReuse = false;
@@ -27,5 +29,14 @@ public class CopperDaggerItem : ModItem
 
         Item.shootSpeed = 2f;
         Item.shoot = ModContent.ProjectileType<Projectiles.Melee.Daggers.CopperDaggerProjectile>(); 
+    }
+
+    public override void AddRecipes() {
+        base.AddRecipes();
+
+        CreateRecipe(25)
+            .AddIngredient(ItemID.CopperBar)
+            .AddTile(TileID.Anvils)
+            .Register();
     }
 }

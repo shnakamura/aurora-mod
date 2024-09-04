@@ -26,22 +26,4 @@ public static class ProjectileComponentExtensions
 
         return true;
     }
-    
-    /// <summary>
-    ///     Attempts to disable a specified component on a projectile.
-    /// </summary>
-    /// <param name="projectile">The projectile on which the component is to be disabled</param>
-    /// <typeparam name="T">The type of the component to enable, which must inherit from <see cref="ProjectileComponent"/>.</typeparam>
-    /// <returns><c>true</c> if the component was successfully disabled; otherwise, <c>false</c>.</returns>
-    public static bool TryDisableComponent<T>(this Projectile projectile) where T : ProjectileComponent {
-        var hasComponent = projectile.TryGetGlobalProjectile(out T? component);
-    
-        if (!hasComponent) {
-            return false;
-        }
-
-        component.Enabled = false;
-
-        return true;
-    }
 }

@@ -1,4 +1,6 @@
-namespace Aurora.Content.Items.Weapons.Ranged;
+using Aurora.Content.Projectiles.Ranged;
+
+namespace Aurora.Content.Items.Weapons.Ranged.Tomahawks;
 
 public class CopperTomahawkItem : ModItem
 {
@@ -23,7 +25,7 @@ public class CopperTomahawkItem : ModItem
         Item.useStyle = ItemUseStyleID.Swing;
 
         Item.shootSpeed = 10f;
-        Item.shoot = ModContent.ProjectileType<Projectiles.Ranged.CopperTomahawkProjectile>();
+        Item.shoot = ModContent.ProjectileType<CopperTomahawkProjectile>();
     }
 
     public override void AddRecipes() {
