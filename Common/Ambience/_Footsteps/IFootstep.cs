@@ -1,5 +1,3 @@
-using Terraria.Audio;
-
 namespace Aurora.Common.Ambience;
 
 public interface IFootstep

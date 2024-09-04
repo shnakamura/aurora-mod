@@ -5,6 +5,10 @@ namespace Aurora.Common.Ambience;
 
 public interface IAmbienceTrack
 {
+    AmbienceTrackSoundData SoundData { get; set; }
+    
+    string[] Signals { get; set; }
+    
     /// <summary>
     ///     The volume of this track. Ranges from <c>0f</c> to <c>1f</c>.
     /// </summary>
@@ -24,14 +28,4 @@ public interface IAmbienceTrack
     ///     The sound slot of this track.
     /// </summary>
     SlotId Slot { get; set; }
-
-    /// <summary>
-    ///     The sound style of this track.
-    /// </summary>
-    SoundStyle Sound { get; set; }
-
-    /// <summary>
-    ///     The flags used by this track to indicate whether it should be active or not.
-    /// </summary>
-    string[] Flags { get; set; }
 }

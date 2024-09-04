@@ -6,6 +6,12 @@ namespace Aurora.Common.Ambience;
 
 public sealed class AmbienceTrack : IAmbienceTrack
 {
+    [JsonRequired]
+    public AmbienceTrackSoundData SoundData { get; set; }
+    
+    [JsonRequired]
+    public string[] Signals { get; set; }
+    
     private float volume;
 
     [JsonIgnore]
@@ -20,10 +26,4 @@ public sealed class AmbienceTrack : IAmbienceTrack
     public float StepIn { get; set; } = 0.05f;
 
     public float StepOut { get; set; } = 0.05f;
-
-    [JsonRequired]
-    public SoundStyle Sound { get; set; }
-
-    [JsonRequired]
-    public string[] Flags { get; set; } = Array.Empty<string>();
 }

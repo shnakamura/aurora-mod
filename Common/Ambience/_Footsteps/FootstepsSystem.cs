@@ -22,7 +22,7 @@ public sealed class FootstepsSystem : ModSystem
 
         public override void PostUpdate() {
             base.PostUpdate();
-            
+
             UpdateLegs();
             UpdateImpact();
             UpdateFootsteps();
@@ -34,7 +34,7 @@ public sealed class FootstepsSystem : ModSystem
             if (frame != 0 || Player.IsGrounded()) {
                 return;
             }
-            
+
             type = LegType.Left;
         }
 
@@ -55,40 +55,40 @@ public sealed class FootstepsSystem : ModSystem
             if (!tile.HasTile) {
                 return;
             }
-            
+
             var hasMaterial = tile.TryGetMaterial(out var materialName);
             var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
-            
+
             SoundEngine.PlaySound(in sound, Player.Bottom);
         }
-        
+
         private void UpdateFootsteps() {
             if (!Player.IsGrounded()) {
                 return;
             }
-            
+
             var tile = Framing.GetTileSafely(Player.Bottom);
-            
+
             if (!tile.HasTile) {
                 return;
             }
-            
+
             var hasMaterial = tile.TryGetMaterial(out var materialName);
             var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
 
             if (!hasMaterial || !hasFootstep) {
                 return;
             }
-            
+
             var frame = Player.legFrame.Y / Player.legFrame.Height;
-            var isWalking = type == LegType.Left && (frame == 16 || frame == 17) || type == LegType.Right && (frame == 9 || frame == 10);
-            
+            var isWalking = (type == LegType.Left && (frame == 16 || frame == 17)) || (type == LegType.Right && (frame == 9 || frame == 10));
+
             if (!isWalking) {
                 return;
             }
-            
+
             type = type == LegType.Left ? LegType.Right : LegType.Left;
-            
+
             SoundEngine.PlaySound(in sound, Player.Bottom);
         }
     }
@@ -119,7 +119,7 @@ public sealed class FootstepsSystem : ModSystem
             }
 
             var pathWithoutExtension = Path.ChangeExtension(path, null);
-            
+
             var asset = mod.Assets.Request<Footstep>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
             var footstep = asset.Value;
 
@@ -127,7 +127,7 @@ public sealed class FootstepsSystem : ModSystem
                 Volume = 0.2f,
                 SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
             };
-            
+
             footsteps[footstep.Material] = sound;
         }
     }

@@ -45,10 +45,10 @@ public sealed class AmbienceTrackSystem : ModSystem
             }
 
             var pathWithoutExtension = Path.ChangeExtension(path, null);
-            
+
             var asset = mod.Assets.Request<AmbienceTrack>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
             var track = asset.Value;
-            
+
             Tracks.Add(track);
         }
     }
@@ -57,7 +57,7 @@ public sealed class AmbienceTrackSystem : ModSystem
         for (var i = 0; i < Tracks.Count; i++) {
             var track = Tracks[i];
 
-            var isActive = SignalsSystem.GetSignal(track.Flags);
+            var isActive = SignalsSystem.GetSignal(track.Signals);
 
             if (isActive) {
                 track.Volume += track.StepIn;
@@ -66,29 +66,34 @@ public sealed class AmbienceTrackSystem : ModSystem
                 track.Volume -= track.StepOut;
             }
 
-            var isInstancePlaying = SoundEngine.TryGetActiveSound(track.Slot, out var sound);
-            var isSoundPlaying = sound?.IsPlaying == true;
+            var isInstancePlaying = SoundEngine.TryGetActiveSound(track.Slot, out var instance);
+            var isSoundPlaying = instance?.IsPlaying == true;
             var isTrackPlaying = isInstancePlaying && isSoundPlaying;
 
             if (isActive) {
                 if (isTrackPlaying) {
-                    sound.Volume = track.Volume;
+                    instance.Volume = track.Volume;
                 }
                 else {
-                    track.Slot = SoundEngine.PlaySound(track.Sound);
+                    var sound = new SoundStyle(track.SoundData.SoundPath, SoundType.Ambient) {
+                        Volume = 0.8f,
+                        IsLooped = true
+                    };
+                    
+                    track.Slot = SoundEngine.PlaySound(in sound);
                     track.Volume = 0f;
 
-                    SoundEngine.TryGetActiveSound(track.Slot, out sound);
+                    SoundEngine.TryGetActiveSound(track.Slot, out instance);
 
-                    sound.Volume = 0f;
+                    instance.Volume = 0f;
                 }
             }
             else if (isTrackPlaying) {
                 if (track.Volume > 0f) {
-                    sound.Volume = track.Volume;
+                    instance.Volume = track.Volume;
                 }
                 else {
-                    sound.Stop();
+                    instance.Stop();
                     track.Slot = SlotId.Invalid;
                 }
             }
