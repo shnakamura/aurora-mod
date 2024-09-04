@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [stable]
+    branches: [dev, stable]
 
 env:
   TML_PATH_OVERRIDE: ./bin/Saves
@@ -31,6 +31,10 @@ jobs:
 
       - name: Build solution
         run: dotnet build Aurora.sln --configuration Release
+
+      - name: List all
+        shell: bash
+        run: ls -R
 
       - name: Deploy .tmod artifact
         uses: actions/upload-artifact@v4
