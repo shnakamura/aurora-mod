@@ -36,6 +36,7 @@ public sealed class Aurora : Mod
         var collection = Main.instance.Services.Get<AssetReaderCollection>();
 
         collection.TryRegisterReader(new AmbienceTrackReader(), AmbienceTrackReader.Extension);
+        collection.TryRegisterReader(new FootstepReader(), FootstepReader.Extension);
     }
 
     private static void RemoveAssetReaders() {
@@ -46,5 +47,6 @@ public sealed class Aurora : Mod
         var collection = Main.instance.Services.Get<AssetReaderCollection>();
 
         collection.TryRemoveReader(AmbienceTrackReader.Extension);
+        collection.TryRemoveReader(FootstepReader.Extension);
     }
 }

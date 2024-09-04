@@ -182,3 +182,63 @@ CopperTomahawkItem: {
 	DisplayName: Copper Tomahawk Item
 	Tooltip: ""
 }
+
+EverbloomHeadgear: {
+	DisplayName: Everbloom Headgear
+	Tooltip: ""
+}
+
+EverbloomHood: {
+	DisplayName: Everbloom Hood
+	Tooltip: ""
+}
+
+EverbloomLeggings: {
+	DisplayName: Everbloom Leggings
+	Tooltip: ""
+}
+
+EverbloomMantle: {
+	DisplayName: Everbloom Mantle
+	Tooltip: ""
+}
+
+GoldTomahawkItem: {
+	DisplayName: Gold Tomahawk Item
+	Tooltip: ""
+}
+
+IronTomahawkItem: {
+	DisplayName: Iron Tomahawk Item
+	Tooltip: ""
+}
+
+LeadTomahawkItem: {
+	DisplayName: Lead Tomahawk Item
+	Tooltip: ""
+}
+
+PlatinumTomahawkItem: {
+	DisplayName: Platinum Tomahawk Item
+	Tooltip: ""
+}
+
+SilverTomahawkItem: {
+	DisplayName: Silver Tomahawk Item
+	Tooltip: ""
+}
+
+TinTomahawkItem: {
+	DisplayName: Tin Tomahawk Item
+	Tooltip: ""
+}
+
+TungstenTomahawkItem: {
+	DisplayName: Tungsten Tomahawk Item
+	Tooltip: ""
+}
+
+CrabPincersItem: {
+	DisplayName: Crab Pincers Item
+	Tooltip: ""
+}

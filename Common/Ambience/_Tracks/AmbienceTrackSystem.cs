@@ -16,9 +16,9 @@ public sealed class AmbienceTrackSystem : ModSystem
     /// </summary>
     public static List<IAmbienceTrack> Tracks { get; private set; } = new();
 
-    public override void Load() {
-        base.Load();
-
+    public override void PostSetupContent() {
+        base.PostSetupContent();
+        
         LoadTracks(Mod);
     }
 
