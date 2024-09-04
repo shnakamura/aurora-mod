@@ -15,4 +15,8 @@
         <Using Include="Microsoft.Xna.Framework.Graphics"/>
     </ItemGroup>
 
+    <PropertyGroup>
+        <ExtraBuildModFlags Condition="'$(TML_PATH_OVERRIDE)' != ''">$(ExtraBuildModFlags)-savedirectory &quot;$([System.IO.Path]::GetFullPath('.'))/$(TML_PATH_OVERRIDE)&quot; </ExtraBuildModFlags>
+    </PropertyGroup>
+
 </Project>
