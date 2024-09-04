@@ -6,10 +6,8 @@ namespace Aurora.Common.Ambience;
 public sealed class Footstep : IFootstep
 {
     [JsonRequired]
-    public SoundStyle Sound { get; set; }
+    public FootstepSoundData SoundData { get; set; }
     
-    public int Variants { get; }
-
     [JsonRequired]
     public string Material { get; set; }
 }

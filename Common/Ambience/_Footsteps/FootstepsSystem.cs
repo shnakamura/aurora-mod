@@ -22,9 +22,10 @@ public sealed class FootstepsSystem : ModSystem
 
         public override void PostUpdate() {
             base.PostUpdate();
-
+            
             UpdateLegs();
-            UpdateSounds();
+            UpdateImpact();
+            UpdateFootsteps();
         }
 
         private void UpdateLegs() {
@@ -36,11 +37,33 @@ public sealed class FootstepsSystem : ModSystem
             
             type = LegType.Left;
         }
-        
-        private void UpdateSounds() {
-            var frame = Player.legFrame.Y / Player.legFrame.Height;
 
-            if (Player.velocity.X == 0f || !Player.IsGrounded()) {
+        private void UpdateImpact() {
+            var isGrounded = Player.IsGrounded();
+            var wasGrounded = Player.WasGrounded();
+
+            var justLanded = isGrounded && !wasGrounded;
+            var justJumped = !isGrounded && wasGrounded;
+
+            if (!justLanded && !justJumped) {
+                return;
+            }
+
+            var position = justLanded ? Player.Bottom : Player.oldPosition + new Vector2(Player.width / 2f, Player.height);
+            var tile = Framing.GetTileSafely(position);
+
+            if (!tile.HasTile) {
+                return;
+            }
+            
+            var hasMaterial = tile.TryGetMaterial(out var materialName);
+            var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
+            
+            SoundEngine.PlaySound(in sound, Player.Bottom);
+        }
+        
+        private void UpdateFootsteps() {
+            if (!Player.IsGrounded()) {
                 return;
             }
             
@@ -57,6 +80,7 @@ public sealed class FootstepsSystem : ModSystem
                 return;
             }
             
+            var frame = Player.legFrame.Y / Player.legFrame.Height;
             var isWalking = type == LegType.Left && (frame == 16 || frame == 17) || type == LegType.Right && (frame == 9 || frame == 10);
             
             if (!isWalking) {
@@ -99,10 +123,12 @@ public sealed class FootstepsSystem : ModSystem
             var asset = mod.Assets.Request<Footstep>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
             var footstep = asset.Value;
 
-            footsteps[footstep.Material] = footstep.Sound with {
-                Variants = new ReadOnlySpan<int>(footstep.Variants),
-                VariantsWeights = new ReadOnlySpan<float>(footstep.Variants)
+            var sound = new SoundStyle(footstep.SoundData.SoundPath, footstep.SoundData.Variants, SoundType.Ambient) {
+                Volume = 0.2f,
+                SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
             };
+            
+            footsteps[footstep.Material] = sound;
         }
     }
 }

@@ -28,7 +28,7 @@ public sealed class WaterMufflingEffects : ModPlayer
     }
 
     private void UpdateIntensity() {
-        if (Player.IsDrowning()) {
+        if (Player.IsUnderwater()) {
             Intensity += 0.05f;
         }
         else {

@@ -6,6 +6,6 @@ public static class SignalFlags
 {
     [SignalUpdater]
     public static bool Submerged(in SignalContext context) {
-        return context.Player.IsDrowning();
+        return context.Player.IsUnderwater();
     }
 }

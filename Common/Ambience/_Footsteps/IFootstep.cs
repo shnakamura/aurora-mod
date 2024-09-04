@@ -4,9 +4,7 @@ namespace Aurora.Common.Ambience;
 
 public interface IFootstep
 {
-    SoundStyle Sound { get; }
+    FootstepSoundData SoundData { get; set; }
 
-    int Variants { get; }
-
-    string Material { get; }
+    string Material { get; set; }
 }
