@@ -10,6 +10,7 @@ public class CopperDaggerItem : ModItem
         Item.maxStack = Item.CommonMaxStack;
 
         Item.noUseGraphic = true;
+        Item.consumable = true;
         Item.autoReuse = false;
         Item.noMelee = true;
 
