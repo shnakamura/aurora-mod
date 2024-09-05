@@ -1,13 +1,18 @@
 CopperDaggerProjectile.DisplayName: Copper Dagger
-CopperDagger.DisplayName: Copper Dagger
-CopperTomahawk.DisplayName: Copper Tomahawk
 CrabPincers.DisplayName: Crab Pincers
-CopperTomahawkProjectile.DisplayName: Copper Tomahawk Projectile
-CrabPincersProjectile.DisplayName: Crab Pincers Projectile
-GoldTomahawkProjectile.DisplayName: Gold Tomahawk Projectile
-IronTomahawkProjectile.DisplayName: Iron Tomahawk Projectile
-LeadTomahawkProjectile.DisplayName: Lead Tomahawk Projectile
-PlatinumTomahawkProjectile.DisplayName: Platinum Tomahawk Projectile
-SilverTomahawkProjectile.DisplayName: Silver Tomahawk Projectile
-TinTomahawkProjectile.DisplayName: Tin Tomahawk Projectile
-TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk Projectile
+CopperTomahawkProjectile.DisplayName: Copper Tomahawk
+CrabPincersProjectile.DisplayName: Crab Pincers
+GoldTomahawkProjectile.DisplayName: Gold Tomahawk
+IronTomahawkProjectile.DisplayName: Iron Tomahawk
+LeadTomahawkProjectile.DisplayName: Lead Tomahawk
+PlatinumTomahawkProjectile.DisplayName: Platinum Tomahawk
+SilverTomahawkProjectile.DisplayName: Silver Tomahawk
+TinTomahawkProjectile.DisplayName: Tin Tomahawk
+TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk
+GoldDaggerProjectile.DisplayName: Gold Dagger Projectile
+IronDaggerProjectile.DisplayName: Iron Dagger Projectile
+LeadDaggerProjectile.DisplayName: Lead Dagger Projectile
+PlatinumDaggerProjectile.DisplayName: Platinum Dagger Projectile
+SilverDaggerProjectile.DisplayName: Silver Dagger Projectile
+TinDaggerProjectile.DisplayName: Tin Dagger Projectile
+TungstenDaggerProjectile.DisplayName: Tungsten Dagger Projectile

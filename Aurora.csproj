@@ -3,7 +3,10 @@
     <Import Project="..\tModLoader.targets"/>
 
     <PropertyGroup>
+		<RootNamespace>Aurora</RootNamespace>
+		<AssemblyName>Aurora</AssemblyName>
         <Nullable>enable</Nullable>
+		<TargetFramework>.net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>

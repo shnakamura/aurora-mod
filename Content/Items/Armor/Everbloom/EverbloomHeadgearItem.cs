@@ -1,7 +1,7 @@
 ﻿namespace Aurora.Content.Items.Armor.Everbloom;
 
 [AutoloadEquip(EquipType.Head)]
-public class EverbloomHeadgear : ModItem
+public class EverbloomHeadgearItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();

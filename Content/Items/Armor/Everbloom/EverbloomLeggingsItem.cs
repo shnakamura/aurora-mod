@@ -1,7 +1,7 @@
 ﻿namespace Aurora.Content.Items.Armor.Everbloom;
 
 [AutoloadEquip(EquipType.Legs)]
-public class EverbloomLeggings : ModItem
+public class EverbloomLeggingsItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();

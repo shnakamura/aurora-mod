@@ -1,7 +1,7 @@
 ﻿namespace Aurora.Content.Items.Armor.Everbloom;
 
 [AutoloadEquip(EquipType.Body)]
-public class EverbloomMantle : ModItem
+public class EverbloomMantleItem : ModItem
 {
     public override void SetDefaults() {
         base.SetDefaults();

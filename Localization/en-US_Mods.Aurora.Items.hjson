@@ -1,125 +1,30 @@
-AncientTwig: {
-	DisplayName: Ancient Twig
-	Tooltip: ""
-}
-
-Nut: {
-	DisplayName: Nut
-	Tooltip: ""
-}
-
-WildlifeFragment: {
-	DisplayName: Wildlife Fragment
-	Tooltip: ""
-}
-
-BearClaws: {
-	DisplayName: Bear Claws
-	Tooltip: ""
-}
-
-BigIron: {
-	DisplayName: Big Iron
-	Tooltip: ""
-}
-
-WoodenClub: {
-	Tooltip: ""
-	DisplayName: Wooden Club
-}
-
-CopperDagger: {
-	DisplayName: Copper Dagger
-	Tooltip: ""
-}
-
-BarkBallista: {
-	DisplayName: Bark Ballista
-	Tooltip: ""
-}
-
-WildWarriorGarb: {
+WildWarriorGarbItem: {
 	DisplayName: Wild Warrior Garb
 	Tooltip: ""
 }
 
-WildWarriorGreaves: {
+WildWarriorGreavesItem: {
 	DisplayName: Wild Warrior Greaves
 	Tooltip: ""
 }
 
-WildWarriorHelmet: {
+WildWarriorHelmetItem: {
 	DisplayName: Wild Warrior Helmet
 	Tooltip: ""
 }
 
-WildWarriorMask: {
+WildWarriorMaskItem: {
 	DisplayName: Wild Warrior Mask
 	Tooltip: ""
 }
 
-WildNature: {
-	DisplayName: Wild Nature
-	Tooltip: ""
-}
-
-WildAxe: {
-	DisplayName: Wild Axe
-	Tooltip: ""
-}
-
-WildHammer: {
-	DisplayName: Wild Hammer
-	Tooltip: ""
-}
-
-WildPickaxe: {
-	DisplayName: Wild Pickaxe
-	Tooltip: ""
-}
-
-CopperTomahawk: {
-	DisplayName: Copper Tomahawk
-	Tooltip: ""
-}
-
-DoomMirror: {
+DoomMirrorItem: {
 	DisplayName: Doom Mirror
 	Tooltip: ""
 }
 
-CrabPincers: {
-	DisplayName: Crab Pincers
-	Tooltip: ""
-}
-
-WildWarriorGarbItem: {
-	DisplayName: Wild Warrior Garb Item
-	Tooltip: ""
-}
-
-WildWarriorGreavesItem: {
-	DisplayName: Wild Warrior Greaves Item
-	Tooltip: ""
-}
-
-WildWarriorHelmetItem: {
-	DisplayName: Wild Warrior Helmet Item
-	Tooltip: ""
-}
-
-WildWarriorMaskItem: {
-	DisplayName: Wild Warrior Mask Item
-	Tooltip: ""
-}
-
-DoomMirrorItem: {
-	DisplayName: Doom Mirror Item
-	Tooltip: ""
-}
-
 AncientTwigItem: {
-	DisplayName: Ancient Twig Item
+	DisplayName: Ancient Twig
 	Tooltip: ""
 }
 
@@ -129,116 +34,151 @@ NutItem: {
 }
 
 WildlifeFragmentItem: {
-	DisplayName: Wildlife Fragment Item
+	DisplayName: Wildlife Fragment
 	Tooltip: ""
 }
 
 WildAxeItem: {
-	DisplayName: Wild Axe Item
+	DisplayName: Wild Axe
 	Tooltip: ""
 }
 
 WildHammerItem: {
-	DisplayName: Wild Hammer Item
+	DisplayName: Wild Hammer
 	Tooltip: ""
 }
 
 WildPickaxeItem: {
-	DisplayName: Wild Pickaxe Item
+	DisplayName: Wild Pickaxe
 	Tooltip: ""
 }
 
 BearClawsItem: {
-	DisplayName: Bear Claws Item
+	DisplayName: Bear Claws
 	Tooltip: ""
 }
 
 CopperDaggerItem: {
-	DisplayName: Copper Dagger Item
+	DisplayName: Copper Dagger
 	Tooltip: ""
 }
 
 WildNatureItem: {
-	DisplayName: Wild Nature Item
+	DisplayName: Wild Nature
 	Tooltip: ""
 }
 
 WoodenClubItem: {
-	DisplayName: Wooden Club Item
+	DisplayName: Wooden Club
 	Tooltip: ""
 }
 
 BarkBallistaItem: {
-	DisplayName: Bark Ballista Item
+	DisplayName: Bark Ballista
 	Tooltip: ""
 }
 
 BigIronItem: {
-	DisplayName: Big Iron Item
+	DisplayName: Big Iron
 	Tooltip: ""
 }
 
 CopperTomahawkItem: {
-	DisplayName: Copper Tomahawk Item
+	DisplayName: Copper Tomahawk
 	Tooltip: ""
 }
 
-EverbloomHeadgear: {
+EverbloomHeadgearItem: {
 	DisplayName: Everbloom Headgear
 	Tooltip: ""
 }
 
-EverbloomHood: {
+EverbloomHoodItem: {
 	DisplayName: Everbloom Hood
 	Tooltip: ""
 }
 
-EverbloomLeggings: {
+EverbloomLeggingsItem: {
 	DisplayName: Everbloom Leggings
 	Tooltip: ""
 }
 
-EverbloomMantle: {
+EverbloomMantleItem: {
 	DisplayName: Everbloom Mantle
 	Tooltip: ""
 }
 
 GoldTomahawkItem: {
-	DisplayName: Gold Tomahawk Item
+	DisplayName: Gold Tomahawk
 	Tooltip: ""
 }
 
 IronTomahawkItem: {
-	DisplayName: Iron Tomahawk Item
+	DisplayName: Iron Tomahawk
 	Tooltip: ""
 }
 
 LeadTomahawkItem: {
-	DisplayName: Lead Tomahawk Item
+	DisplayName: Lead Tomahawk
 	Tooltip: ""
 }
 
 PlatinumTomahawkItem: {
-	DisplayName: Platinum Tomahawk Item
+	DisplayName: Platinum Tomahawk
 	Tooltip: ""
 }
 
 SilverTomahawkItem: {
-	DisplayName: Silver Tomahawk Item
+	DisplayName: Silver Tomahawk
 	Tooltip: ""
 }
 
 TinTomahawkItem: {
-	DisplayName: Tin Tomahawk Item
+	DisplayName: Tin Tomahawk
 	Tooltip: ""
 }
 
 TungstenTomahawkItem: {
-	DisplayName: Tungsten Tomahawk Item
+	DisplayName: Tungsten Tomahawk
 	Tooltip: ""
 }
 
 CrabPincersItem: {
-	DisplayName: Crab Pincers Item
+	DisplayName: Crab Pincers
+	Tooltip: ""
+}
+
+GoldDaggerItem: {
+	DisplayName: Gold Dagger
+	Tooltip: ""
+}
+
+IronDaggerItem: {
+	DisplayName: Iron Dagger
+	Tooltip: ""
+}
+
+LeadDaggerItem: {
+	DisplayName: Lead Dagger
+	Tooltip: ""
+}
+
+PlatinumDaggerItem: {
+	DisplayName: Platinum Dagger
+	Tooltip: ""
+}
+
+SilverDaggerItem: {
+	DisplayName: Silver Dagger
+	Tooltip: ""
+}
+
+TinDaggerItem: {
+	DisplayName: Tin Dagger
+	Tooltip: ""
+}
+
+TungstenDaggerItem: {
+	DisplayName: Tungsten Dagger
 	Tooltip: ""
 }
