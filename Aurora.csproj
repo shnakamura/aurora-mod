@@ -3,20 +3,8 @@
     <Import Project="..\tModLoader.targets"/>
 
     <PropertyGroup>
-		<RootNamespace>Aurora</RootNamespace>
-		<AssemblyName>Aurora</AssemblyName>
         <Nullable>enable</Nullable>
-		<TargetFramework>.net8.0</TargetFramework>
     </PropertyGroup>
-
-    <ItemGroup>
-        <Using Include="System"/>
-        <Using Include="Terraria"/>
-        <Using Include="Terraria.ID"/>
-        <Using Include="Terraria.ModLoader"/>
-        <Using Include="Microsoft.Xna.Framework"/>
-        <Using Include="Microsoft.Xna.Framework.Graphics"/>
-    </ItemGroup>
 
     <PropertyGroup>
         <ExtraBuildModFlags Condition="'$(TML_PATH_OVERRIDE)' != ''">$(ExtraBuildModFlags)-savedirectory &quot;$([System.IO.Path]::GetFullPath('.'))/$(TML_PATH_OVERRIDE)&quot; </ExtraBuildModFlags>
