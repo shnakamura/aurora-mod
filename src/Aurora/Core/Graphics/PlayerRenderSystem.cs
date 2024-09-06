@@ -63,6 +63,7 @@ public sealed class PlayerRenderSystem : ModSystem
     private static void ResizeTarget(Vector2 resolution) {
         Main.QueueMainThreadAction(
             () => {
+	            Target?.Dispose();
                 Target = new RenderTarget2D(Main.graphics.GraphicsDevice, (int)resolution.X, (int)resolution.Y);
             }
         );
