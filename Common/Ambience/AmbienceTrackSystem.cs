@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Aurora.Common.Configuration;
 using Aurora.Core.IO;
 using ReLogic.Content;
 using ReLogic.Utilities;
@@ -54,6 +55,10 @@ public sealed class AmbienceTrackSystem : ModSystem
     }
 
     private static void UpdateTracks() {
+	    if (!ClientConfiguration.Instance.EnableAmbience) {
+		    return;
+	    }
+		
         for (var i = 0; i < Tracks.Count; i++) {
             var track = Tracks[i];
 

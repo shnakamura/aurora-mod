@@ -13,6 +13,16 @@ public class WildWarriorHelmetItem : ModItem
 
         Item.defense = 2;
     }
+    
+    public override bool IsArmorSet(Item head, Item body, Item legs) {
+	    return body.type == ModContent.ItemType<WildWarriorGarbItem>() && legs.type == ModContent.ItemType<WildWarriorGreavesItem>();
+    }
+    
+    public override void UpdateArmorSet(Player player) {
+	    base.UpdateArmorSet(player);
+
+	    player.setBonus = this.GetLocalizedValue("SetBonus");
+    }
 
     public override void AddRecipes() {
         base.AddRecipes();

@@ -1,0 +1,31 @@
+ClientConfiguration: {
+	DisplayName: Client Configuration
+
+	EnableAmbience: {
+		Label: Enable Ambience
+		Tooltip: ""
+	}
+
+	EnableFootsteps: {
+		Label: Enable Footsteps
+		Tooltip: ""
+	}
+
+	Headers.Audio: Audio Header
+
+	EnableMuffling: {
+		Label: Enable Muffling
+		Tooltip: ""
+	}
+}
+
+ServerConfiguration: {
+	DisplayName: Server Configuration
+	
+	Headers.Items: Items Header
+
+	EnableRecipes: {
+		Label: Enable Recipes
+		Tooltip: ""
+	}
+}

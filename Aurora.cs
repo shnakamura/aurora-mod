@@ -1,3 +1,4 @@
+using Aurora.Common.Configuration;
 using Aurora.Core.IO;
 using Aurora.Utilities;
 using ReLogic.Content;

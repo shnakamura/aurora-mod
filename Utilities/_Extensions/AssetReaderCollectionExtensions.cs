@@ -11,19 +11,15 @@ namespace Aurora.Utilities;
 /// </summary>
 public static class AssetReaderCollectionExtensions
 {
-    private static readonly FieldInfo? ReadersByExtensionField;
-    private static readonly FieldInfo? ExtensionsField;
+	private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.NonPublic;
+
+    private static readonly FieldInfo? ReadersByExtensionField = typeof(AssetReaderCollection).GetField("_extensions", Flags);
+    private static readonly FieldInfo? ExtensionsField = typeof(AssetReaderCollection).GetField("_readersByExtension", Flags);
 
     static AssetReaderCollectionExtensions() {
-        const BindingFlags Flags = BindingFlags.Instance | BindingFlags.NonPublic;
-
-        ExtensionsField = typeof(AssetReaderCollection).GetField("_extensions", Flags);
-
         if (ExtensionsField == null) {
             throw new MissingMemberException(nameof(AssetReaderCollection), "_extensions");
         }
-
-        ReadersByExtensionField = typeof(AssetReaderCollection).GetField("_readersByExtension", Flags);
 
         if (ReadersByExtensionField == null) {
             throw new MissingMemberException(nameof(AssetReaderCollection), "_readersByExtension");

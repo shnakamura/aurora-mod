@@ -1,4 +1,4 @@
-namespace Aurora.Common.Movement;
+namespace Aurora.Common.Players;
 
 // The game doesn't set the player's old velocity, so we have to do it ourselves.
 public sealed class PlayerMovement : ModPlayer

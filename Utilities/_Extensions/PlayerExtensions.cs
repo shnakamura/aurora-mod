@@ -14,10 +14,20 @@ public static class PlayerExtensions
         return Collision.DrownCollision(player.position, player.width, player.height, player.gravDir, includeSlopes);
     }
 
+    /// <summary>
+    ///		Checks whether the player is on the ground or not.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <returns><c>true</c> if the player is on the ground; otherwise, <c>false</c>.</returns>
     public static bool IsGrounded(this Player player) {
         return player.velocity.Y == 0f;
     }
 
+    /// <summary>
+    ///		Checks whether the player was on the ground or not.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <returns><c>true</c> if the player was on the ground; otherwise, <c>false</c>.</returns>
     public static bool WasGrounded(this Player player) {
         return player.oldVelocity.Y == 0f;
     }

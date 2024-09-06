@@ -21,38 +21,43 @@ public sealed class PlayerRenderSystem : ModSystem
         );
 
         Main.OnResolutionChanged += ResizeTarget;
-
-        On_Main.CheckMonoliths += CheckMonolithsHook;
     }
 
     public override void Unload() {
         base.Unload();
+        
+        Main.QueueMainThreadAction(
+	        () => {
+		        Target?.Dispose();
+		        Target = null;
+	        }
+	    );
 
         Main.OnResolutionChanged -= ResizeTarget;
     }
 
-    private static void CheckMonolithsHook(On_Main.orig_CheckMonoliths orig) {
-        orig();
+    public override void PreUpdateEntities() {
+	    base.PreUpdateEntities();
+	    
+	    var spriteBatch = Main.spriteBatch;
+	    var device = Main.graphics.GraphicsDevice;
 
-        var spriteBatch = Main.spriteBatch;
-        var device = Main.graphics.GraphicsDevice;
+	    var oldTargets = device.GetRenderTargets();
 
-        var oldTargets = device.GetRenderTargets();
+	    device.SetRenderTarget(Target);
+	    device.Clear(Color.Transparent);
 
-        device.SetRenderTarget(Target);
-        device.Clear(Color.Transparent);
+	    spriteBatch.Begin(default, default, default, default, default, default, Main.GameViewMatrix.TransformationMatrix);
 
-        spriteBatch.Begin(default, default, default, default, default, default, Main.GameViewMatrix.TransformationMatrix);
+	    var player = Main.LocalPlayer;
 
-        var player = Main.LocalPlayer;
+	    if (player.active) {
+		    Main.PlayerRenderer?.DrawPlayer(Main.Camera, player, player.position, player.fullRotation, player.fullRotationOrigin);
+	    }
 
-        if (player.active) {
-            Main.PlayerRenderer?.DrawPlayer(Main.Camera, player, player.position, player.fullRotation, player.fullRotationOrigin);
-        }
+	    spriteBatch.End();
 
-        spriteBatch.End();
-
-        device.SetRenderTargets(oldTargets);
+	    device.SetRenderTargets(oldTargets);
     }
 
     private static void ResizeTarget(Vector2 resolution) {

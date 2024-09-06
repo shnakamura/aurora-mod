@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Aurora.Common.Configuration;
 using Aurora.Core.IO;
 using Aurora.Utilities;
 using ReLogic.Content;
@@ -22,6 +23,10 @@ public sealed class FootstepsSystem : ModSystem
 
         public override void PostUpdate() {
             base.PostUpdate();
+            
+            if (!ClientConfiguration.Instance.EnableFootsteps) {
+	            return;
+            }
 
             UpdateLegs();
             UpdateImpact();

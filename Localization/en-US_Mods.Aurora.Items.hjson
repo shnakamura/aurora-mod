@@ -182,3 +182,13 @@ TungstenDaggerItem: {
 	DisplayName: Tungsten Dagger
 	Tooltip: ""
 }
+
+PowerMagnetItem: {
+	DisplayName: Power Magnet
+	Tooltip: ""
+}
+
+StoneBootsItem: {
+	DisplayName: Stone Boots
+	Tooltip: ""
+}

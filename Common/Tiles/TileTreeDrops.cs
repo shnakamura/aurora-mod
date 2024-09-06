@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 
 namespace Aurora.Common.Tiles;
 
-public sealed class TileNutDrops : GlobalTile
+public sealed class TileTreeDrops : GlobalTile
 {
     /// <summary>
     ///     The list of tree tile types that will drop nuts and ancient twigs when broken.

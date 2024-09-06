@@ -11,18 +11,12 @@ public sealed class ItemBulletCasings : ItemComponent
         /// <summary>
         ///     The type of the gore to spawn.
         /// </summary>
-        /// <remarks>
-        ///     Defaults to <c>-1</c>.
-        /// </remarks>
-        public int Type = -1;
+        public int Type;
 
         /// <summary>
         ///     The amount of gore to spawn.
         /// </summary>
-        /// <remarks>
-        ///     Defaults to <c>1</c>.
-        /// </remarks>
-        public int Amount = 1;
+        public int Amount;
 
         public GoreData(int type, int amount) {
             Type = type;
