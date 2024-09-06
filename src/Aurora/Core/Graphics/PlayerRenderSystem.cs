@@ -47,7 +47,15 @@ public sealed class PlayerRenderSystem : ModSystem
 	    device.SetRenderTarget(Target);
 	    device.Clear(Color.Transparent);
 
-	    spriteBatch.Begin(default, default, default, default, default, default, Main.GameViewMatrix.TransformationMatrix);
+	    spriteBatch.Begin(
+		    default, 
+		    default,
+		    Main.DefaultSamplerState,
+		    default, 
+		    Main.Rasterizer,
+		    default, 
+		    Main.GameViewMatrix.TransformationMatrix
+		);
 
 	    var player = Main.LocalPlayer;
 
