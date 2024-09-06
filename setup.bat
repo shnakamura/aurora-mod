@@ -9,3 +9,7 @@ if not exist "%SourcePath%" (
 set "TargetPath=%USERPROFILE%\Documents\My Games\Terraria\tModLoader\ModSources\Aurora"
 
 mklink /D "%TargetPath%" "%SourcePath%"
+
+if %ERRORLEVEL% equ 1 (
+    echo Failed to create symbolic link.
+) 

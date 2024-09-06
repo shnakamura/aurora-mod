@@ -19,7 +19,7 @@ public sealed class PlayerRenderSystem : ModSystem
                 Target = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight);
             }
         );
-
+        
         Main.OnResolutionChanged += ResizeTarget;
     }
 

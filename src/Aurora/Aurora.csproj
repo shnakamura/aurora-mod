@@ -1,17 +1,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="..\tModLoader.targets"/>
+    <Import Project="..\..\build\Aurora.targets"/>
 
+	<!-- Properties -->
     <PropertyGroup>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <PropertyGroup>
-        <ExtraBuildModFlags Condition="'$(TML_PATH_OVERRIDE)' != ''">$(ExtraBuildModFlags)-savedirectory &quot;$([System.IO.Path]::GetFullPath('.'))/$(TML_PATH_OVERRIDE)&quot; </ExtraBuildModFlags>
-    </PropertyGroup>
+	<!-- Usings -->
+	<ItemGroup>
+		<Using Include="System"/>
+		<Using Include="Terraria"/>
+		<Using Include="Terraria.ID"/>
+		<Using Include="Terraria.ModLoader"/>
+		<Using Include="Microsoft.Xna.Framework"/>
+		<Using Include="Microsoft.Xna.Framework.Graphics"/>
+	</ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Assets\Effects\Compiler\" />
-    </ItemGroup>
+	<!-- Packages -->
+	<ItemGroup>
+	  <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+	
+	<!-- Publicizer -->
+	<ItemGroup>
+		<Publicize Include="FNA"></Publicize>
+		<Publicize Include="Terraria"></Publicize>
+	</ItemGroup>
 
+	<!-- Workflows -->
+	<PropertyGroup>
+		<ExtraBuildModFlags Condition="'$(TML_PATH_OVERRIDE)' != ''">$(ExtraBuildModFlags)-savedirectory &quot;$([System.IO.Path]::GetFullPath('.'))/$(TML_PATH_OVERRIDE)&quot; </ExtraBuildModFlags>
+	</PropertyGroup>
+	
 </Project>
