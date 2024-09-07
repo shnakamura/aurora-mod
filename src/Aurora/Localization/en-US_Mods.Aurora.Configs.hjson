@@ -21,7 +21,6 @@ ClientConfiguration: {
 
 ServerConfiguration: {
 	DisplayName: Server Configuration
-	
 	Headers.Items: Items Header
 
 	EnableRecipes: {

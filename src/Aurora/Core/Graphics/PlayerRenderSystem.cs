@@ -19,7 +19,7 @@ public sealed class PlayerRenderSystem : ModSystem
                 Target = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight);
             }
         );
-
+        
         Main.OnResolutionChanged += ResizeTarget;
     }
 
@@ -47,7 +47,15 @@ public sealed class PlayerRenderSystem : ModSystem
 	    device.SetRenderTarget(Target);
 	    device.Clear(Color.Transparent);
 
-	    spriteBatch.Begin(default, default, default, default, default, default, Main.GameViewMatrix.TransformationMatrix);
+	    spriteBatch.Begin(
+		    default, 
+		    default,
+		    Main.DefaultSamplerState,
+		    default, 
+		    Main.Rasterizer,
+		    default, 
+		    Main.GameViewMatrix.TransformationMatrix
+		);
 
 	    var player = Main.LocalPlayer;
 
@@ -63,6 +71,7 @@ public sealed class PlayerRenderSystem : ModSystem
     private static void ResizeTarget(Vector2 resolution) {
         Main.QueueMainThreadAction(
             () => {
+	            Target?.Dispose();
                 Target = new RenderTarget2D(Main.graphics.GraphicsDevice, (int)resolution.X, (int)resolution.Y);
             }
         );
