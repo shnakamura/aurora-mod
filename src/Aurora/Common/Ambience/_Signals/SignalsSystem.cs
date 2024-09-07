@@ -9,7 +9,7 @@ public sealed class SignalsSystem : ModSystem
 {
     public delegate bool SignalUpdater(in SignalContext context);
 
-    public static Dictionary<string, bool> Flags = new();
+    public static Dictionary<string, bool>? Flags = new();
     public static Dictionary<string, SignalUpdater?> Updaters = new();
 
     public override void Load() {

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common;
 
 public sealed class Footstep : IFootstep
 {

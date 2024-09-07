@@ -1,4 +1,4 @@
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common;
 
 public interface IFootstep
 {

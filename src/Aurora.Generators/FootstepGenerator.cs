@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using Hjson;
 using Microsoft.CodeAnalysis;
+using Newtonsoft.Json;
 
 namespace Aurora.Generators
 {
@@ -11,7 +13,11 @@ namespace Aurora.Generators
 
 		public void Initialize(IncrementalGeneratorInitializationContext context) {
 			var files = context.AdditionalTextsProvider.Where(file => Path.GetExtension(file.Path) == Extension);
-			var contents = files.Select((text, token) => (Name: Path.GetFileNameWithoutExtension(text.Path), Text: text.GetText(token).ToString()));
+			
+			var contents = files.Select((text, token) => (
+				Name: Path.GetFileNameWithoutExtension(text.Path), 
+				Text: text.GetText(token).ToString())
+			);
 			
 			context.RegisterSourceOutput(contents,
 				(source, content) => {
@@ -21,17 +27,19 @@ namespace Aurora.Generators
 		}
 
 		private static string BuildFootstep(string name) {
-			return $@"
-				public struct {name} : IFootstep
-				{{
-					public FootstepSoundData SoundData {{ get; }} = new() {{
-						SoundPath = ""Bingus"",
-						Variants = 5
-					}}
+			return $@"namespace Aurora.Common.Footsteps;
 
-					public string Material {{ get; }} = ""Bingus""
-				}}
-			";
+public struct {name} : IFootstep
+{{
+	public FootstepSoundData SoundData {{ get; set; }} = new() {{
+		SoundPath = ""Bingus"",
+		Variants = 5
+	}};
+
+	public string Material {{ get; set; }} = ""Bingus"";
+
+	public {name}() {{ }}
+}}";
 		}
 	}
 }

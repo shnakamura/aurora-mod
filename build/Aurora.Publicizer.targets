@@ -1,6 +1,8 @@
 <Project>
+
 	<ItemGroup>
 		<Publicize Include="FNA"></Publicize>
 		<Publicize Include="Terraria"></Publicize>
 	</ItemGroup>
+
 </Project>

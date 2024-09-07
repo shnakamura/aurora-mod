@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Aurora.Common;
 using Aurora.Common.Ambience;
 using Hjson;
 using Newtonsoft.Json;
@@ -22,7 +23,7 @@ public sealed class FootstepReader : IAssetReader
         }
 
         await context;
-
+        
         using var reader = new StreamReader(stream, Encoding.UTF8);
 
         var hjson = reader.ReadToEnd();

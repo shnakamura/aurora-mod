@@ -6,7 +6,7 @@ using Aurora.Utilities;
 using ReLogic.Content;
 using Terraria.Audio;
 
-namespace Aurora.Common.Ambience;
+namespace Aurora.Common;
 
 [Autoload(Side = ModSide.Client)]
 public sealed class FootstepsSystem : ModSystem

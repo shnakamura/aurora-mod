@@ -7,4 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+	<ItemGroup>
+		<AdditionalFiles Include="**\*.footstep" />
+		<AdditionalFiles Include="**\*.ambience" />
+	</ItemGroup>
+
 </Project>
