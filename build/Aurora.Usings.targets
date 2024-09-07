@@ -1,0 +1,12 @@
+<Project>
+
+	<ItemGroup>
+		<Using Include="System"/>
+		<Using Include="Terraria"/>
+		<Using Include="Terraria.ID"/>
+		<Using Include="Terraria.ModLoader"/>
+		<Using Include="Microsoft.Xna.Framework"/>
+		<Using Include="Microsoft.Xna.Framework.Graphics"/>
+	</ItemGroup>
+
+</Project>

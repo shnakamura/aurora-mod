@@ -1,3 +1,14 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="C:\Program Files (x86)\Steam\steamapps\common\tModLoader\tMLMod.targets" />
+	
+	<Import Project="C:\Program Files (x86)\Steam\steamapps\common\tModLoader\tMLMod.targets" />
+
+	<Import Project="Aurora.Publicizer.targets"/>
+	<Import Project="Aurora.Workflows.targets"/>
+	<Import Project="Aurora.Usings.targets"/>
+	
+	<ItemGroup>
+		<PackageReference Include="Krafs.Publicizer" Version="2.2.1"/>
+		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0"/>
+	</ItemGroup>
+	
 </Project>
