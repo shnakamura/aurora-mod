@@ -1,0 +1,7 @@
+<Project>
+
+    <ItemGroup>
+        <ProjectReference Include="src\Aurora.Generators\Aurora.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+</Project>

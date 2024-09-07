@@ -5,6 +5,7 @@
 	<Import Project="Aurora.Publicizer.targets"/>
 	<Import Project="Aurora.Workflows.targets"/>
 	<Import Project="Aurora.Usings.targets"/>
+	<Import Project="Aurora.References.targets"/>
 	
 	<ItemGroup>
 		<PackageReference Include="Krafs.Publicizer" Version="2.2.1"/>
