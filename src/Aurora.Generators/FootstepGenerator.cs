@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using Hjson;
+using System.Text;
 using Microsoft.CodeAnalysis;
-using Newtonsoft.Json;
 
 namespace Aurora.Generators
 {
@@ -21,7 +20,7 @@ namespace Aurora.Generators
 			
 			context.RegisterSourceOutput(contents,
 				(source, content) => {
-					source.AddSource(content.Name, BuildFootstep(content.Name));	
+					source.AddSource($"{content.Name}.g.cs", BuildFootstep(content.Name));	
 				}
 			);
 		}
@@ -29,14 +28,14 @@ namespace Aurora.Generators
 		private static string BuildFootstep(string name) {
 			return $@"namespace Aurora.Common.Footsteps;
 
-public struct {name} : IFootstep
+public sealed class {name} : IFootstep
 {{
 	public FootstepSoundData SoundData {{ get; set; }} = new() {{
-		SoundPath = ""Bingus"",
-		Variants = 5
+		SoundPath = """",
+		Variants = 1
 	}};
 
-	public string Material {{ get; set; }} = ""Bingus"";
+	public string Material {{ get; set; }} = """";
 
 	public {name}() {{ }}
 }}";

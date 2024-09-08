@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Aurora.Common.Configuration;
-using Aurora.Core.IO;
 using Aurora.Utilities;
 using ReLogic.Content;
 using Terraria.Audio;
@@ -120,7 +119,7 @@ public sealed class FootstepsSystem : ModSystem
         foreach (var path in files) {
             var extension = Path.GetExtension(path);
 
-            if (extension == null || extension != FootstepReader.Extension) {
+            if (extension == null || extension != IFootstep.Extension) {
                 continue;
             }
 

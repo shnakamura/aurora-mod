@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Aurora.Common.Configuration;
-using Aurora.Core.IO;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using Terraria.Audio;
@@ -41,7 +40,7 @@ public sealed class AmbienceTrackSystem : ModSystem
         foreach (var path in files) {
             var extension = Path.GetExtension(path);
 
-            if (extension == null || extension != AmbienceTrackReader.Extension) {
+            if (extension == null || extension != IAmbienceTrack.Extension) {
                 continue;
             }
 

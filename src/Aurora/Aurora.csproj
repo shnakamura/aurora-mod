@@ -8,8 +8,8 @@
     </PropertyGroup>
 
 	<ItemGroup>
+		<AdditionalFiles Include="**\*.track" />
 		<AdditionalFiles Include="**\*.footstep" />
-		<AdditionalFiles Include="**\*.ambience" />
 	</ItemGroup>
 
 </Project>
