@@ -4,7 +4,7 @@ namespace Aurora.Common.Materials;
 public sealed class MaterialAttribute : Attribute
 {
 	/// <summary>
-	///		The name of this attribute's material.
+	///		The name of the material associated with this attribute's type.
 	/// </summary>
     public readonly string Name;
 

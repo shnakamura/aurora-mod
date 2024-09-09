@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Aurora.Common.Ambience;
+using Aurora.Common.Materials;
 using Aurora.Core.Configuration;
 using Aurora.Utilities;
 using JetBrains.Annotations;
@@ -91,7 +92,7 @@ public sealed class FootstepsSystem : ModSystem
         }
 
         private void PlayTileFootstep(Tile tile) {
-            var hasMaterial = tile.TryGetMaterial(out var materialName);
+            var hasMaterial = TileMaterialSystem.TryGetMaterial(tile, out var materialName);
             var hasFootstep = footsteps.TryGetValue(materialName, out var sound);
 
             if (!hasMaterial || !hasFootstep) {

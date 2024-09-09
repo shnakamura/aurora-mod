@@ -7,7 +7,7 @@ namespace Aurora.Common.Ambience;
 
 /// <summary>
 ///		Handles the registration and updating of player signals that should be used for parsing
-///		player flags as deserializable content.
+///		player flags as serializable content.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]

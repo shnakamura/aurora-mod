@@ -13,27 +13,19 @@ namespace Aurora.Generators
 		/// </summary>
 		public const string Extension = ".footstep";
 		
-		public void Initialize(IncrementalGeneratorInitializationContext context) {
-			var files = context.AdditionalTextsProvider.Where(file => Path.GetExtension(file.Path) == Extension);
+		public void Initialize(IncrementalGeneratorInitializationContext initializationContext) {
+			var files = initializationContext.AdditionalTextsProvider.Where(file => Path.GetExtension(file.Path) == Extension);
 			
 			var contents = files.Select((text, token) => (
 				Name: Path.GetFileNameWithoutExtension(text.Path), 
 				Text: text.GetText(token).ToString())
 			);
 			
-			context.RegisterSourceOutput(contents,
-				(source, content) => {
-					var name = content.Name.Remove(content.Name.IndexOf("F"), "Footsteps".Length);
+			initializationContext.RegisterSourceOutput(contents,
+				(sourceContext, content) => {
+					var footstep = new Footstep();
 					
-					var footstep = new Footstep() {
-						Data = new FootstepData() {
-							SoundPath = "Aurora/Assets/Sounds/Footsteps/" + name,
-							Variants = 5
-						},
-						Material = name
-					};
-					
-					source.AddSource($"{content.Name}.g.cs", BuildFootstep(content.Name, in footstep));	
+					sourceContext.AddSource($"{content.Name}.g.cs", BuildFootstep(content.Name, in footstep));	
 				}
 			);
 		}
