@@ -1,0 +1,284 @@
+Items: {
+	PowerMagnetItem: {
+		DisplayName: Power Magnet
+		Tooltip: ""
+	}
+
+	StoneBootsItem: {
+		DisplayName: Stone Boots
+		Tooltip: ""
+	}
+
+	EverbloomHeadgearItem: {
+		DisplayName: Everbloom Headgear
+		Tooltip: ""
+	}
+
+	EverbloomHoodItem: {
+		DisplayName: Everbloom Hood
+		Tooltip: ""
+	}
+
+	EverbloomLeggingsItem: {
+		DisplayName: Everbloom Leggings
+		Tooltip: ""
+	}
+
+	EverbloomMantleItem: {
+		DisplayName: Everbloom Mantle
+		Tooltip: ""
+	}
+
+	WildWarriorGarbItem: {
+		DisplayName: Wild Warrior Garb
+		Tooltip: ""
+	}
+
+	WildWarriorGreavesItem: {
+		DisplayName: Wild Warrior Greaves
+		Tooltip: ""
+	}
+
+	WildWarriorHelmetItem: {
+		DisplayName: Wild Warrior Helmet
+		Tooltip: ""
+	}
+
+	WildWarriorMaskItem: {
+		DisplayName: Wild Warrior Mask
+		Tooltip: ""
+	}
+
+	DirtDynamiteItem: {
+		DisplayName: Dirt Dynamite
+		Tooltip: ""
+	}
+
+	DoomMirrorItem: {
+		DisplayName: Doom Mirror
+		Tooltip: ""
+	}
+
+	StickyDirtDynamiteItem: {
+		DisplayName: Sticky Dirt Dynamite
+		Tooltip: ""
+	}
+
+	AncientTwigItem: {
+		DisplayName: Ancient Twig
+		Tooltip: ""
+	}
+
+	NutItem: {
+		DisplayName: Nut
+		Tooltip: ""
+	}
+
+	WildlifeFragmentItem: {
+		DisplayName: Wildlife Fragment
+		Tooltip: ""
+	}
+
+	WildAxeItem: {
+		DisplayName: Wild Axe
+		Tooltip: ""
+	}
+
+	WildHammerItem: {
+		DisplayName: Wild Hammer
+		Tooltip: ""
+	}
+
+	WildPickaxeItem: {
+		DisplayName: Wild Pickaxe
+		Tooltip: ""
+	}
+
+	BearClawsItem: {
+		DisplayName: Bear Claws
+		Tooltip: ""
+	}
+
+	CopperDaggerItem: {
+		DisplayName: Copper Dagger
+		Tooltip: ""
+	}
+
+	GoldDaggerItem: {
+		DisplayName: Gold Dagger
+		Tooltip: ""
+	}
+
+	IronDaggerItem: {
+		DisplayName: Iron Dagger
+		Tooltip: ""
+	}
+
+	LeadDaggerItem: {
+		DisplayName: Lead Dagger
+		Tooltip: ""
+	}
+
+	PlatinumDaggerItem: {
+		DisplayName: Platinum Dagger
+		Tooltip: ""
+	}
+
+	SilverDaggerItem: {
+		DisplayName: Silver Dagger
+		Tooltip: ""
+	}
+
+	TinDaggerItem: {
+		DisplayName: Tin Dagger
+		Tooltip: ""
+	}
+
+	TungstenDaggerItem: {
+		DisplayName: Tungsten Dagger
+		Tooltip: ""
+	}
+
+	WildNatureItem: {
+		DisplayName: Wild Nature
+		Tooltip: ""
+	}
+
+	WoodenClubItem: {
+		DisplayName: Wooden Club
+		Tooltip: ""
+	}
+
+	BarkBallistaItem: {
+		DisplayName: Bark Ballista
+		Tooltip: ""
+	}
+
+	BigIronItem: {
+		DisplayName: Big Iron
+		Tooltip: ""
+	}
+
+	CopperTomahawkItem: {
+		DisplayName: Copper Tomahawk
+		Tooltip: ""
+	}
+
+	GoldTomahawkItem: {
+		DisplayName: Gold Tomahawk
+		Tooltip: ""
+	}
+
+	IronTomahawkItem: {
+		DisplayName: Iron Tomahawk
+		Tooltip: ""
+	}
+
+	LeadTomahawkItem: {
+		DisplayName: Lead Tomahawk
+		Tooltip: ""
+	}
+
+	PlatinumTomahawkItem: {
+		DisplayName: Platinum Tomahawk
+		Tooltip: ""
+	}
+
+	SilverTomahawkItem: {
+		DisplayName: Silver Tomahawk
+		Tooltip: ""
+	}
+
+	TinTomahawkItem: {
+		DisplayName: Tin Tomahawk
+		Tooltip: ""
+	}
+
+	TungstenTomahawkItem: {
+		DisplayName: Tungsten Tomahawk
+		Tooltip: ""
+	}
+
+	CrabPincersItem: {
+		DisplayName: Crab Pincers
+		Tooltip: ""
+	}
+}
+
+NPCs.WoodPeckerNPC.DisplayName: Wood Pecker
+
+Projectiles: {
+	CopperDaggerProjectile.DisplayName: Copper Dagger
+	GoldDaggerProjectile.DisplayName: Gold Dagger
+	IronDaggerProjectile.DisplayName: Iron Dagger
+	LeadDaggerProjectile.DisplayName: Lead Dagger
+	PlatinumDaggerProjectile.DisplayName: Platinum Dagger
+	SilverDaggerProjectile.DisplayName: Silver Dagger
+	TinDaggerProjectile.DisplayName: Tin Dagger
+	TungstenDaggerProjectile.DisplayName: Tungsten Dagger
+	CopperTomahawkProjectile.DisplayName: Copper Tomahawk
+	GoldTomahawkProjectile.DisplayName: Gold Tomahawk
+	IronTomahawkProjectile.DisplayName: Iron Tomahawk
+	LeadTomahawkProjectile.DisplayName: Lead Tomahawk
+	PlatinumTomahawkProjectile.DisplayName: Platinum Tomahawk
+	SilverTomahawkProjectile.DisplayName: Silver Tomahawk
+	TinTomahawkProjectile.DisplayName: Tin Tomahawk
+	TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk
+	CrabPincersProjectile.DisplayName: Crab Pincers
+}
+
+Configs: {
+	ClientConfiguration: {
+		DisplayName: Client Configuration
+
+		Headers: {
+			Ambience: Ambience
+			Audio: Audio
+			Camera: Camera
+		}
+
+		EnableAmbience: {
+			Label: Enable Ambience
+			Tooltip: ""
+		}
+
+		EnableFootsteps: {
+			Label: Enable Footsteps
+			Tooltip: ""
+		}
+
+		EnableLowPassFilter: {
+			Label: Enable Low Pass Filter
+			Tooltip: ""
+		}
+
+		EnableSmoothing: {
+			Label: Enable Smoothing
+			Tooltip: ""
+		}
+	}
+
+	ServerConfiguration: {
+		DisplayName: Server Configuration
+		Headers.Items: Items
+
+		EnableRecipes: {
+			Label: Enable Recipes
+			Tooltip: ""
+		}
+	}
+}
+
+GameTitle: {
+	0: Aurora: Dont try Starlight River!
+	1: Aurora: Also try Calamity!
+	2: Aurora: Also try Spirit!
+	3: Aurora: Also try Everglow!
+	4: Aurora: Also try Nitrate!
+	5: Aurora: itneret
+	6: Aurora: 22
+	7: Aurora: Also try Shadows of Abaddon!
+	8: Aurora: Whomst'd've
+	9: Aurora: DONT SAY THAT!
+	10: Aurora: NO3
+}
