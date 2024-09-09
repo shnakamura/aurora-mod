@@ -4,13 +4,13 @@ namespace Aurora.Core.UI;
 public sealed partial class UISystem : ModSystem
 {
 	internal static bool TryRefresh(string identifier) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var data = Data[index];
+		var data = UISystem.data[index];
 
 		data.Value.RemoveAllChildren();
 
@@ -24,8 +24,8 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	internal static void RefreshAllStates() {
-		for (var i = 0; i < Data.Count; i++) {
-			TryRefresh(Data[i].Identifier);
+		for (var i = 0; i < data.Count; i++) {
+			TryRefresh(data[i].Identifier);
 		}
 	}
 }

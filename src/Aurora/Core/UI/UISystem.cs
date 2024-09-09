@@ -26,27 +26,27 @@ public sealed partial class UISystem : ModSystem
 	// Terraria doesn't provide any game time instance during rendering, so we keep track of it ourselves.
 	private static GameTime? lastGameTime;
 
-	public static List<UIStateData> Data { get; set; } = new();
+	private static List<UIStateData>? data = new();
 
 	public override void Unload() {
 		base.Unload();
 
-		for (var i = 0; i < Data.Count; i++) {
-			var data = Data[i];
+		for (var i = 0; i < data.Count; i++) {
+			var data = UISystem.data[i];
 
 			data.UserInterface?.SetState(null);
 			data.UserInterface = null;
 		}
 
-		Data?.Clear();
-		Data = null;
+		data?.Clear();
+		data = null;
 	}
 
 	public override void UpdateUI(GameTime gameTime) {
 		base.UpdateUI(gameTime);
 
-		for (var i = 0; i < Data.Count; i++) {
-			var data = Data[i];
+		for (var i = 0; i < data.Count; i++) {
+			var data = UISystem.data[i];
 
 			data.UserInterface.Update(gameTime);
 		}
@@ -57,8 +57,8 @@ public sealed partial class UISystem : ModSystem
 	public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers) {
 		base.ModifyInterfaceLayers(layers);
 
-		for (var i = 0; i < Data.Count; i++) {
-			var data = Data[i];
+		for (var i = 0; i < data.Count; i++) {
+			var data = UISystem.data[i];
 
 			var index = layers.FindIndex(l => l.Name == data.Layer);
 
@@ -79,7 +79,7 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	public static void Register(string identifier, string layer, UIState? value, int offset = 0, InterfaceScaleType type = InterfaceScaleType.UI) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
 
 		var data = new UIStateData(identifier, layer, value, offset, type) {
 			UserInterface = new UserInterface()
@@ -88,21 +88,21 @@ public sealed partial class UISystem : ModSystem
 		data.UserInterface.SetState(value);
 
 		if (index < 0) {
-			Data.Add(data);
+			UISystem.data.Add(data);
 		}
 		else {
-			Data[index] = data;
+			UISystem.data[index] = data;
 		}
 	}
 
 	public static bool TryEnable(string identifier) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var data = Data[index];
+		var data = UISystem.data[index];
 
 		data.UserInterface.CurrentState.Activate();
 		data.Enabled = true;
@@ -117,7 +117,7 @@ public sealed partial class UISystem : ModSystem
 		int offset = 0,
 		InterfaceScaleType type = InterfaceScaleType.UI
 	) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			Register(identifier, layer, value, offset, type);
@@ -127,13 +127,13 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	public static bool TryDisable(string identifier) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var data = Data[index];
+		var data = UISystem.data[index];
 
 		data.UserInterface.CurrentState.Deactivate();
 		data.Enabled = false;
@@ -142,13 +142,13 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	public static bool TryToggle(string identifier, bool refresh = true) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		return Data[index].Enabled ? TryDisable(identifier) : TryEnable(identifier);
+		return data[index].Enabled ? TryDisable(identifier) : TryEnable(identifier);
 	}
 
 	public static bool TryToggleOrRegister(
@@ -158,7 +158,7 @@ public sealed partial class UISystem : ModSystem
 		int offset = 0,
 		InterfaceScaleType type = InterfaceScaleType.UI
 	) {
-		var index = Data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			Register(identifier, layer, value, offset, type);
