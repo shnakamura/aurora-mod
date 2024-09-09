@@ -61,26 +61,48 @@ public sealed class TileMaterialSystem : ModSystem
         materials?.Clear();
         materials = null;
     }
+    
+    /// <summary>
+    ///		Registers a tile material from a type set.
+    /// </summary>
+    /// <param name="materialName">The name of the material.</param>
+    /// <param name="tileTypes">The types associated with the material.</param>
+    public static void RegisterMaterial(string materialName, params int[] tileTypes) {
+	    for (int i = 0; i < tileTypes.Length; i++) {
+		    materials[tileTypes[i]] = materialName;
+	    }
+    }
+    
+    /// <summary>
+    ///		Registers a tile material from a content set.
+    /// </summary>
+    /// <param name="materialName">The name of the material.</param>
+    /// <param name="set">The factory set associated with the material.</param>
+    public static void RegisterMaterial(string materialName, bool[] set) {
+	    for (int i = 0; i < set.Length; i++) {
+		    if (set[i]) {
+			    RegisterMaterial(materialName, i);
+		    }
+	    }
+    }
 
+    /// <summary>
+    ///		Attempts to retrieve a material from a tile type.
+    /// </summary>
+    /// <param name="tileType">The type of the tile.</param>
+    /// <param name="materialName">The name of the material retrieved.</param>
+    /// <returns><c>true</c> if a material was successfully retrieved; otherwise, <c>false</c>.</returns>
     public static bool TryGetMaterial(int tileType, out string materialName) {
         return materials.TryGetValue(tileType, out materialName);
     }
     
+    /// <summary>
+    ///		Attempts to retrieve a material from a tile.
+    /// </summary>
+    /// <param name="tileType">The type of the tile.</param>
+    /// <param name="materialName">The name of the material retrieved.</param>
+    /// <returns><c>true</c> if a material was successfully retrieved; otherwise, <c>false</c>.</returns>
     public static bool TryGetMaterial(Tile tile, out string materialName) {
 	    return TryGetMaterial(tile.TileType, out materialName);
-    }
-
-    public static void RegisterMaterial(string materialName, params int[] tileTypes) {
-        for (int i = 0; i < tileTypes.Length; i++) {
-            materials[tileTypes[i]] = materialName;
-        }
-    }
-    
-    private static void RegisterMaterial(string materialName, bool[] set) {
-        for (int i = 0; i < set.Length; i++) {
-            if (set[i]) {
-                RegisterMaterial(materialName, i);
-            }
-        }
     }
 }
