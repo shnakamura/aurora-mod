@@ -46,9 +46,9 @@ public sealed partial class UISystem : ModSystem
 		base.UpdateUI(gameTime);
 
 		for (var i = 0; i < data.Count; i++) {
-			var data = UISystem.data[i];
+			var state = data[i];
 
-			data.UserInterface.Update(gameTime);
+			state.UserInterface.Update(gameTime);
 		}
 
 		lastGameTime = gameTime;
@@ -58,54 +58,54 @@ public sealed partial class UISystem : ModSystem
 		base.ModifyInterfaceLayers(layers);
 
 		for (var i = 0; i < data.Count; i++) {
-			var data = UISystem.data[i];
+			var state = data[i];
 
-			var index = layers.FindIndex(l => l.Name == data.Layer);
+			var index = layers.FindIndex(l => l.Name == state.Layer);
 
 			if (index < 0) {
 				continue;
 			}
 
 			LegacyGameInterfaceLayer layer = new(
-				data.Identifier,
+				state.Identifier,
 				() => {
-					data.UserInterface.Draw(Main.spriteBatch, lastGameTime);
+					state.UserInterface.Draw(Main.spriteBatch, lastGameTime);
 					return true;
 				}
 			);
 
-			layers.Insert(index + data.Offset, layer);
+			layers.Insert(index + state.Offset, layer);
 		}
 	}
 
 	public static void Register(string identifier, string layer, UIState? value, int offset = 0, InterfaceScaleType type = InterfaceScaleType.UI) {
-		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
-		var data = new UIStateData(identifier, layer, value, offset, type) {
+		var state = new UIStateData(identifier, layer, value, offset, type) {
 			UserInterface = new UserInterface()
 		};
 
-		data.UserInterface.SetState(value);
+		state.UserInterface.SetState(value);
 
 		if (index < 0) {
-			UISystem.data.Add(data);
+			UISystem.data.Add(state);
 		}
 		else {
-			UISystem.data[index] = data;
+			UISystem.data[index] = state;
 		}
 	}
 
 	public static bool TryEnable(string identifier) {
-		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var data = UISystem.data[index];
+		var state = UISystem.data[index];
 
-		data.UserInterface.CurrentState.Activate();
-		data.Enabled = true;
+		state.UserInterface.CurrentState.Activate();
+		state.Enabled = true;
 
 		return true;
 	}
@@ -127,16 +127,16 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	public static bool TryDisable(string identifier) {
-		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var data = UISystem.data[index];
+		var state = UISystem.data[index];
 
-		data.UserInterface.CurrentState.Deactivate();
-		data.Enabled = false;
+		state.UserInterface.CurrentState.Deactivate();
+		state.Enabled = false;
 
 		return true;
 	}
