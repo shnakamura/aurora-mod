@@ -6,10 +6,6 @@ namespace Aurora.Core.Audio;
 
 public sealed class LowPassFilter : IAudioFilter
 {
-    void ILoadable.Load(Mod mod) { }
-
-    void ILoadable.Unload() { }
-
     void IAudioFilter.Apply(SoundEffectInstance instance, in AudioParameters parameters) {
 	    if (!ClientConfiguration.Instance.EnableLowPassFilter) {
 		    return;

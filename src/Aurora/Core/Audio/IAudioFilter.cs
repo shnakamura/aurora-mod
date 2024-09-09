@@ -2,16 +2,12 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Aurora.Core.Audio;
 
-/// <summary>
-///     An implementation of an audio filter used by <see cref="AudioSystem" />.
-/// </summary>
 [Autoload(Side = ModSide.Client)]
 public interface IAudioFilter : ILoadable
 {
-    /// <summary>
-    ///     Applies audio modifiers to audio parameters from a given sound instance.
-    /// </summary>
-    /// <param name="instance">The sound instance.</param>
-    /// <param name="parameters">The sound parameters.</param>
+	void ILoadable.Load(Mod mod) { }
+
+	void ILoadable.Unload() { }
+	
     void Apply(SoundEffectInstance instance, in AudioParameters parameters);
 }

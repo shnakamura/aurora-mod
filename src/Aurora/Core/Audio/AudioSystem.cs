@@ -5,13 +5,10 @@ using Terraria.Audio;
 
 namespace Aurora.Core.Audio;
 
-/// <summary>
-///     Handles the registration and updating of <see cref="AudioModifier" /> instances.
-/// </summary>
 [Autoload(Side = ModSide.Client)]
 public sealed class AudioSystem : ModSystem
 {
-    private static readonly SoundStyle[] IgnoredSoundStyles = {
+    private static readonly SoundStyle[] IgnoredSounds = {
         SoundID.MenuClose,
         SoundID.MenuOpen,
         SoundID.MenuTick,
@@ -47,15 +44,6 @@ public sealed class AudioSystem : ModSystem
         UpdateSounds();
     }
 
-    /// <summary>
-    ///     Adds an audio modifier to the current audio parameters.
-    /// </summary>
-    /// <remarks>
-    ///     If a modifier with the same identifier already exists, this will override its values.
-    /// </remarks>
-    /// <param name="identifier">The identifier of the modifier.</param>
-    /// <param name="duration">The duration of the modifier in ticks.</param>
-    /// <param name="callback">The callback to the modifier's execution.</param>
     public static void AddModifier(string identifier, int duration, AudioModifier.ModifierCallback? callback) {
         var index = modifiers.FindIndex(modifier => modifier.Identifier == identifier);
 
@@ -128,7 +116,7 @@ public sealed class AudioSystem : ModSystem
 
         var isSoundIgnored = false;
 
-        foreach (var ignoredStyle in IgnoredSoundStyles) {
+        foreach (var ignoredStyle in IgnoredSounds) {
             if (style == ignoredStyle) {
                 isSoundIgnored = true;
                 break;

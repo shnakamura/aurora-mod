@@ -10,8 +10,18 @@ public sealed class ItemAccessoryRecipes : GlobalItem
 		if (!ServerConfiguration.Instance.EnableRecipes) {
 			return;
 		}
+		
+		Recipe.Create(ItemID.PortableStool)
+			.AddRecipeGroup(RecipeGroupID.Wood, 20)
+			.AddTile(TileID.Anvils)
+			.Register();
 
 		Recipe.Create(ItemID.Aglet)
+			.AddRecipeGroup(RecipeGroupID.IronBar, 5)
+			.AddTile(TileID.Anvils)
+			.Register();
+		
+		Recipe.Create(ItemID.Radar)
 			.AddRecipeGroup(RecipeGroupID.IronBar, 5)
 			.AddTile(TileID.Anvils)
 			.Register();
@@ -26,17 +36,20 @@ public sealed class ItemAccessoryRecipes : GlobalItem
 			.AddIngredient(ItemID.Silk, 5)
 			.AddTile(TileID.WorkBenches)
 			.Register();
-		
-		Recipe.Create(ItemID.MagicMirror)
-			.AddIngredient(ItemID.Glass, 20)
-			.AddIngredient(ItemID.FallenStar, 3)
+
+		Recipe.Create(ItemID.AnkletoftheWind)
+			.AddIngredient(ItemID.JungleSpores, 10)
 			.AddTile(TileID.WorkBenches)
 			.Register();
+
+		Recipe.Create(ItemID.ShoeSpikes)
+			.AddRecipeGroup(RecipeGroupID.IronBar, 5)
+			.AddTile(TileID.Anvils)
+			.Register();
 		
-		Recipe.Create(ItemID.IceMirror)
-			.AddIngredient(ItemID.Glass, 20)
-			.AddIngredient(ItemID.FallenStar, 3)
-			.AddTile(TileID.WorkBenches)
+		Recipe.Create(ItemID.ClimbingClaws)
+			.AddRecipeGroup(RecipeGroupID.IronBar, 5)
+			.AddTile(TileID.Anvils)
 			.Register();
 	}
 }
