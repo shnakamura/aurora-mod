@@ -13,7 +13,7 @@ namespace Aurora.Common.Materials;
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TileMaterialSystem : ModSystem
 {
-    private static Dictionary<int, string>? materials = new();
+    private static Dictionary<int, string>? materialsByName = new();
 
     public override void PostSetupContent() {
         base.PostSetupContent();
@@ -25,8 +25,8 @@ public sealed class TileMaterialSystem : ModSystem
     public override void Unload() {
         base.Unload();
         
-        materials?.Clear();
-        materials = null;
+        materialsByName?.Clear();
+        materialsByName = null;
     }
     
     /// <summary>
@@ -36,7 +36,7 @@ public sealed class TileMaterialSystem : ModSystem
     /// <param name="tileTypes">The types associated with the material.</param>
     public static void RegisterMaterial(string materialName, params int[] tileTypes) {
 	    for (int i = 0; i < tileTypes.Length; i++) {
-		    materials[tileTypes[i]] = materialName;
+		    materialsByName[tileTypes[i]] = materialName;
 	    }
     }
     
@@ -60,7 +60,7 @@ public sealed class TileMaterialSystem : ModSystem
     /// <param name="materialName">The name of the material retrieved.</param>
     /// <returns><c>true</c> if a material was successfully retrieved; otherwise, <c>false</c>.</returns>
     public static bool TryGetMaterial(int tileType, out string materialName) {
-        return materials.TryGetValue(tileType, out materialName);
+        return materialsByName.TryGetValue(tileType, out materialName);
     }
     
     /// <summary>
@@ -83,7 +83,7 @@ public sealed class TileMaterialSystem : ModSystem
 			    continue;
 		    }
 
-		    materials[tile.Type] = attribute.Name;
+		    materialsByName[tile.Type] = attribute.Name;
 	    }
     }
 

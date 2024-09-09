@@ -15,8 +15,8 @@ public sealed class SignalsSystem : ModSystem
 {
     public delegate bool SignalUpdaterCallback(in SignalContext context);
 
-    private static Dictionary<string, bool>? flags = new();
-    private static Dictionary<string, SignalUpdaterCallback?>? updaters = new();
+    private static Dictionary<string, bool>? flagsByName = new();
+    private static Dictionary<string, SignalUpdaterCallback?>? callbacksByName = new();
 
     public override void Load() {
         base.Load();
@@ -44,18 +44,18 @@ public sealed class SignalsSystem : ModSystem
     public override void Unload() {
         base.Unload();
 
-        flags?.Clear();
-        flags = null;
+        flagsByName?.Clear();
+        flagsByName = null;
 
-        updaters?.Clear();
-        updaters = null;
+        callbacksByName?.Clear();
+        callbacksByName = null;
     }
     
     public override void PostUpdatePlayers() {
         base.PostUpdatePlayers();
         
-        foreach (var (name, updater) in updaters) {
-            flags[name] = updater?.Invoke(in SignalContext.Default) ?? false;
+        foreach (var (name, updater) in callbacksByName) {
+            flagsByName[name] = updater?.Invoke(in SignalContext.Default) ?? false;
         }
     }
 
@@ -65,7 +65,7 @@ public sealed class SignalsSystem : ModSystem
     /// <param name="name">The name of the signal to check.</param>
     /// <returns><c>true</c> if the signal was found and is active; otherwise, <c>false</c>.</returns>
     public static bool GetSignal(string name) {
-        return flags[name];
+        return flagsByName[name];
     }
 
     /// <summary>
@@ -92,6 +92,6 @@ public sealed class SignalsSystem : ModSystem
     /// <param name="name">The name of the signal to register.</param>
     /// <param name="callback">The callback of the signal to register.</param>
     public static void RegisterUpdater(string name, SignalUpdaterCallback? callback) {
-        updaters[name] = callback;
+        callbacksByName[name] = callback;
     }
 }
