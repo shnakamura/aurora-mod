@@ -34,4 +34,4 @@ jobs:
         cd ./Aurora
         
     - name: Lint
-      run: dotnet format style PathOfTerraria.sln --verify-no-changes
+      run: dotnet format style Aurora.sln --verify-no-changes
