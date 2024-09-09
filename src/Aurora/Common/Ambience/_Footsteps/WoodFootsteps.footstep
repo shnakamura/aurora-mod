@@ -1,0 +1,8 @@
+{
+	"Data": {
+        SoundPath: "Aurora/Assets/Sounds/Footsteps/Wood"
+        Variants: 5
+    }
+    
+    "Material": "Wood"
+}

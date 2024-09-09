@@ -1,4 +1,5 @@
 using System.Reflection;
+using Aurora.Core.Configuration;
 using Microsoft.Xna.Framework.Audio;
 
 namespace Aurora.Core.Audio;
@@ -10,6 +11,10 @@ public sealed class LowPassFilter : IAudioFilter
     void ILoadable.Unload() { }
 
     void IAudioFilter.Apply(SoundEffectInstance instance, in AudioParameters parameters) {
+	    if (!ClientConfiguration.Instance.EnableLowPassFilter) {
+		    return;
+	    }
+	    
         var intensity = parameters.LowPass;
 
         if (intensity <= 0f || instance?.IsDisposed == true) {

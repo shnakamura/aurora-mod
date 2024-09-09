@@ -1,4 +1,4 @@
-using Aurora.Common.Configuration;
+using Aurora.Core.Configuration;
 
 namespace Aurora.Common.Items;
 

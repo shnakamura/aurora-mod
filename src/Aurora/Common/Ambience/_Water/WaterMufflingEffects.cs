@@ -1,4 +1,3 @@
-using Aurora.Common.Configuration;
 using Aurora.Core.Audio;
 using Aurora.Utilities;
 
@@ -23,10 +22,6 @@ public sealed class WaterMufflingEffects : ModPlayer
 
     public override void PostUpdate() {
         base.PostUpdate();
-        
-        if (!ClientConfiguration.Instance.EnableMuffling) {
-	        return;
-        }
 
         UpdateIntensity();
         UpdateModifier();

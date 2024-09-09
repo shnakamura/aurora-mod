@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using Terraria.ModLoader.Config;
 
-namespace Aurora.Common.Configuration;
+namespace Aurora.Core.Configuration;
 
 public sealed class ServerConfiguration : ModConfig
 {

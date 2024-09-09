@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using Aurora.Common.Configuration;
+using System.Linq;
+using Aurora.Common.Ambience;
+using Aurora.Core.Configuration;
 using Aurora.Utilities;
 using ReLogic.Content;
 using Terraria.Audio;
@@ -26,7 +28,7 @@ public sealed class FootstepsSystem : ModSystem
             if (!ClientConfiguration.Instance.EnableFootsteps) {
 	            return;
             }
-
+            
             UpdateLegs();
             UpdateImpact();
             UpdateFootsteps();
@@ -98,12 +100,14 @@ public sealed class FootstepsSystem : ModSystem
         }
     }
 
-    private static Dictionary<string, SoundStyle> footsteps = new();
+    private static Dictionary<string, SoundStyle>? footsteps = new();
 
     public override void PostSetupContent() {
         base.PostSetupContent();
 
-        LoadFootsteps(Mod);
+        foreach (var footstep in ModContent.GetContent<IFootstep>()) {
+	        footsteps[footstep.Material] = footstep.Sound;
+        }
     }
 
     public override void Unload() {
@@ -111,29 +115,5 @@ public sealed class FootstepsSystem : ModSystem
 
         footsteps?.Clear();
         footsteps = null;
-    }
-
-    public static void LoadFootsteps(Mod mod) {
-        var files = mod.RootContentSource.EnumerateAssets();
-
-        foreach (var path in files) {
-            var extension = Path.GetExtension(path);
-
-            if (extension == null || extension != IFootstep.Extension) {
-                continue;
-            }
-
-            var pathWithoutExtension = Path.ChangeExtension(path, null);
-
-            var asset = mod.Assets.Request<Footstep>(pathWithoutExtension, AssetRequestMode.ImmediateLoad);
-            var footstep = asset.Value;
-
-            var sound = new SoundStyle(footstep.SoundData.SoundPath, footstep.SoundData.Variants, SoundType.Ambient) {
-                Volume = 0.2f,
-                SoundLimitBehavior = SoundLimitBehavior.ReplaceOldest
-            };
-
-            footsteps[footstep.Material] = sound;
-        }
     }
 }

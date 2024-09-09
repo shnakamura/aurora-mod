@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora", "src\Aurora\Aurora
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Generators", "src\Aurora.Generators\Aurora.Generators.csproj", "{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Assets", "Aurora.Assets\Aurora.Assets.csproj", "{34628084-AFA2-4A4E-8E62-509860A52091}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{34628084-AFA2-4A4E-8E62-509860A52091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34628084-AFA2-4A4E-8E62-509860A52091}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34628084-AFA2-4A4E-8E62-509860A52091}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34628084-AFA2-4A4E-8E62-509860A52091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,0 @@
-SoundData: {
-    SoundPath: "Aurora/Assets/Sounds/Footsteps/Grass"
-    Variants: 5
-}
-
-Material: "Grass"

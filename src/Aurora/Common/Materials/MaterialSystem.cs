@@ -47,6 +47,9 @@ public sealed class MaterialSystem : ModSystem
             TileID.SpookyWood
         );
         
+        RegisterMaterialFromSet(TileID.Sets.Snow, "Snow");
+        RegisterMaterialFromSet(TileID.Sets.IcesSnow, "Snow");
+        
         RegisterMaterialFromSet(TileID.Sets.Grass, "Grass");
         RegisterMaterialFromSet(TileID.Sets.Conversion.Grass, "Grass");
         

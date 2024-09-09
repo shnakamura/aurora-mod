@@ -1,6 +1,6 @@
-namespace Aurora.Assets
+namespace Aurora.Generators
 {
-	public struct FootstepSoundData
+	public struct FootstepData
 	{
 		public string SoundPath;
 
