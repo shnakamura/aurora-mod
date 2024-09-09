@@ -4,12 +4,14 @@ using System.Linq;
 using Aurora.Common.Ambience;
 using Aurora.Core.Configuration;
 using Aurora.Utilities;
+using JetBrains.Annotations;
 using ReLogic.Content;
 using Terraria.Audio;
 
 namespace Aurora.Common;
 
 [Autoload(Side = ModSide.Client)]
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class FootstepsSystem : ModSystem
 {
     private sealed class FootstepsSystemPlayerImpl : ModPlayer

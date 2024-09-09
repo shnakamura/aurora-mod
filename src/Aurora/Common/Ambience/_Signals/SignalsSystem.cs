@@ -1,16 +1,22 @@
 using System.Collections.Generic;
 using System.Reflection;
+using JetBrains.Annotations;
 using Terraria.ModLoader.Core;
 
 namespace Aurora.Common.Ambience;
 
+/// <summary>
+///		Handles the registration and updating of player signals that should be used for parsing
+///		player flags as deserializable content.
+/// </summary>
 [Autoload(Side = ModSide.Client)]
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class SignalsSystem : ModSystem
 {
-    public delegate bool SignalUpdater(in SignalContext context);
+    public delegate bool SignalUpdaterCallback(in SignalContext context);
 
-    public static Dictionary<string, bool>? Flags = new();
-    public static Dictionary<string, SignalUpdater?> Updaters = new();
+    private static Dictionary<string, bool>? flags = new();
+    private static Dictionary<string, SignalUpdaterCallback?>? updaters = new();
 
     public override void Load() {
         base.Load();
@@ -23,14 +29,13 @@ public sealed class SignalsSystem : ModSystem
                     continue;
                 }
 
-                var callback = method.CreateDelegate<SignalUpdater>();
+                var callback = method.CreateDelegate<SignalUpdaterCallback>();
                 var name = attribute.Name ?? method.Name;
 
                 RegisterUpdater(name, callback);
             }
         }
 
-        RegisterUpdater("Purity", static (in SignalContext context) => context.Player.ZonePurity);
         RegisterUpdater("Forest", static (in SignalContext context) => context.Player.ZonePurity);
         RegisterUpdater("Day", static (in SignalContext _) => Main.dayTime);
         RegisterUpdater("Night", static (in SignalContext _) => !Main.dayTime);
@@ -39,29 +44,35 @@ public sealed class SignalsSystem : ModSystem
     public override void Unload() {
         base.Unload();
 
-        Flags?.Clear();
-        Flags = null;
+        flags?.Clear();
+        flags = null;
 
-        Updaters?.Clear();
-        Updaters = null;
+        updaters?.Clear();
+        updaters = null;
     }
-
+    
     public override void PostUpdatePlayers() {
         base.PostUpdatePlayers();
-
-        var context = new SignalContext {
-            Player = Main.LocalPlayer
-        };
-
-        foreach (var (name, updater) in Updaters) {
-            Flags[name] = updater?.Invoke(in context) ?? false;
+        
+        foreach (var (name, updater) in updaters) {
+            flags[name] = updater?.Invoke(in SignalContext.Default) ?? false;
         }
     }
 
+    /// <summary>
+    ///		Checks if a signal is active.
+    /// </summary>
+    /// <param name="name">The name of the signal to check.</param>
+    /// <returns><c>true</c> if the signal was found and is active; otherwise, <c>false</c>.</returns>
     public static bool GetSignal(string name) {
-        return Flags[name];
+        return flags[name];
     }
 
+    /// <summary>
+    ///     Checks if any of the specified signals are active.
+    /// </summary>
+    /// <param name="names">The names of signals to check.</param>
+    /// <returns><c>true</c> if any of the specified signals were found and are active; otherwise, <c>false</c>.</returns>
     public static bool GetSignal(params string[] names) {
         var success = false;
 
@@ -75,7 +86,12 @@ public sealed class SignalsSystem : ModSystem
         return success;
     }
 
-    public static void RegisterUpdater(string name, SignalUpdater? updater) {
-        Updaters[name] = updater;
+    /// <summary>
+    ///		Registers a new signal updater.
+    /// </summary>
+    /// <param name="name">The name of the signal to register.</param>
+    /// <param name="callback">The callback of the signal to register.</param>
+    public static void RegisterUpdater(string name, SignalUpdaterCallback? callback) {
+        updaters[name] = callback;
     }
 }

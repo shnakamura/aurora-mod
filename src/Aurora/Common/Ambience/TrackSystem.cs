@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Aurora.Core.Configuration;
+using JetBrains.Annotations;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using Terraria.Audio;
@@ -8,6 +9,7 @@ using Terraria.Audio;
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TrackSystem : ModSystem
 {
     /// <summary>

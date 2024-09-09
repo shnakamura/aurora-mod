@@ -1,17 +1,15 @@
 using Aurora.Core.Audio;
 using Aurora.Utilities;
+using JetBrains.Annotations;
 
 namespace Aurora.Common.Ambience;
 
-/// <summary>
-///     Handles water audio muffling effects for the player through an <see cref="AudioModifier" />
-///     instance registered in <see cref="AudioSystem" />.
-/// </summary>
 [Autoload(Side = ModSide.Client)]
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WaterMufflingEffects : ModPlayer
 {
     /// <summary>
-    ///     The audio muffling intensity. Ranges from <c>0f</c> to <c>0.9f</c>.
+    ///     The low pass filter intensity. Ranges from <c>0f</c> to <c>0.9f</c>.
     /// </summary>
     public float Intensity {
         get => _intensity;
