@@ -1,15 +1,11 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Aurora.Common.Ambience;
 using Aurora.Common.Materials;
 using Aurora.Core.Configuration;
 using Aurora.Utilities;
 using JetBrains.Annotations;
-using ReLogic.Content;
 using Terraria.Audio;
 
-namespace Aurora.Common;
+namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]

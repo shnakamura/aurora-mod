@@ -1,10 +1,16 @@
 using System.Collections.Generic;
 using System.Reflection;
+using JetBrains.Annotations;
 using Terraria.ModLoader.Core;
 
 namespace Aurora.Common.Materials;
 
+/// <summary>
+///		Handles registration and loading of tile materials through <see cref="MaterialAttribute"/> for
+///		modded tiles and manual callbacks for vanilla tiles.
+/// </summary>
 [Autoload(Side = ModSide.Client)]
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TileMaterialSystem : ModSystem
 {
     private static Dictionary<int, string>? materials = new();
@@ -12,47 +18,8 @@ public sealed class TileMaterialSystem : ModSystem
     public override void PostSetupContent() {
         base.PostSetupContent();
         
-        foreach (var tile in ModContent.GetContent<ModTile>()) {
-            var type = tile.GetType();
-            
-            var attribute = type.GetCustomAttribute<MaterialAttribute>();
-
-            if (attribute == null) {
-                continue;
-            }
-
-            materials[tile.Type] = attribute.Name;
-        }
-        
-        RegisterMaterial(
-	        "Grass",
-	        TileID.LivingMahoganyLeaves
-	    );
-        
-        RegisterMaterial("Grass", TileID.Sets.Grass);
-        
-        RegisterMaterial(
-            "Stone", 
-            TileID.GrayBrick, 
-            TileID.StoneSlab, 
-            TileID.Mudstone
-        );
-
-        RegisterMaterial("Stone", TileID.Sets.Stone);
-      
-        RegisterMaterial(
-            "Wood", 
-            TileID.Platforms,
-            TileID.WoodBlock,
-            TileID.AshWood,
-            TileID.Shadewood,
-            TileID.Pearlwood,
-            TileID.BorealWood,
-            TileID.LivingWood,
-            TileID.DynastyWood,
-            TileID.Ebonwood,
-            TileID.SpookyWood
-        );
+        LoadModdedMaterials();
+        LoadVanillaMaterials();
     }
 
     public override void Unload() {
@@ -104,5 +71,51 @@ public sealed class TileMaterialSystem : ModSystem
     /// <returns><c>true</c> if a material was successfully retrieved; otherwise, <c>false</c>.</returns>
     public static bool TryGetMaterial(Tile tile, out string materialName) {
 	    return TryGetMaterial(tile.TileType, out materialName);
+    }
+
+    private static void LoadModdedMaterials() {
+	    foreach (var tile in ModContent.GetContent<ModTile>()) {
+		    var type = tile.GetType();
+            
+		    var attribute = type.GetCustomAttribute<MaterialAttribute>();
+
+		    if (attribute == null) {
+			    continue;
+		    }
+
+		    materials[tile.Type] = attribute.Name;
+	    }
+    }
+
+    private static void LoadVanillaMaterials() {
+	    RegisterMaterial(
+		    "Grass",
+		    TileID.LivingMahoganyLeaves
+	    );
+        
+	    RegisterMaterial("Grass", TileID.Sets.Grass);
+        
+	    RegisterMaterial(
+		    "Stone", 
+		    TileID.GrayBrick, 
+		    TileID.StoneSlab, 
+		    TileID.Mudstone
+	    );
+
+	    RegisterMaterial("Stone", TileID.Sets.Stone);
+      
+	    RegisterMaterial(
+		    "Wood", 
+		    TileID.Platforms,
+		    TileID.WoodBlock,
+		    TileID.AshWood,
+		    TileID.Shadewood,
+		    TileID.Pearlwood,
+		    TileID.BorealWood,
+		    TileID.LivingWood,
+		    TileID.DynastyWood,
+		    TileID.Ebonwood,
+		    TileID.SpookyWood
+	    );
     }
 }

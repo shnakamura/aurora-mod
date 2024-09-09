@@ -1,6 +1,6 @@
 using Aurora.Core.Configuration;
 
-namespace Aurora.Common.Items;
+namespace Aurora.Common.Recipes;
 
 public sealed class ItemAccessoryRecipes : GlobalItem
 {

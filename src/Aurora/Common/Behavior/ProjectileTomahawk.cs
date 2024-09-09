@@ -2,7 +2,7 @@ using System.IO;
 using Aurora.Core.Projectiles;
 using Terraria.ModLoader.IO;
 
-namespace Aurora.Common.Projectiles;
+namespace Aurora.Common.Behavior;
 
 public sealed class ProjectileTomahawk : ProjectileComponent
 {

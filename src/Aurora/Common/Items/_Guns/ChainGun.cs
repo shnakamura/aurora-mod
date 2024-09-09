@@ -1,3 +1,4 @@
+using Aurora.Common.Effects;
 using Aurora.Content.Gores;
 using Aurora.Core.Items;
 

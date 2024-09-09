@@ -1,3 +1,4 @@
+using Aurora.Common.Effects;
 using Aurora.Common.NPCs;
 using Aurora.Core.NPCs;
 

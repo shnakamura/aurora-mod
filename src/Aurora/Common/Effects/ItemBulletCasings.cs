@@ -1,7 +1,7 @@
 using Aurora.Core.Items;
 using Terraria.GameContent;
 
-namespace Aurora.Common.Items;
+namespace Aurora.Common.Effects;
 
 [Autoload(Side = ModSide.Client)]
 public sealed class ItemBulletCasings : ItemComponent

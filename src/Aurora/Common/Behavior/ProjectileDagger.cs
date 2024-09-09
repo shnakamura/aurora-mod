@@ -4,7 +4,7 @@ using Terraria.Enums;
 using Terraria.GameContent;
 using Terraria.ModLoader.IO;
 
-namespace Aurora.Common.Projectiles;
+namespace Aurora.Common.Behavior;
 
 public sealed class ProjectileDagger : ProjectileComponent
 {

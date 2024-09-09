@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Aurora.Core.NPCs;
 
-namespace Aurora.Common.NPCs;
+namespace Aurora.Common.Effects;
 
 /// <summary>
 ///     Provides registration and handles the spawning of NPC effects upon hit.

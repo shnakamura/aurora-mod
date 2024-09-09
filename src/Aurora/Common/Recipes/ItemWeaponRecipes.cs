@@ -1,4 +1,4 @@
-namespace Aurora.Common.Items;
+namespace Aurora.Common.Recipes;
 
 public sealed class ItemWeaponRecipes : GlobalItem
 {

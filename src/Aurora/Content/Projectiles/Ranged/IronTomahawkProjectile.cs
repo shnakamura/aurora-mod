@@ -1,4 +1,4 @@
-using Aurora.Common.Projectiles;
+using Aurora.Common.Behavior;
 using Aurora.Core.Projectiles;
 
 namespace Aurora.Content.Projectiles.Ranged;

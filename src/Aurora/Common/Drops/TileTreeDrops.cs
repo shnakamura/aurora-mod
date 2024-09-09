@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Aurora.Content.Items.Materials;
 using Terraria.DataStructures;
 
-namespace Aurora.Common.Tiles;
+namespace Aurora.Common.Drops;
 
 public sealed class TileTreeDrops : GlobalTile
 {
