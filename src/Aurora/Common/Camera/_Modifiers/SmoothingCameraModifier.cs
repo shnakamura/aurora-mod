@@ -5,7 +5,7 @@ namespace Aurora.Common.Camera;
 [Autoload(Side = ModSide.Client)]
 public sealed class SmoothingCameraModifier : ICameraModifier, ILoadable
 {
-	string ICameraModifier.UniqueIdentity { get; } = nameof(SmoothingCameraModifier);
+	string ICameraModifier.UniqueIdentity { get; } = $"{nameof(Aurora)}:{nameof(SmoothingCameraModifier)}";
 	
 	bool ICameraModifier.Finished { get; } = false;
 

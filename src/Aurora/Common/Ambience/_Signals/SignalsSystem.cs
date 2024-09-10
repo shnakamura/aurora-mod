@@ -5,57 +5,52 @@ using Terraria.ModLoader.Core;
 
 namespace Aurora.Common.Ambience;
 
-/// <summary>
-///		Handles the registration and updating of player signals that should be used for parsing
-///		player flags as serializable content.
-/// </summary>
 [Autoload(Side = ModSide.Client)]
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class SignalsSystem : ModSystem
 {
-    public delegate bool SignalUpdaterCallback(in SignalContext context);
+	public delegate bool SignalUpdaterCallback(in SignalContext context);
 
-    private static Dictionary<string, bool>? flagsByName = new();
-    private static Dictionary<string, SignalUpdaterCallback?>? callbacksByName = new();
+	private sealed class SignalData
+	{
+		private const byte DisabledFlag = 0;
+		private const byte EnabledFlag = 1 << 0;
+
+		private byte enabled;
+
+		public bool Enabled {
+			get => (enabled & EnabledFlag) != 0;
+			set => enabled = (byte)((enabled & ~EnabledFlag) | (value ? EnabledFlag : 0));
+		}
+
+		public readonly SignalUpdaterCallback? Callback;
+
+		public SignalData(SignalUpdaterCallback? callback) {
+			Callback = callback;
+		}
+	}
+	
+    private static Dictionary<string, SignalData>? dataByName = new();
 
     public override void Load() {
         base.Load();
 
-        foreach (var type in AssemblyManager.GetLoadableTypes(Mod.Code)) {
-            foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)) {
-                var attribute = method.GetCustomAttribute<SignalUpdaterAttribute>();
-
-                if (attribute == null) {
-                    continue;
-                }
-
-                var callback = method.CreateDelegate<SignalUpdaterCallback>();
-                var name = attribute.Name ?? method.Name;
-
-                RegisterUpdater(name, callback);
-            }
-        }
-
-        RegisterUpdater("Forest", static (in SignalContext context) => context.Player.ZonePurity);
-        RegisterUpdater("Day", static (in SignalContext _) => Main.dayTime);
-        RegisterUpdater("Night", static (in SignalContext _) => !Main.dayTime);
+        LoadModdedUpdaters(Mod);
+        LoadVanillaUpdaters();
     }
 
     public override void Unload() {
         base.Unload();
 
-        flagsByName?.Clear();
-        flagsByName = null;
-
-        callbacksByName?.Clear();
-        callbacksByName = null;
+        dataByName?.Clear();
+        dataByName = null;
     }
     
     public override void PostUpdatePlayers() {
         base.PostUpdatePlayers();
         
-        foreach (var (name, updater) in callbacksByName) {
-            flagsByName[name] = updater?.Invoke(in SignalContext.Default) ?? false;
+        foreach (var (_, data) in dataByName) {
+	        data.Enabled = data.Callback?.Invoke(in SignalContext.Default) ?? false;
         }
     }
 
@@ -65,7 +60,7 @@ public sealed class SignalsSystem : ModSystem
     /// <param name="name">The name of the signal to check.</param>
     /// <returns><c>true</c> if the signal was found and is active; otherwise, <c>false</c>.</returns>
     public static bool GetSignal(string name) {
-        return flagsByName[name];
+	    return dataByName[name].Enabled;
     }
 
     /// <summary>
@@ -92,6 +87,29 @@ public sealed class SignalsSystem : ModSystem
     /// <param name="name">The name of the signal to register.</param>
     /// <param name="callback">The callback of the signal to register.</param>
     public static void RegisterUpdater(string name, SignalUpdaterCallback? callback) {
-        callbacksByName[name] = callback;
+	    dataByName[name] = new SignalData(callback);
+    }
+
+    private static void LoadModdedUpdaters(Mod mod) {
+	    foreach (var type in AssemblyManager.GetLoadableTypes(mod.Code)) {
+		    foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)) {
+			    var attribute = method.GetCustomAttribute<SignalUpdaterAttribute>();
+
+			    if (attribute == null) {
+				    continue;
+			    }
+
+			    var callback = method.CreateDelegate<SignalUpdaterCallback>();
+			    var name = attribute.Name ?? method.Name;
+
+			    RegisterUpdater(name, callback);
+		    }
+	    }
+    }
+
+    private static void LoadVanillaUpdaters() {
+	    RegisterUpdater("Forest", static (in SignalContext context) => context.Player.ZonePurity);
+	    RegisterUpdater("Day", static (in SignalContext _) => Main.dayTime);
+	    RegisterUpdater("Night", static (in SignalContext _) => !Main.dayTime);
     }
 }

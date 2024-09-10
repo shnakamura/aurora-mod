@@ -1,4 +1,4 @@
-using Aurora.Content.Items.Accessories;
+using Aurora.Content.Items.Miscellaneous;
 
 namespace Aurora.Common.NPCs;
 

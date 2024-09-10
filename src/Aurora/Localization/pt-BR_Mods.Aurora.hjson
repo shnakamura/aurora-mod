@@ -1,0 +1,284 @@
+Items: {
+	PowerMagnetItem: {
+		DisplayName: Ímã Gigante
+		Tooltip: ""
+	}
+
+	StoneBootsItem: {
+		DisplayName: Botas de Pedra
+		Tooltip: ""
+	}
+
+	EverbloomHeadgearItem: {
+		DisplayName: Everbloom Headgear
+		Tooltip: ""
+	}
+
+	EverbloomHoodItem: {
+		DisplayName: Everbloom Hood
+		Tooltip: ""
+	}
+
+	EverbloomLeggingsItem: {
+		DisplayName: Everbloom Leggings
+		Tooltip: ""
+	}
+
+	EverbloomMantleItem: {
+		DisplayName: Everbloom Mantle
+		Tooltip: ""
+	}
+
+	WildWarriorGarbItem: {
+		DisplayName: Wild Warrior Garb
+		Tooltip: ""
+	}
+
+	WildWarriorGreavesItem: {
+		DisplayName: Wild Warrior Greaves
+		Tooltip: ""
+	}
+
+	WildWarriorHelmetItem: {
+		DisplayName: Wild Warrior Helmet
+		Tooltip: ""
+	}
+
+	WildWarriorMaskItem: {
+		DisplayName: Wild Warrior Mask
+		Tooltip: ""
+	}
+
+	DirtDynamiteItem: {
+		DisplayName: Dinamite de Terra
+		Tooltip: ""
+	}
+
+	DoomMirrorItem: {
+		DisplayName: Espelho do Fim
+		Tooltip: ""
+	}
+
+	StickyDirtDynamiteItem: {
+		DisplayName: Sticky Dirt Dynamite
+		Tooltip: ""
+	}
+
+	AncientTwigItem: {
+		DisplayName: Galho Antigo
+		Tooltip: ""
+	}
+
+	NutItem: {
+		DisplayName: Noz
+		Tooltip: ""
+	}
+
+	WildlifeFragmentItem: {
+		DisplayName: Fragmento da Selva
+		Tooltip: ""
+	}
+
+	WildAxeItem: {
+		DisplayName: Machado Selvagem
+		Tooltip: ""
+	}
+
+	WildHammerItem: {
+		DisplayName: Martelo Selvagem
+		Tooltip: ""
+	}
+
+	WildPickaxeItem: {
+		DisplayName: Picareta Selvagem
+		Tooltip: ""
+	}
+
+	BearClawsItem: {
+		DisplayName: Garras de Urso
+		Tooltip: ""
+	}
+
+	CopperDaggerItem: {
+		DisplayName: Adaga de Cobre
+		Tooltip: ""
+	}
+
+	GoldDaggerItem: {
+		DisplayName: Adaga de Ouro
+		Tooltip: ""
+	}
+
+	IronDaggerItem: {
+		DisplayName: Adaga de Ferro
+		Tooltip: ""
+	}
+
+	LeadDaggerItem: {
+		DisplayName: Adaga de Chumbo
+		Tooltip: ""
+	}
+
+	PlatinumDaggerItem: {
+		DisplayName: Adaga de Platina
+		Tooltip: ""
+	}
+
+	SilverDaggerItem: {
+		DisplayName: Adaga de Prata
+		Tooltip: ""
+	}
+
+	TinDaggerItem: {
+		DisplayName: Adaga de Estanho
+		Tooltip: ""
+	}
+
+	TungstenDaggerItem: {
+		DisplayName: Adaga de Tungstênio
+		Tooltip: ""
+	}
+
+	WildNatureItem: {
+		DisplayName: Wild Nature
+		Tooltip: ""
+	}
+
+	WoodenClubItem: {
+		DisplayName: Porrete de Madeira
+		Tooltip: ""
+	}
+
+	BarkBallistaItem: {
+		DisplayName: Bark Ballista
+		Tooltip: ""
+	}
+
+	BigIronItem: {
+		DisplayName: Oitão
+		Tooltip: ""
+	}
+
+	CopperTomahawkItem: {
+		DisplayName: Machadinha de Cobre
+		Tooltip: ""
+	}
+
+	GoldTomahawkItem: {
+		DisplayName: Machadinha de Ouro
+		Tooltip: ""
+	}
+
+	IronTomahawkItem: {
+		DisplayName: Machadinha de Ferro
+		Tooltip: ""
+	}
+
+	LeadTomahawkItem: {
+		DisplayName: Machadinha de Chumbo
+		Tooltip: ""
+	}
+
+	PlatinumTomahawkItem: {
+		DisplayName: Machadinha de Platina
+		Tooltip: ""
+	}
+
+	SilverTomahawkItem: {
+		DisplayName: Machadinha de Prata
+		Tooltip: ""
+	}
+
+	TinTomahawkItem: {
+		DisplayName: Machadinha de Estanho
+		Tooltip: ""
+	}
+
+	TungstenTomahawkItem: {
+		DisplayName: Machadinha de Tungstênio
+		Tooltip: ""
+	}
+
+	CrabPincersItem: {
+		DisplayName: Pinças de Caranguejo
+		Tooltip: ""
+	}
+}
+
+NPCs.WoodPeckerNPC.DisplayName: Wood Pecker
+
+Projectiles: {
+	CopperDaggerProjectile.DisplayName: Adaga de Cobre
+	GoldDaggerProjectile.DisplayName: Adaga de Ouro
+	IronDaggerProjectile.DisplayName: Adaga de Ferro
+	LeadDaggerProjectile.DisplayName: Adaga de Chumbo
+	PlatinumDaggerProjectile.DisplayName: Adaga de Platina
+	SilverDaggerProjectile.DisplayName: Adaga de Prata
+	TinDaggerProjectile.DisplayName: Adaga de Estanho
+	TungstenDaggerProjectile.DisplayName: Adaga de Tungstênio
+	CopperTomahawkProjectile.DisplayName: Machadinha de Cobre
+	GoldTomahawkProjectile.DisplayName: Machadinha de Ouro
+	IronTomahawkProjectile.DisplayName: Machadinha de Ferro
+	LeadTomahawkProjectile.DisplayName: Machadinha de Chumbo
+	PlatinumTomahawkProjectile.DisplayName: Machadinha de Platina
+	SilverTomahawkProjectile.DisplayName: Machadinha de Prata
+	TinTomahawkProjectile.DisplayName: Machadinha de Estanho
+	TungstenTomahawkProjectile.DisplayName: Machadinha de Tungstênio
+	CrabPincersProjectile.DisplayName: Pinças de Caranguejo
+}
+
+Configs: {
+	ClientConfiguration: {
+		DisplayName: Client Configuration
+
+		Headers: {
+			Ambience: Ambience
+			Audio: Audio
+			Camera: Camera
+		}
+
+		EnableAmbience: {
+			Label: Enable Ambience
+			Tooltip: ""
+		}
+
+		EnableFootsteps: {
+			Label: Enable Footsteps
+			Tooltip: ""
+		}
+
+		EnableLowPassFilter: {
+			Label: Enable Low Pass Filter
+			Tooltip: ""
+		}
+
+		EnableSmoothing: {
+			Label: Enable Smoothing
+			Tooltip: ""
+		}
+	}
+
+	ServerConfiguration: {
+		DisplayName: Server Configuration
+		Headers.Items: Items
+
+		EnableRecipes: {
+			Label: Enable Recipes
+			Tooltip: ""
+		}
+	}
+}
+
+GameTitle: {
+	0: Aurora: Não experimente Starlight River!
+	1: Aurora: Também experimente Calamity!
+	2: Aurora: Também experimente Spirit!
+	3: Aurora: Também experimente Everglow!
+	4: Aurora: Também experimente Nitrate!
+	5: Aurora: itneret
+	6: Aurora: 22
+	7: Aurora: Também experimente Shadows of Abaddon!
+	8: Aurora: Quem'd'teria
+	9: Aurora: NÃO DIGA ISSO!
+	10: Aurora: NO3
+}

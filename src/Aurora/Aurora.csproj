@@ -13,8 +13,4 @@
 		<AdditionalFiles Include="**\*.footstep" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Localization\" />
-	</ItemGroup>
-
 </Project>

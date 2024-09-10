@@ -16,7 +16,7 @@ public sealed class LowPassFilter : IAudioFilter
         if (intensity <= 0f || instance?.IsDisposed == true) {
             return;
         }
-
+        
         instance.INTERNAL_applyLowPassFilter(1f - intensity);
     }
 }

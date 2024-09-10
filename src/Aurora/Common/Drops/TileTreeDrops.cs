@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Aurora.Content.Items.Materials;
+using Aurora.Content.Items.Forest;
 using Terraria.DataStructures;
 
 namespace Aurora.Common.Drops;
