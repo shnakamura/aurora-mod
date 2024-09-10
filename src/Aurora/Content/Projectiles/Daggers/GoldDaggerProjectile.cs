@@ -1,7 +1,7 @@
 using Aurora.Common.Behavior;
 using Aurora.Core.Projectiles;
 
-namespace Aurora.Content.Projectiles.Melee.Daggers;
+namespace Aurora.Content.Projectiles.Daggers;
 
 public class GoldDaggerProjectile : ModProjectile
 {

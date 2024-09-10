@@ -1,8 +1,7 @@
 using Aurora.Common.Effects;
-using Aurora.Common.NPCs;
 using Aurora.Core.NPCs;
 
-namespace Aurora.Content.NPCs.Critters;
+namespace Aurora.Content.NPCs.Forest;
 
 public class WoodPeckerNPC : ModNPC
 {

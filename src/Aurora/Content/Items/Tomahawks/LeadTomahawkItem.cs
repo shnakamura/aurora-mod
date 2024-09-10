@@ -1,4 +1,4 @@
-using Aurora.Content.Projectiles.Ranged;
+using Aurora.Content.Projectiles.Tomahawks;
 
 namespace Aurora.Content.Items.Tomahawks;
 

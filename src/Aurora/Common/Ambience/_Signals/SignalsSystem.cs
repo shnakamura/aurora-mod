@@ -11,7 +11,7 @@ public sealed class SignalsSystem : ModSystem
 {
 	public delegate bool SignalUpdaterCallback(in SignalContext context);
 
-	private sealed class SignalData
+	private sealed class SignalData(SignalUpdaterCallback? callback)
 	{
 		private const byte DisabledFlag = 0;
 		private const byte EnabledFlag = 1 << 0;
@@ -23,11 +23,7 @@ public sealed class SignalsSystem : ModSystem
 			set => enabled = (byte)((enabled & ~EnabledFlag) | (value ? EnabledFlag : 0));
 		}
 
-		public readonly SignalUpdaterCallback? Callback;
-
-		public SignalData(SignalUpdaterCallback? callback) {
-			Callback = callback;
-		}
+		public readonly SignalUpdaterCallback? Callback = callback;
 	}
 	
     private static Dictionary<string, SignalData>? dataByName = new();

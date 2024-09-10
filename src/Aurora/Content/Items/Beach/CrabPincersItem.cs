@@ -1,4 +1,4 @@
-using Aurora.Content.Projectiles.Summon;
+using Aurora.Content.Projectiles.Beach;
 
 namespace Aurora.Content.Items.Beach;
 

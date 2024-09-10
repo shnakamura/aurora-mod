@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Terraria.DataStructures;
 
-namespace Aurora.Content.Projectiles.Summon;
+namespace Aurora.Content.Projectiles.Beach;
 
 public class CrabPincersProjectile : ModProjectile
 {

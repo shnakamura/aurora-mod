@@ -1,4 +1,4 @@
-using Aurora.Content.Projectiles.Melee.Daggers;
+using Aurora.Content.Projectiles.Daggers;
 
 namespace Aurora.Content.Items.Daggers;
 

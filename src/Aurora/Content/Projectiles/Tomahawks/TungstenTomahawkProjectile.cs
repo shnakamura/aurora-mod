@@ -1,7 +1,7 @@
 using Aurora.Common.Behavior;
 using Aurora.Core.Projectiles;
 
-namespace Aurora.Content.Projectiles.Ranged;
+namespace Aurora.Content.Projectiles.Tomahawks;
 
 public class TungstenTomahawkProjectile : ModProjectile
 {
