@@ -1,6 +1,9 @@
+using JetBrains.Annotations;
+
 namespace Aurora.Content.Items.Wildlife;
 
-public class WildWarriorPlayer
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
+public sealed class WildWarriorPlayer : ModPlayer
 {
-	
+	// TODO: Implement set bonus.
 }

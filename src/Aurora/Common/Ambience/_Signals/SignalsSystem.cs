@@ -25,8 +25,8 @@ public sealed class SignalsSystem : ModSystem
 
 		public readonly SignalUpdaterCallback? Callback = callback;
 	}
-	
-    private static Dictionary<string, SignalData>? dataByName = new();
+
+	private static Dictionary<string, SignalData>? dataByName = [];
 
     public override void Load() {
         base.Load();

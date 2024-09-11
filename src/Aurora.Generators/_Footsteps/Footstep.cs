@@ -1,9 +1,8 @@
-namespace Aurora.Generators
+namespace Aurora.Generators;
+
+public struct Footstep
 {
-	public struct Footstep
-	{
-		public FootstepData Data;
-		
-		public string Material;
-	}
+	public FootstepData Data;
+
+	public string Material;
 }

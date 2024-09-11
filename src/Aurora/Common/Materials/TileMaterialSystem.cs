@@ -13,7 +13,7 @@ namespace Aurora.Common.Materials;
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TileMaterialSystem : ModSystem
 {
-    private static Dictionary<int, string>? materialsByName = new();
+	private static Dictionary<int, string>? materialsByName = [];
 
     public override void PostSetupContent() {
         base.PostSetupContent();

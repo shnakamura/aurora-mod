@@ -12,7 +12,7 @@ namespace Aurora.Common.Ambience;
 [UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class FootstepsSystem : ModSystem
 {
-	private static Dictionary<string, IFootstep>? footstepsByMaterial = new();
+	private static Dictionary<string, IFootstep>? footstepsByMaterial = [];
 	
 	public override void Load() {
 		base.Load();

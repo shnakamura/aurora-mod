@@ -1,3 +1,5 @@
+using Aurora.Core.Configuration;
+
 namespace Aurora.Common.Recipes;
 
 public sealed class ItemWeaponRecipes : GlobalItem
@@ -5,6 +7,10 @@ public sealed class ItemWeaponRecipes : GlobalItem
 	public override void AddRecipes() {
 		base.AddRecipes();
 
+		if (!ServerConfiguration.Instance.EnableRecipes) {
+			return;
+		}
+		
 		Recipe.Create(ItemID.Shuriken, 25)
 			.AddRecipeGroup(RecipeGroupID.IronBar)
 			.AddTile(TileID.Anvils)
