@@ -10,5 +10,7 @@ public class EverbloomMantleItem : ModItem
 
         Item.width = 34;
         Item.height = 18;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 }

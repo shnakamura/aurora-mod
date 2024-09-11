@@ -13,4 +13,8 @@
 		<AdditionalFiles Include="**\*.footstep" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Content\Projectiles\Explosives\" />
+	</ItemGroup>
+
 </Project>

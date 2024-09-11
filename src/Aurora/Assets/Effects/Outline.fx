@@ -38,7 +38,7 @@ float4 Outline(float2 coords : TEXCOORD0) : COLOR0
 	}
 
 	if (found) {
-		return float4(uColor.r, uColor.g, uColor.b, 1);
+		return float4(uColor.r, uColor.g, uColor.b, uOpacity);
 	}
 	
 	return color;

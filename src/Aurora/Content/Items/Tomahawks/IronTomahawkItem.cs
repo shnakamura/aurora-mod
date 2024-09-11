@@ -26,6 +26,8 @@ public class IronTomahawkItem : ModItem
 
         Item.shootSpeed = 11f;
         Item.shoot = ModContent.ProjectileType<IronTomahawkProjectile>();
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

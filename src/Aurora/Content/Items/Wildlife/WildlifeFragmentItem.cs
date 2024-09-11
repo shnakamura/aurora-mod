@@ -13,6 +13,8 @@ public class WildlifeFragmentItem : ModItem
         Item.height = 26;
 
         Item.value = Item.sellPrice(copper: 10);
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

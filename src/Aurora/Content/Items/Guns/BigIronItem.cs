@@ -23,6 +23,8 @@ public class BigIronItem : ModItem
         Item.useAmmo = AmmoID.Bullet;
         Item.shootSpeed = 8f;
         Item.shoot = ProjectileID.PurificationPowder;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

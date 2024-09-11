@@ -4,10 +4,8 @@ public class StickyDirtDynamiteItem : ModItem
 {
 	public override void SetDefaults() {
 		base.SetDefaults();
-
-		Item.maxStack = Item.CommonMaxStack;
-
-		Item.consumable = true;
+		
+		Item.CloneDefaults(ItemID.StickyDynamite);
 		
 		Item.width = 18;
 		Item.height = 38;
@@ -17,8 +15,9 @@ public class StickyDirtDynamiteItem : ModItem
 		base.AddRecipes();
 
 		CreateRecipe()
-			.AddIngredient(ItemID.StickyDynamite)
+			.AddIngredient(ItemID.Dynamite)
 			.AddIngredient(ItemID.DirtBlock, 50)
+			.AddIngredient(ItemID.Gel)
 			.Register();
 
 		CreateRecipe()

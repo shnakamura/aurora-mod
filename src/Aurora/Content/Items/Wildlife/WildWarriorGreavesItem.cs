@@ -10,6 +10,14 @@ public class WildWarriorGreavesItem : ModItem
         Item.height = 16;
 
         Item.defense = 1;
+                
+        Item.rare = ItemRarityID.Blue;
+    }
+
+    public override void UpdateEquip(Player player) {
+	    base.UpdateEquip(player);
+
+	    player.moveSpeed += 0.05f;
     }
 
     public override void AddRecipes() {

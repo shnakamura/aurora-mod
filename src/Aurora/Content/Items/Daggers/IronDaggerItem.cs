@@ -30,6 +30,8 @@ public class IronDaggerItem : ModItem
 
         Item.shootSpeed = 2.2f;
         Item.shoot = ModContent.ProjectileType<IronDaggerProjectile>();
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

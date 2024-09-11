@@ -23,6 +23,8 @@ public class BarkBallistaItem : ModItem
         Item.useAmmo = AmmoID.Arrow;
         Item.shootSpeed = 8f;
         Item.shoot = ProjectileID.WoodenArrowFriendly;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

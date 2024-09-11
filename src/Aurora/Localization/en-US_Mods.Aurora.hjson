@@ -225,6 +225,7 @@ Projectiles: {
 	TinTomahawkProjectile.DisplayName: Tin Tomahawk
 	TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk
 	CrabPincersProjectile.DisplayName: Crab Pincers
+	DirtDynamiteProjectile.DisplayName: Dirt Dynamite Projectile
 }
 
 Configs: {

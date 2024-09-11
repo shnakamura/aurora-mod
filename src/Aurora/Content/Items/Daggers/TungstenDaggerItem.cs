@@ -30,6 +30,8 @@ public class TungstenDaggerItem : ModItem
 
 		Item.shootSpeed = 2.8f;
 		Item.shoot = ModContent.ProjectileType<TungstenDaggerProjectile>();
+                
+		Item.rare = ItemRarityID.Blue;
 	}
 
 	public override void AddRecipes() {

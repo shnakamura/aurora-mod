@@ -30,6 +30,8 @@ public class TinDaggerItem : ModItem
 
 		Item.shootSpeed = 2f;
 		Item.shoot = ModContent.ProjectileType<TinDaggerProjectile>();
+                
+		Item.rare = ItemRarityID.Blue;
 	}
 
 	public override void AddRecipes() {

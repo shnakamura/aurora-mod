@@ -20,6 +20,8 @@ public class WildAxeItem : ModItem
         Item.useAnimation = 28;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
+		        
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

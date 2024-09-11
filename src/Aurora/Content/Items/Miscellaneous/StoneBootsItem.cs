@@ -13,7 +13,7 @@ public class StoneBootsItem : ModItem
 
 	public override void UpdateAccessory(Player player, bool hideVisual) {
 		base.UpdateAccessory(player, hideVisual);
-
+		
 		if (!player.controlDown) {
 			return;
 		}

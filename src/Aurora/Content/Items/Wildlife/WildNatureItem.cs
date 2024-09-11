@@ -19,6 +19,8 @@ public class WildNatureItem : ModItem
         Item.useAnimation = 21;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

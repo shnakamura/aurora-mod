@@ -20,6 +20,8 @@ public class WildHammerItem : ModItem
         Item.useAnimation = 30;
         Item.UseSound = SoundID.Item1;
         Item.useStyle = ItemUseStyleID.Swing;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

@@ -10,5 +10,7 @@ public class EverbloomHeadgearItem : ModItem
 
         Item.width = 30;
         Item.height = 22;
+        
+        Item.rare = ItemRarityID.Blue;
     }
 }

@@ -30,6 +30,8 @@ public class CopperDaggerItem : ModItem
 
         Item.shootSpeed = 2f;
         Item.shoot = ModContent.ProjectileType<CopperDaggerProjectile>();
+                
+        Item.rare = ItemRarityID.Blue;
     }
 
     public override void AddRecipes() {

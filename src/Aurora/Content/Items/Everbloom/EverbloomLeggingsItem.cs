@@ -10,5 +10,7 @@ public class EverbloomLeggingsItem : ModItem
 
         Item.width = 26;
         Item.height = 18;
+                
+        Item.rare = ItemRarityID.Blue;
     }
 }
