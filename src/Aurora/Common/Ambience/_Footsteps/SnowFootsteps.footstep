@@ -1,0 +1,6 @@
+SoundStyleData: {
+	SoundPath: Aurora/Assets/Sounds/Footsteps/Snow
+	Variants: 5
+}
+
+Material: Snow

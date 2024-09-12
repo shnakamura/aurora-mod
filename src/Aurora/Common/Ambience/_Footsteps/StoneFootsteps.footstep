@@ -1,8 +1,6 @@
-{
-	"Data": {
-        SoundPath: "Aurora/Assets/Sounds/Footsteps/Stone"
-        Variants: 5
-    }
-    
-    "Material": "Stone"
+SoundStyleData: {
+	SoundPath: Aurora/Assets/Sounds/Footsteps/Stone
+	Variants: 5
 }
+
+Material: Stone

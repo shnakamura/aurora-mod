@@ -1,8 +1,6 @@
-{
-	"Data": {
-		SoundPath: "Aurora/Assets/Sounds/Footsteps/Grass"
-		Variants: 5
-	}
-	
-	"Material": "Grass"
+SoundStyleData: {
+	SoundPath: Aurora/Assets/Sounds/Footsteps/Grass
+	Variants: 5
 }
+
+Material: Grass
