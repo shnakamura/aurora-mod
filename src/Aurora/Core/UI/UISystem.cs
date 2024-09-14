@@ -6,27 +6,10 @@ namespace Aurora.Core.UI;
 [Autoload(Side = ModSide.Client)]
 public sealed partial class UISystem : ModSystem
 {
-	public sealed class UIStateData(string identifier, string layer, UIState? value, int offset = 0, InterfaceScaleType type = InterfaceScaleType.UI)
-	{
-		public readonly string Identifier = identifier;
-
-		public readonly string Layer = layer;
-		
-		public readonly int Offset = offset;
-
-		public readonly InterfaceScaleType Type = type;
-		
-		public readonly UIState? Value = value;
-		
-		public bool Enabled;
-
-		public UserInterface UserInterface;
-	}
-
 	// Terraria doesn't provide any game time instance during rendering, so we keep track of it ourselves.
 	private static GameTime? lastGameTime;
 
-	private static List<UIStateData>? data = new();
+	private static List<UIStateContainer>? data = new();
 
 	public override void Unload() {
 		base.Unload();
@@ -60,52 +43,48 @@ public sealed partial class UISystem : ModSystem
 		for (var i = 0; i < data.Count; i++) {
 			var state = data[i];
 
-			var index = layers.FindIndex(l => l.Name == state.Layer);
+			var index = layers.FindIndex(l => l.Name == state.Data.Layer);
 
 			if (index < 0) {
 				continue;
 			}
 
 			LegacyGameInterfaceLayer layer = new(
-				state.Identifier,
+				state.Data.Identifier,
 				() => {
 					state.UserInterface.Draw(Main.spriteBatch, lastGameTime);
 					return true;
 				}
 			);
 
-			layers.Insert(index + state.Offset, layer);
+			layers.Insert(index + state.Data.Offset, layer);
 		}
 	}
 
 	public static void Register(string identifier, string layer, UIState? value, int offset = 0, InterfaceScaleType type = InterfaceScaleType.UI) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
-
-		var state = new UIStateData(identifier, layer, value, offset, type) {
-			UserInterface = new UserInterface()
-		};
-
-		state.UserInterface.SetState(value);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
+		var container = new UIStateContainer(new UIStateData(identifier, layer, offset, type), value);
+		
+		container.UserInterface.SetState(value);
 
 		if (index < 0) {
-			UISystem.data.Add(state);
+			UISystem.data.Add(container);
 		}
 		else {
-			UISystem.data[index] = state;
+			UISystem.data[index] = container;
 		}
 	}
 
 	public static bool TryEnable(string identifier) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var state = UISystem.data[index];
+		var container = UISystem.data[index];
 
-		state.UserInterface.CurrentState.Activate();
-		state.Enabled = true;
+		container.UserInterface.CurrentState.Activate();
 
 		return true;
 	}
@@ -117,7 +96,7 @@ public sealed partial class UISystem : ModSystem
 		int offset = 0,
 		InterfaceScaleType type = InterfaceScaleType.UI
 	) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			Register(identifier, layer, value, offset, type);
@@ -127,22 +106,21 @@ public sealed partial class UISystem : ModSystem
 	}
 
 	public static bool TryDisable(string identifier) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
 		}
 
-		var state = UISystem.data[index];
+		var container = UISystem.data[index];
 
-		state.UserInterface.CurrentState.Deactivate();
-		state.Enabled = false;
+		container.UserInterface.CurrentState.Deactivate();
 
 		return true;
 	}
 
 	public static bool TryToggle(string identifier, bool refresh = true) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
@@ -158,7 +136,7 @@ public sealed partial class UISystem : ModSystem
 		int offset = 0,
 		InterfaceScaleType type = InterfaceScaleType.UI
 	) {
-		var index = data.FindIndex(s => s.Identifier == identifier);
+		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			Register(identifier, layer, value, offset, type);

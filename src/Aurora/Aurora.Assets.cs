@@ -9,7 +9,7 @@ namespace Aurora;
 public sealed partial class Aurora : Mod
 {
 	public override IContentSource CreateDefaultContentSource() {
-		// Custom asset readers must be registered before overriding the default content source.
+		// Asset readers must be registered before overriding the default content source.
 		if (!Main.dedServ) {
 			AddContent(new OgvReader());
 		}

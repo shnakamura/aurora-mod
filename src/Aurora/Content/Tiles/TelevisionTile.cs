@@ -1,5 +1,7 @@
 using Aurora.Assets.Textures.Items.Miscellaneous;
+using Terraria.Achievements;
 using Terraria.DataStructures;
+using Terraria.GameContent.Achievements;
 using Terraria.ObjectData;
 
 namespace Aurora.Content.Tiles;
