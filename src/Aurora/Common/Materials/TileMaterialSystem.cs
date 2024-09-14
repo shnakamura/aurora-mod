@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Reflection;
-using JetBrains.Annotations;
 using Terraria.ModLoader.Core;
 
 namespace Aurora.Common.Materials;
@@ -10,7 +9,6 @@ namespace Aurora.Common.Materials;
 ///		modded tiles and manual callbacks for vanilla tiles.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TileMaterialSystem : ModSystem
 {
 	private static Dictionary<int, string>? materialsByName = [];

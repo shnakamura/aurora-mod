@@ -1,12 +1,10 @@
 using Aurora.Core.Graphics;
 using Aurora.Utilities;
-using JetBrains.Annotations;
 using ReLogic.Content;
 
 namespace Aurora.Content.Items.Wildlife;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WildWarriorPlayerRenderer : ModSystem
 {
 	private static readonly Color OutlineColor = new(247, 226, 70);

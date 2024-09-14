@@ -8,15 +8,6 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Krafs.Publicizer" Version="2.2.1"/>
-		<PackageReference Include="JetBrains.Annotations" Version="2023.3.0"/>
 	</ItemGroup>
-
-	<PropertyGroup>
-		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
-	</PropertyGroup>
-	
-	<ItemGroup>
-        <ProjectReference Include="..\Aurora.Generators\Aurora.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    </ItemGroup>
 
 </Project>

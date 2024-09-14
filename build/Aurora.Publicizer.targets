@@ -3,6 +3,7 @@
 	<ItemGroup>
 		<Publicize Include="FNA"></Publicize>
 		<Publicize Include="Terraria"></Publicize>
+		<Publicize Include="ReLogic"></Publicize>
 	</ItemGroup>
 
 </Project>

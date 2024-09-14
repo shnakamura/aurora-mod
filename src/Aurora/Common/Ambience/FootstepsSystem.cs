@@ -1,22 +1,21 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Aurora.Common.Materials;
 using Aurora.Core.Configuration;
 using Aurora.Utilities;
-using JetBrains.Annotations;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class FootstepsSystem : ModSystem
 {
 	private static Dictionary<string, IFootstep>? footstepsByMaterial = [];
-	
-	public override void Load() {
-		base.Load();
 
+	public override void PostSetupContent() {
+		base.PostSetupContent();
+		
 		foreach (var footstep in ModContent.GetContent<IFootstep>()) {
 			footstepsByMaterial[footstep.Material] = footstep;
 		}

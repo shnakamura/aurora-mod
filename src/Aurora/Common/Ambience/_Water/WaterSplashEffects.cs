@@ -1,10 +1,8 @@
-using JetBrains.Annotations;
 using Terraria.Audio;
 
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WaterSplashEffects : ModPlayer
 {
     public static readonly SoundStyle WaterSplashSound = new($"{nameof(Aurora)}/Assets/Sounds/Ambience/WaterSplash") {

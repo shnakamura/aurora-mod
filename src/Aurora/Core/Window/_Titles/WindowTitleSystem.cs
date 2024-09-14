@@ -1,11 +1,9 @@
-using JetBrains.Annotations;
 using MonoMod.Cil;
 using Terraria.Localization;
 
 namespace Aurora.Core.Window;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WindowTitleSystem : ModSystem
 {
 	public const int TitleCount = 11;

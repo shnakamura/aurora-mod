@@ -203,6 +203,16 @@ Items: {
 		DisplayName: Crab Pincers
 		Tooltip: ""
 	}
+
+	BloomRose: {
+		DisplayName: Bloom Rose
+		Tooltip: ""
+	}
+
+	TelevisionItem: {
+		DisplayName: Television Item
+		Tooltip: ""
+	}
 }
 
 NPCs.WoodPeckerNPC.DisplayName: Wood Pecker

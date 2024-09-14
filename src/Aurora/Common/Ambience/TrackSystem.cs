@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using Aurora.Core.Configuration;
-using JetBrains.Annotations;
 using ReLogic.Content;
 using ReLogic.Utilities;
 using Terraria.Audio;
@@ -9,26 +8,8 @@ using Terraria.Audio;
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class TrackSystem : ModSystem
 {
-    /// <summary>
-    ///     The list of registered <see cref="Track" /> instances.
-    /// </summary>
-    public static List<ITrack> Tracks { get; private set; } = new();
-
-    public override void PostSetupContent() {
-        base.PostSetupContent();
-
-    }
-
-    public override void Unload() {
-        base.Unload();
-
-        Tracks?.Clear();
-        Tracks = null;
-    }
-
     public override void PostUpdateWorld() {
         base.PostUpdateWorld();
 
@@ -40,9 +21,7 @@ public sealed class TrackSystem : ModSystem
 		    return;
 	    }
 		
-        for (var i = 0; i < Tracks.Count; i++) {
-            var track = Tracks[i];
-
+        foreach (var track in ModContent.GetContent<ITrack>()) {
             var isActive = SignalsSystem.GetSignal(track.Signals);
 
             if (isActive) {

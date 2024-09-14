@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using System.Reflection;
-using JetBrains.Annotations;
 using Terraria.ModLoader.Core;
 
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class SignalsSystem : ModSystem
 {
 	public delegate bool SignalUpdaterCallback(in SignalContext context);

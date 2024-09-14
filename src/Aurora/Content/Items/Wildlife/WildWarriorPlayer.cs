@@ -1,9 +1,7 @@
-using JetBrains.Annotations;
 using Terraria.ModLoader.IO;
 
 namespace Aurora.Content.Items.Wildlife;
 
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WildWarriorPlayer : ModPlayer
 {
 	/// <summary>

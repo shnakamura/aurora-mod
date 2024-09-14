@@ -1,8 +1,13 @@
-namespace Aurora.Generators;
+using Newtonsoft.Json;
 
-public struct Footstep
+namespace Aurora.Generators
 {
-	public FootstepData Data;
+	public struct Footstep
+	{
+		[JsonRequired]
+		public SoundStyleData SoundStyleData;
 
-	public string Material;
+		[JsonRequired]
+		public string Material;
+	}
 }

@@ -1,11 +1,9 @@
 using Aurora.Core.Audio;
 using Aurora.Utilities;
-using JetBrains.Annotations;
 
 namespace Aurora.Common.Ambience;
 
 [Autoload(Side = ModSide.Client)]
-[UsedImplicitly(ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature)]
 public sealed class WaterMufflingEffects : ModPlayer
 {
     /// <summary>

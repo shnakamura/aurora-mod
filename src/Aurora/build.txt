@@ -8,3 +8,8 @@ hideResources = false
 
 includePDB = true
 includeSource = true
+
+modReferences = StructureHelper
+dllReferences = StructureHelper
+
+buildIgnore = .track, .footstep
