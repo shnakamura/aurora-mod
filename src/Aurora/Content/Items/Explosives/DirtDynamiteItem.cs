@@ -1,3 +1,5 @@
+using Aurora.Content.Projectiles.Explosives;
+
 namespace Aurora.Content.Items.Explosives;
 
 public class DirtDynamiteItem : ModItem
@@ -9,6 +11,8 @@ public class DirtDynamiteItem : ModItem
 		
 		Item.width = 18;
 		Item.height = 38;
+
+		Item.shoot = ModContent.ProjectileType<DirtDynamiteProjectile>();
 	}
 
 	public override void AddRecipes() {

@@ -1,3 +1,4 @@
+using System.IO;
 using Microsoft.Xna.Framework.Media;
 using ReLogic.Content;
 
@@ -5,21 +6,7 @@ namespace Aurora.Content.Tiles;
 
 public class TelevisionTileEntity : ModTileEntity
 {
-	private static readonly Asset<Video>[] Videos = [
-		ModContent.Request<Video>($"{nameof(Aurora)}/Assets/Videos/Video0", AssetRequestMode.ImmediateLoad),
-		ModContent.Request<Video>($"{nameof(Aurora)}/Assets/Videos/Video1", AssetRequestMode.ImmediateLoad),
-		ModContent.Request<Video>($"{nameof(Aurora)}/Assets/Videos/Video2", AssetRequestMode.ImmediateLoad),
-		ModContent.Request<Video>($"{nameof(Aurora)}/Assets/Videos/Video3", AssetRequestMode.ImmediateLoad)
-	];
-	
-	private int CurrentVideo {
-		get => _currentVideo;
-		set => _currentVideo = value > Videos.Length ? 0 : value;
-	}
-	
-	private int _currentVideo;
-
-	private VideoPlayer? videoPlayer = new();
+	public readonly TelevisionTileEntityData Data = new();
 	
 	public override bool IsTileValidForEntity(int x, int y) {
 		var tile = Framing.GetTileSafely(x, y);
@@ -43,16 +30,11 @@ public class TelevisionTileEntity : ModTileEntity
 	public override void Update() {
 		base.Update();
 
-		videoPlayer.Volume = Main.soundVolume;
-	}
-
-	public void Toggle() {
-		videoPlayer.Stop();
-		videoPlayer.Play(Videos[CurrentVideo++].Value);
+		Data.Player.Volume = Main.soundVolume;
 	}
 
 	public void Draw(int i, int j, SpriteBatch spriteBatch) {
-		if (videoPlayer.State != MediaState.Playing) {
+		if (Data.Player.State != MediaState.Playing) {
 			return;
 		}
 		
@@ -66,6 +48,6 @@ public class TelevisionTileEntity : ModTileEntity
 			34
 		);
 		
-		spriteBatch.Draw(videoPlayer.GetTexture(), rectangle, Color.White);
+		spriteBatch.Draw(Data.Player.GetTexture(), rectangle, Color.White);
 	}
 }

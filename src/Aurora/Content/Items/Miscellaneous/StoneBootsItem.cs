@@ -1,5 +1,6 @@
 namespace Aurora.Content.Items.Miscellaneous;
 
+[AutoloadEquip(EquipType.Legs)]
 public class StoneBootsItem : ModItem
 {
 	public override void SetDefaults() {

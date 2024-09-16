@@ -1,6 +1,8 @@
 using Aurora.Assets.Textures.Items.Miscellaneous;
+using Aurora.Core.UI;
 using Terraria.DataStructures;
 using Terraria.ObjectData;
+using Terraria.UI;
 
 namespace Aurora.Content.Tiles;
 
@@ -12,7 +14,6 @@ public class TelevisionTile : ModTile
 		Main.tileFrameImportant[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		Main.tileLavaDeath[Type] = true;
-		Main.tileSolidTop[Type] = true;
 		
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
 
@@ -23,7 +24,7 @@ public class TelevisionTile : ModTile
 			true
 		);
 
-		TileObjectData.newTile.Origin = new Point16(2);
+		TileObjectData.newTile.Origin = Point16.Zero;
 		
 		TileObjectData.newTile.Height = 4; 
 		TileObjectData.newTile.CoordinateHeights = [16, 16, 16, 16];
@@ -45,16 +46,26 @@ public class TelevisionTile : ModTile
 	public override bool RightClick(int i, int j) {
 		var tile = Framing.GetTileSafely(i, j);
 		
+		if (tile.TileFrameX != 18 * 3 || tile.TileFrameY != 18 * 3) {
+			return false;
+		}
+		
 		var index = ModContent.GetInstance<TelevisionTileEntity>().Find(i, j);
 
 		if (index == -1) {
 			return false;
 		}
-		
+
 		var entity = (TelevisionTileEntity)TileEntity.ByID[index];
-
-		entity.Toggle();
-
+		
+		UISystem.TryToggleOrRegister(
+			UITelevision.Identifier,
+			"Vanilla: Mouse Text", 
+			new UITelevision(new Point16(i, j), entity.Data),
+			0,
+			InterfaceScaleType.Game
+		);
+		
 		return true;
 	}
 
@@ -69,6 +80,8 @@ public class TelevisionTile : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY) {
 		base.KillMultiTile(i, j, frameX, frameY);
+
+		UISystem.TryDisable(UITelevision.Identifier);
 		
 		ModContent.GetInstance<TelevisionTileEntity>().Kill(i, j);
 	}

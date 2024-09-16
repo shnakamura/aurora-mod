@@ -4,7 +4,7 @@ namespace Aurora.Core.UI;
 public sealed partial class UISystem : ModSystem
 {
 	internal static bool TryRefresh(string identifier) {
-		var index = UISystem.data.FindIndex(s => s.Identifier == identifier);
+		var index = UISystem.data.FindIndex(s => s.Data.Identifier == identifier);
 
 		if (index < 0) {
 			return false;
@@ -25,7 +25,7 @@ public sealed partial class UISystem : ModSystem
 
 	internal static void RefreshAllStates() {
 		for (var i = 0; i < data.Count; i++) {
-			TryRefresh(data[i].Identifier);
+			TryRefresh(data[i].Data.Identifier);
 		}
 	}
 }
