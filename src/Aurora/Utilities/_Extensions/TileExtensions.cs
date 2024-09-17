@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace Aurora.Utilities;
 
 /// <summary>
@@ -10,6 +12,7 @@ public static class TileExtensions
 	/// </summary>
 	/// <param name="tile">The tile to check.</param>
 	/// <returns><c>true</c> if the tile has a wall; otherwise, <c>false</c>.</returns>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool HasWall(this Tile tile) {
 		return tile.WallType == 0;
 	}
