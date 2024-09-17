@@ -1,7 +1,7 @@
 displayName = Aurora
 author = nakamurash
-version = 0.0.1
-homepage = https://discord.gg/WzpbgbUkKe 
+version = 0.2.1
+homepage = https://discord.gg/WzpbgbUkKe
 
 hideCode = false
 hideResources = false
@@ -12,4 +12,3 @@ includeSource = true
 modReferences = StructureHelper
 dllReferences = StructureHelper
 
-buildIgnore = .track, .footstep

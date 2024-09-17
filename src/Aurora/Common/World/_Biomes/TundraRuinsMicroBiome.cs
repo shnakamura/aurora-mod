@@ -29,23 +29,6 @@ public sealed class TundraRuinsMicroBiome : MicroBiome
 
 		var terrainCount = 0;
 		var airCount = 0;
-		
-		for (int i = 0; i < scan.Width; i++) {
-			for (int j = 0; j < scan.Height; j++) {
-				var tile = Framing.GetTileSafely(scan.X + i, scan.Y + j);
-
-				if (j < scan.Height - scan.Height / 3) {
-					if (!WorldGen.SolidTile(tile) && !tile.HasWall()) {
-						airCount++;
-					}
-				}
-				else {
-					if (WorldGen.SolidTile(tile)) {
-						terrainCount++;
-					}
-				}
-			}
-		}
 
 		var threshold = 10;
 		

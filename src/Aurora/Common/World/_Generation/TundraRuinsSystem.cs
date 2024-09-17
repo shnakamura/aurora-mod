@@ -15,16 +15,16 @@ public sealed class TundraRuinsSystem : ModSystem
 		if (index == -1) {
 			return;
 		}
-		
-		tasks.Insert(index + 1, new PassLegacy($"{nameof(Aurora)}:{nameof(TundraRuinsMicroBiome)}", GenerateTundraRuins));
+
+		// tasks.Insert(index + 1, new PassLegacy($"{nameof(Aurora)}:{nameof(TundraRuinsMicroBiome)}", GenerateTundraRuins));
 	}
 
 	private static void GenerateTundraRuins(GenerationProgress progress, GameConfiguration configuration) {
 		progress.Message = "Generating ruins...";
-		
+
 		var tundraStart = 0;
 		var tundraEnd = 0;
-		
+
 		for (var i = Main.maxTilesX; i > 0; i--) {
 			for (var j = 0; j < Main.maxTilesY; j++) {
 				var tile = Framing.GetTileSafely(i, j);
@@ -60,7 +60,7 @@ public sealed class TundraRuinsSystem : ModSystem
 				break;
 			}
 		}
-		
+
 		var biome = GenVars.configuration.CreateBiome<TundraRuinsMicroBiome>();
 		var biomeGenerated = false;
 
@@ -69,7 +69,7 @@ public sealed class TundraRuinsSystem : ModSystem
 
 			WorldUtils.Find(new Point(x, 0),
 				Searches.Chain(
-					new Searches.Down((int)Main.worldSurface + 200), 
+					new Searches.Down((int)Main.worldSurface + 200),
 					new Conditions.IsSolid(),
 					new Conditions.IsTile(TileID.IceBlock, TileID.SnowBlock)
 				),
