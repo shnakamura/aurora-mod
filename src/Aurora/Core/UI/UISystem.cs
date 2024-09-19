@@ -65,7 +65,7 @@ public sealed partial class UISystem : ModSystem
 	public static void Register(string identifier, string layer, UIState? value, int offset = 0, InterfaceScaleType type = InterfaceScaleType.UI) {
 		var index = data.FindIndex(s => s.Data.Identifier == identifier);
 		var container = new UIStateContainer(new UIStateData(identifier, layer, offset, type), value);
-		
+
 		container.UserInterface.SetState(value);
 
 		if (index < 0) {
@@ -82,12 +82,12 @@ public sealed partial class UISystem : ModSystem
 		if (index < 0) {
 			return false;
 		}
-		
+
 		var container = UISystem.data[index];
-		
-		container.UserInterface.SetState(value);
-		container.UserInterface.CurrentState.Activate();
-		
+
+		container.UserInterface?.SetState(value);
+		container.UserInterface?.CurrentState?.Activate();
+
 		return true;
 	}
 
@@ -100,8 +100,8 @@ public sealed partial class UISystem : ModSystem
 
 		var container = UISystem.data[index];
 
-		container.UserInterface.SetState(container.Value);
-		container.UserInterface.CurrentState.Activate();
+		container.UserInterface?.SetState(container.Value);
+		container.UserInterface?.CurrentState?.Activate();
 
 		return true;
 	}
@@ -136,9 +136,9 @@ public sealed partial class UISystem : ModSystem
 
 		var container = UISystem.data[index];
 
-		container.UserInterface.CurrentState.Deactivate();
-		container.UserInterface.SetState(null);
-		
+		container.UserInterface?.CurrentState?.Deactivate();
+		container.UserInterface?.SetState(null);
+
 		return true;
 	}
 
@@ -148,7 +148,7 @@ public sealed partial class UISystem : ModSystem
 		if (index < 0) {
 			return false;
 		}
-		
+
 		return data[index].Enabled ? TryDisable(identifier) : TryEnable(identifier);
 	}
 

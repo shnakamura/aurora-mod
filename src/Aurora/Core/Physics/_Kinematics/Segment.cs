@@ -1,4 +1,4 @@
-namespace Aurora.Common.Physics;
+namespace Aurora.Core.Physics;
 
 public sealed class Segment
 {
