@@ -2,20 +2,13 @@ using System.Collections.Generic;
 using Aurora.Content.Items.Forest;
 using Terraria.DataStructures;
 
-namespace Aurora.Common.Drops;
+namespace Aurora.Common.Tiles;
 
+/// <summary>
+///		Handles dropping nuts upon chopping down trees.
+/// </summary>
 public sealed class TileTreeDrops : GlobalTile
 {
-	/// <summary>
-	///     The list of tree tile types that will drop nuts and ancient twigs when broken.
-	/// </summary>
-	public static readonly List<int> Types = [
-		TileID.Trees,
-		TileID.PalmTree,
-		TileID.PineTree,
-		TileID.VanityTreeSakura
-	];
-
     public override void Drop(int i, int j, int type) {
         base.Drop(i, j, type);
 
