@@ -5,9 +5,9 @@ using Terraria.DataStructures;
 namespace Aurora.Common.Tiles;
 
 /// <summary>
-///		Handles dropping nuts upon chopping down trees.
+///		Handles the behavior of trees dropping <see cref="NutItem"/> when chopped down.
 /// </summary>
-public sealed class TileTreeDrops : GlobalTile
+public sealed class TileTreeNutDrops : GlobalTile
 {
     public override void Drop(int i, int j, int type) {
         base.Drop(i, j, type);

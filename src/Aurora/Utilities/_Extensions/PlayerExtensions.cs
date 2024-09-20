@@ -36,4 +36,15 @@ public static class PlayerExtensions
     public static bool WasGrounded(this Player player) {
         return player.oldVelocity.Y == 0f;
     }
+
+    /// <summary>
+    ///		Checks whether the player has a specified item in any inventory or not.
+    /// </summary>
+    /// <param name="player">The player to check.</param>
+    /// <typeparam name="T">The type of the item to check.</typeparam>
+    /// <returns><c>true</c> if the player has the specified item in any inventory; otherwise, <c>false</c>.</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool HasItemInAnyInventory<T>(this Player player) where T : ModItem {
+	    return player.HasItemInAnyInventory(ModContent.ItemType<T>());
+    }
 }

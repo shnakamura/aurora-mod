@@ -1,6 +1,28 @@
+using System.Collections.Generic;
+
 namespace Aurora.Core.EC;
 
-public class Entity
+public struct Entity : IEntity
 {
-	
+	public int Id { get; }
+
+	internal Entity(int id) {
+		Id = id;
+	}
+
+	public T Get<T>() where T : IComponent {
+		return ComponentSystem.Get<T>(Id);
+	}
+
+	public T Set<T>(T? value) where T : IComponent {
+		return ComponentSystem.Set(Id, value);
+	}
+
+	public bool Has<T>() where T : IComponent {
+		return ComponentSystem.Has<T>(Id);
+	}
+
+	public bool Remove<T>() where T : IComponent {
+		return ComponentSystem.Remove<T>(Id);
+	}
 }

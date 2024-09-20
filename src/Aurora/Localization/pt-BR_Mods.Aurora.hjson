@@ -210,7 +210,12 @@ Items: {
 	}
 
 	TelevisionItem: {
-		// DisplayName: Television Item
+		// DisplayName: Television
+		// Tooltip: ""
+	}
+
+	PocketCatalystItem: {
+		// DisplayName: Pocket Catalyst Item
 		// Tooltip: ""
 	}
 }
@@ -235,7 +240,7 @@ Projectiles: {
 	TinTomahawkProjectile.DisplayName: Machadinha de Estanho
 	TungstenTomahawkProjectile.DisplayName: Machadinha de Tungstênio
 	CrabPincersProjectile.DisplayName: Pinças de Caranguejo
-	// DirtDynamiteProjectile.DisplayName: Dirt Dynamite Projectile
+	// DirtDynamiteProjectile.DisplayName: Dirt Dynamite
 }
 
 Configs: {
@@ -248,9 +253,9 @@ Configs: {
 			Camera: Camera
 		}
 
-		EnableAmbience: {
-			Label: Enable Ambience
-			Tooltip: ""
+		EnableTracks: {
+			// Label: Enable Ambience
+			// Tooltip: ""
 		}
 
 		EnableFootsteps: {

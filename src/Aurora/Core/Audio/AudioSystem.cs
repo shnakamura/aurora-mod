@@ -2,22 +2,23 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
 using ReLogic.Utilities;
 using Terraria.Audio;
+using Terraria.GameContent;
 
 namespace Aurora.Core.Audio;
 
 [Autoload(Side = ModSide.Client)]
 public sealed class AudioSystem : ModSystem
 {
-    private static readonly SoundStyle[] IgnoredSounds = {
-        SoundID.MenuClose,
-        SoundID.MenuOpen,
-        SoundID.MenuTick,
-        SoundID.Chat,
-        SoundID.Grab
-    };
+	private static readonly IReadOnlyList<SoundStyle> IgnoredSounds = [
+		SoundID.MenuClose,
+		SoundID.MenuOpen,
+		SoundID.MenuTick,
+		SoundID.Chat,
+		SoundID.Grab
+	];
 
-    private static List<ActiveSound?>? sounds = new();
-    private static List<AudioModifier>? modifiers = new();
+	private static readonly List<ActiveSound?>? Sounds = [];
+	private static readonly List<AudioModifier>? Modifiers = [];
 
     private static AudioParameters parameters;
 
@@ -25,16 +26,6 @@ public sealed class AudioSystem : ModSystem
         base.Load();
 
         On_SoundPlayer.Play_Inner += PlayInnerHook;
-    }
-
-    public override void Unload() {
-        base.Unload();
-
-        sounds?.Clear();
-        sounds = null;
-
-        modifiers?.Clear();
-        modifiers = null;
     }
 
     public override void PostUpdateEverything() {
@@ -45,20 +36,20 @@ public sealed class AudioSystem : ModSystem
     }
 
     public static void AddModifier(string identifier, int duration, AudioModifier.ModifierCallback? callback) {
-        var index = modifiers.FindIndex(modifier => modifier.Identifier == identifier);
+        var index = Modifiers.FindIndex(modifier => modifier.Identifier == identifier);
 
         if (index == -1) {
-            modifiers.Add(new AudioModifier(identifier, duration, callback));
+            Modifiers.Add(new AudioModifier(identifier, duration, callback));
             return;
         }
 
-        var modifier = modifiers[index];
+        var modifier = Modifiers[index];
 
         modifier.TimeLeft = Math.Max(modifier.TimeLeft, duration);
         modifier.TimeMax = Math.Max(modifier.TimeMax, duration);
         modifier.Callback = callback;
 
-        modifiers[index] = modifier;
+        Modifiers[index] = modifier;
     }
 
     private static void ApplyParameters(SoundEffectInstance instance, in AudioParameters parameters) {
@@ -76,28 +67,28 @@ public sealed class AudioSystem : ModSystem
     private static void UpdateModifiers() {
         var newParameters = new AudioParameters();
 
-        for (var i = 0; i < modifiers.Count; i++) {
-            var modifier = modifiers[i];
+        for (var i = 0; i < Modifiers.Count; i++) {
+            var modifier = Modifiers[i];
 
             if (modifier.TimeLeft-- <= 0) {
-                modifiers.RemoveAt(i--);
+                Modifiers.RemoveAt(i--);
                 continue;
             }
 
             modifier.Callback?.Invoke(ref newParameters, modifier.TimeLeft / (float)modifier.TimeMax);
 
-            modifiers[i] = modifier;
+            Modifiers[i] = modifier;
         }
 
         parameters = newParameters;
     }
 
     private static void UpdateSounds() {
-        for (var i = 0; i < sounds.Count; i++) {
-            var sound = sounds[i];
+        for (var i = 0; i < Sounds.Count; i++) {
+            var sound = Sounds[i];
 
             if (!sound.IsPlaying) {
-                sounds.RemoveAt(i--);
+                Sounds.RemoveAt(i--);
                 continue;
             }
 
@@ -127,7 +118,7 @@ public sealed class AudioSystem : ModSystem
         var isSoundDisposed = sound?.Sound?.IsDisposed == true;
 
         if (isSoundActive && isSoundActive && !isSoundDisposed) {
-            sounds.Add(sound);
+            Sounds.Add(sound);
         }
 
         return slot;

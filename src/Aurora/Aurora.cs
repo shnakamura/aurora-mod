@@ -10,8 +10,5 @@ namespace Aurora;
 /// </summary>
 public sealed partial class Aurora : Mod
 {
-    /// <summary>
-    ///     Aurora's <see cref="Mod" /> instance.
-    /// </summary>
     public static Aurora Instance => ModContent.GetInstance<Aurora>();
 }

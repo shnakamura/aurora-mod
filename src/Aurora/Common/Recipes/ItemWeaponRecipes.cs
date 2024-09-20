@@ -2,6 +2,9 @@ using Aurora.Core.Configuration;
 
 namespace Aurora.Common.Recipes;
 
+/// <summary>
+///		Handles the registration of recipes for uncraftable vanilla weapons.
+/// </summary>
 public sealed class ItemWeaponRecipes : GlobalItem
 {
 	public override void AddRecipes() {
@@ -10,23 +13,23 @@ public sealed class ItemWeaponRecipes : GlobalItem
 		if (!ServerConfiguration.Instance.EnableRecipes) {
 			return;
 		}
-		
+
 		Recipe.Create(ItemID.Shuriken, 25)
 			.AddRecipeGroup(RecipeGroupID.IronBar)
 			.AddTile(TileID.Anvils)
 			.Register();
-		
+
 		Recipe.Create(ItemID.ThrowingKnife, 25)
 			.AddRecipeGroup(RecipeGroupID.IronBar)
 			.AddTile(TileID.Anvils)
 			.Register();
-		
+
 		Recipe.Create(ItemID.WandofSparking)
 			.AddRecipeGroup(RecipeGroupID.Wood, 10)
 			.AddIngredient(ItemID.FallenStar, 1)
 			.AddTile(TileID.WorkBenches)
 			.Register();
-		
+
 		Recipe.Create(ItemID.WoodenBoomerang)
 			.AddRecipeGroup(RecipeGroupID.Wood, 10)
 			.AddTile(TileID.WorkBenches)

@@ -17,7 +17,7 @@ public sealed class TrackSystem : ModSystem
     }
 
     private static void UpdateTracks() {
-	    if (!ClientConfiguration.Instance.EnableAmbience) {
+	    if (!ClientConfiguration.Instance.EnableTracks) {
 		    return;
 	    }
 		

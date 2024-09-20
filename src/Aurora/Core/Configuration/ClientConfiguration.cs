@@ -6,7 +6,7 @@ namespace Aurora.Core.Configuration;
 public sealed class ClientConfiguration : ModConfig
 {
 	public static ClientConfiguration Instance => ModContent.GetInstance<ClientConfiguration>();
-	
+
 	public override ConfigScope Mode { get; } = ConfigScope.ClientSide;
 
 	/// <summary>
@@ -14,8 +14,8 @@ public sealed class ClientConfiguration : ModConfig
 	/// </summary>
 	[Header("Ambience")]
 	[DefaultValue(true)]
-	public bool EnableAmbience { get; set; } = true;
-	
+	public bool EnableTracks { get; set; } = true;
+
 	/// <summary>
 	///		Whether ambience footsteps are enabled or not.
 	/// </summary>

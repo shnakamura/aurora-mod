@@ -11,6 +11,12 @@ public sealed class TravellingMerchant : GlobalNPC
 	public override void SetupTravelShop(int[] shop, ref int nextSlot) {
 		base.SetupTravelShop(shop, ref nextSlot);
 
-		shop[nextSlot++] = ModContent.ItemType<PowerMagnetItem>();
+		if (Main.rand.NextBool(10)) {
+			shop[nextSlot++] = ModContent.ItemType<PocketCatalystItem>();
+		}
+
+		if (Main.rand.NextBool(5)) {
+			shop[nextSlot++] = ModContent.ItemType<PowerMagnetItem>();
+		}
 	}
 }

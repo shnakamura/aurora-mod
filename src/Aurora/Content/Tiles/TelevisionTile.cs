@@ -1,4 +1,4 @@
-using Aurora.Assets.Textures.Items.Miscellaneous;
+using Aurora.Content.Items.Miscellaneous;
 using Aurora.Core.UI;
 using Terraria.DataStructures;
 using Terraria.GameContent.ObjectInteractions;

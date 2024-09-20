@@ -16,4 +16,15 @@ public class DoomMirrorItem : ModItem
         Item.useAnimation = 25;
         Item.useStyle = ItemUseStyleID.HoldUp;
     }
+
+    public override bool CanUseItem(Player player) {
+	    return player.lastDeathPostion != Vector2.Zero;
+    }
+
+    public override bool? UseItem(Player player) {
+	    player.Teleport(player.lastDeathPostion, TeleportationStyleID.DebugTeleport);
+	    player.velocity = Vector2.Zero;
+
+	    return true;
+    }
 }

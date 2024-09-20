@@ -1,6 +1,4 @@
 namespace Aurora.Core.Titles;
 
-public class WorldTitleSystem
-{
-	
-}
+[Autoload(Side = ModSide.Client)]
+public sealed class WorldTitleSystem : ModSystem;

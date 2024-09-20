@@ -5,10 +5,11 @@ using Terraria.GameContent;
 namespace Aurora.Content.Items.Miscellaneous;
 
 /// <summary>
-///		Handles the behavior of removing pylon requirements if the player has a <see cref="PocketCatalystItem"/> in their inventory.
+///		Handles the behavior of removing pylon requirements if the player has a <see cref="PocketCatalystItem"/>
+///		in their inventory.
 /// </summary>
 [Autoload(Side = ModSide.Client)]
-public sealed class PocketCatalystItemSystem : ModSystem
+public sealed class PocketCatalystSystem : ModSystem
 {
 	public override void Load() {
 		base.Load();

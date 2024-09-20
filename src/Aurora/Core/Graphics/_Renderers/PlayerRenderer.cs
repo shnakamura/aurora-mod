@@ -1,13 +1,10 @@
 namespace Aurora.Core.Graphics;
 
-/// <summary>
-///     Handles the rendering of the player's full texture and storing it as a <see cref="RenderTarget2D" />.
-/// </summary>
 [Autoload(Side = ModSide.Client)]
-public sealed class PlayerRenderSystem : ModSystem
+public sealed class PlayerRenderer : ModSystem
 {
     /// <summary>
-    ///     The render target that contains the player's full texture.
+    ///     The framebuffer that contains the player's full texture.
     /// </summary>
     public static RenderTarget2D? Target { get; private set; }
 
@@ -19,13 +16,13 @@ public sealed class PlayerRenderSystem : ModSystem
                 Target = new RenderTarget2D(Main.graphics.GraphicsDevice, Main.screenWidth, Main.screenHeight);
             }
         );
-		
+
         Main.OnResolutionChanged += ResizeTarget;
     }
 
     public override void Unload() {
         base.Unload();
-        
+
         Main.QueueMainThreadAction(
 	        () => {
 		        Target?.Dispose();
@@ -38,7 +35,7 @@ public sealed class PlayerRenderSystem : ModSystem
 
     public override void PreUpdateEntities() {
 	    base.PreUpdateEntities();
-	    
+
 	    var spriteBatch = Main.spriteBatch;
 	    var device = Main.graphics.GraphicsDevice;
 
@@ -48,12 +45,12 @@ public sealed class PlayerRenderSystem : ModSystem
 	    device.Clear(Color.Transparent);
 
 	    spriteBatch.Begin(
-		    default, 
+		    default,
 		    default,
 		    Main.DefaultSamplerState,
-		    default, 
+		    default,
 		    Main.Rasterizer,
-		    default, 
+		    default,
 		    Main.GameViewMatrix.TransformationMatrix
 		);
 

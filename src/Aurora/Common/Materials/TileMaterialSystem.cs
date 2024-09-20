@@ -11,22 +11,15 @@ namespace Aurora.Common.Materials;
 [Autoload(Side = ModSide.Client)]
 public sealed class TileMaterialSystem : ModSystem
 {
-	private static Dictionary<int, string>? materialsByName = [];
+	private readonly static Dictionary<int, string>? MaterialsByName = [];
 
     public override void PostSetupContent() {
         base.PostSetupContent();
-        
+
         LoadModdedMaterials();
         LoadVanillaMaterials();
     }
 
-    public override void Unload() {
-        base.Unload();
-        
-        materialsByName?.Clear();
-        materialsByName = null;
-    }
-    
     /// <summary>
     ///		Registers a tile material from a type set.
     /// </summary>
@@ -34,10 +27,10 @@ public sealed class TileMaterialSystem : ModSystem
     /// <param name="tileTypes">The types associated with the material.</param>
     public static void RegisterMaterial(string materialName, params int[] tileTypes) {
 	    for (int i = 0; i < tileTypes.Length; i++) {
-		    materialsByName[tileTypes[i]] = materialName;
+		    MaterialsByName[tileTypes[i]] = materialName;
 	    }
     }
-    
+
     /// <summary>
     ///		Registers a tile material from a content set.
     /// </summary>
@@ -58,9 +51,9 @@ public sealed class TileMaterialSystem : ModSystem
     /// <param name="materialName">The name of the material retrieved.</param>
     /// <returns><c>true</c> if a material was successfully retrieved; otherwise, <c>false</c>.</returns>
     public static bool TryGetMaterial(int tileType, out string materialName) {
-        return materialsByName.TryGetValue(tileType, out materialName);
+        return MaterialsByName.TryGetValue(tileType, out materialName);
     }
-    
+
     /// <summary>
     ///		Attempts to retrieve a material from a tile.
     /// </summary>
@@ -74,14 +67,14 @@ public sealed class TileMaterialSystem : ModSystem
     private static void LoadModdedMaterials() {
 	    foreach (var tile in ModContent.GetContent<ModTile>()) {
 		    var type = tile.GetType();
-            
+
 		    var attribute = type.GetCustomAttribute<MaterialAttribute>();
 
 		    if (attribute == null) {
 			    continue;
 		    }
 
-		    materialsByName[tile.Type] = attribute.Name;
+		    MaterialsByName[tile.Type] = attribute.Name;
 	    }
     }
 
@@ -90,20 +83,20 @@ public sealed class TileMaterialSystem : ModSystem
 		    "Grass",
 		    TileID.LivingMahoganyLeaves
 	    );
-        
+
 	    RegisterMaterial("Grass", TileID.Sets.Grass);
-        
+
 	    RegisterMaterial(
-		    "Stone", 
-		    TileID.GrayBrick, 
-		    TileID.StoneSlab, 
+		    "Stone",
+		    TileID.GrayBrick,
+		    TileID.StoneSlab,
 		    TileID.Mudstone
 	    );
 
 	    RegisterMaterial("Stone", TileID.Sets.Stone);
-      
+
 	    RegisterMaterial(
-		    "Wood", 
+		    "Wood",
 		    TileID.Platforms,
 		    TileID.WoodBlock,
 		    TileID.AshWood,

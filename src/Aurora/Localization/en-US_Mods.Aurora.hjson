@@ -210,7 +210,12 @@ Items: {
 	}
 
 	TelevisionItem: {
-		DisplayName: Television Item
+		DisplayName: Television
+		Tooltip: ""
+	}
+
+	PocketCatalystItem: {
+		DisplayName: Pocket Catalyst Item
 		Tooltip: ""
 	}
 }
@@ -235,7 +240,7 @@ Projectiles: {
 	TinTomahawkProjectile.DisplayName: Tin Tomahawk
 	TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk
 	CrabPincersProjectile.DisplayName: Crab Pincers
-	DirtDynamiteProjectile.DisplayName: Dirt Dynamite Projectile
+	DirtDynamiteProjectile.DisplayName: Dirt Dynamite
 }
 
 Configs: {
@@ -248,7 +253,7 @@ Configs: {
 			Camera: Camera
 		}
 
-		EnableAmbience: {
+		EnableTracks: {
 			Label: Enable Ambience
 			Tooltip: ""
 		}
@@ -281,7 +286,7 @@ Configs: {
 }
 
 GameTitle: {
-	0: Aurora: Dont try Starlight River!
+	0: Aurora: Don't try Starlight River!
 	1: Aurora: Also try Calamity!
 	2: Aurora: Also try Spirit!
 	3: Aurora: Also try Everglow!

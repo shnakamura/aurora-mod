@@ -1,6 +1,6 @@
 namespace Aurora.Content.Items.Miscellaneous;
 
-[AutoloadEquip(EquipType.Legs)]
+[AutoloadEquip(EquipType.Shoes)]
 public class StoneBootsItem : ModItem
 {
 	public override void SetDefaults() {
@@ -14,14 +14,20 @@ public class StoneBootsItem : ModItem
 
 	public override void UpdateAccessory(Player player, bool hideVisual) {
 		base.UpdateAccessory(player, hideVisual);
-		
-		if (!player.controlDown) {
+
+		if (!player.TryGetModPlayer(out StoneBootsPlayer modPlayer) || !player.controlDown) {
 			return;
 		}
 
-		player.armorEffectDrawOutlines = !hideVisual;
+		modPlayer.Enabled = true;
+	}
 
-		player.maxFallSpeed += 5f;
-		player.gravity += Player.defaultGravity;
+	public override void AddRecipes() {
+		base.AddRecipes();
+
+		CreateRecipe()
+			.AddIngredient(ItemID.StoneBlock, 20)
+			.AddTile(TileID.WorkBenches)
+			.Register();
 	}
 }
