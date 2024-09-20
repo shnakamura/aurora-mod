@@ -1,5 +1,3 @@
-using Aurora.Utilities;
-
 namespace Aurora.Core.EC;
 
 public sealed class ComponentSystem : ModSystem
@@ -22,7 +20,7 @@ public sealed class ComponentSystem : ModSystem
 			for (var i = 0; i < Components.Length; i++) {
 				var component = Components[i];
 
-				if (!component.Parent.Active) {
+				if (!component.Entity.Active) {
 					continue;
 				}
 
@@ -34,7 +32,7 @@ public sealed class ComponentSystem : ModSystem
 			for (var i = 0; i < Components.Length; i++) {
 				var component = Components[i];
 
-				if (!component.Parent.Active) {
+				if (!component.Entity.Active) {
 					continue;
 				}
 
@@ -60,23 +58,28 @@ public sealed class ComponentSystem : ModSystem
 		OnUpdate?.Invoke();
 	}
 
-	public static bool Has<T>(int id) where T : IComponent {
+	/// <summary>
+	///		Retrieves a component of the specified type from an entity.
+	/// </summary>
+	/// <param name="id">The identify of the entity to retrieve the component from.</param>
+	/// <typeparam name="T">The type of the component to retrieve.</typeparam>
+	/// <returns>The instance of the component if found; otherwise, <c>null</c>.</returns>
+	public static T Get<T>(int id) where T : class, IComponent {
 		if (id < 0 || id >= ComponentData<T>.Components.Length) {
-			return false;
-		}
-
-		return (ComponentData<T>.Flags[id] & ComponentData<T>.Mask) != 0;
-	}
-
-	public static T Get<T>(int id) where T : IComponent {
-		if (id < 0 || id >= ComponentData<T>.Components.Length) {
-			return default;
+			return null;
 		}
 
 		return ComponentData<T>.Components[id];
 	}
 
-	public static T Set<T>(int id, T? value) where T : IComponent {
+	/// <summary>
+	///		Sets the value of a component of the specified type to an entity.
+	/// </summary>
+	/// <param name="id">The identity of the entity to set the component to.</param>
+	/// <param name="value">The value of the component.</param>
+	/// <typeparam name="T">The type of the component to set.</typeparam>
+	/// <returns>The assigned component instance.</returns>
+	public static T Set<T>(int id, T? value) where T : class, IComponent {
 		if (id >= ComponentData<T>.Components.Length) {
 			var newSize = Math.Max(1, ComponentData<T>.Components.Length);
 
@@ -103,7 +106,27 @@ public sealed class ComponentSystem : ModSystem
 		return ComponentData<T>.Components[id];
 	}
 
-	public static bool Remove<T>(int id) where T : IComponent {
+	/// <summary>
+	///		Checks whether an entity has a component of the specified type or not.
+	/// </summary>
+	/// <param name="id">The identity of the entity to check.</param>
+	/// <typeparam name="T">The type of the component to check.</typeparam>
+	/// <returns><c>true</c> if the component was found; otherwise, <c>false</c>.</returns>
+	public static bool Has<T>(int id) where T : class, IComponent {
+		if (id < 0 || id >= ComponentData<T>.Components.Length) {
+			return false;
+		}
+
+		return (ComponentData<T>.Flags[id] & ComponentData<T>.Mask) != 0;
+	}
+
+	/// <summary>
+	///		Attempts to remove a component of the specified type from an entity.
+	/// </summary>
+	/// <param name="id">The identity of the entity to remove the component from.</param>
+	/// <typeparam name="T">The type of the component to remove.</typeparam>
+	/// <returns><c>true</c> if the component was successfully removed; otherwise, <c>false</c>.</returns>
+	public static bool Remove<T>(int id) where T : class, IComponent {
 		if (id < 0 || id >= ComponentData<T>.Components.Length) {
 			return false;
 		}

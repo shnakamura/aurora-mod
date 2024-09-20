@@ -2,7 +2,7 @@ namespace Aurora.Core.EC;
 
 public interface IComponent
 {
-	Entity Parent { get; }
+	Entity Entity { get; }
 
 	void Update();
 

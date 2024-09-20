@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Aurora.Core.Graphics;
 using Aurora.Utilities;
 using ReLogic.Content;
 
-namespace Aurora.Content.Items.Miscellaneous;
+namespace Aurora.Core.Graphics;
 
 /// <summary>
 ///		Handles the registration and rendering of player outlines.

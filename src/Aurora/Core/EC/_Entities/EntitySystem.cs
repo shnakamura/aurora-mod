@@ -1,7 +1,5 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework.Input;
 
 namespace Aurora.Core.EC;
 
@@ -34,7 +32,7 @@ public sealed class EntitySystem : ModSystem
 	}
 
 	/// <summary>
-	///		Removes an instance of an entity from its identity.
+	///		Removes an instance of an entity.
 	/// </summary>
 	/// <param name="entityId">The identity of the entity to remove.</param>
 	/// <returns><c>true</c> if the entity was successfully removed; otherwise, <c>false</c>.</returns>
@@ -52,7 +50,7 @@ public sealed class EntitySystem : ModSystem
 	}
 
 	/// <summary>
-	///		Checks whether an entity is active or not from its identity.
+	///		Checks whether an entity is active or not.
 	/// </summary>
 	/// <param name="id">The identity of the entity to check.</param>
 	/// <returns><c>true</c> if the entity is active; otherwise, <c>false</c>.</returns>
@@ -65,7 +63,7 @@ public sealed class EntitySystem : ModSystem
 	}
 
 	/// <summary>
-	///		Sets the active status of an entity from its identity.
+	///		Sets the active status of an entity.
 	/// </summary>
 	/// <param name="id">The identity of the entity to set.</param>
 	/// <param name="value">The value of the status to set.</param>
