@@ -6,7 +6,10 @@ public struct Entity : IEntity
 {
 	public int Id { get; }
 
-	public bool Active { get; set; }
+	public bool Active {
+		get => EntitySystem.GetActive(Id);
+		set => EntitySystem.SetActive(Id, value);
+	}
 
 	internal Entity(int id) {
 		Id = id;
