@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework.Input;
 
 namespace Aurora.Core.EC;
@@ -11,7 +12,7 @@ public sealed class EntitySystem : ModSystem
 
 	private static readonly ConcurrentBag<int> FreeEntityIds = [];
 
-	private static int NextEntityId;
+	private static int nextEntityId;
 
 	/// <summary>
 	///		Creates a new instance of an entity.
@@ -22,7 +23,7 @@ public sealed class EntitySystem : ModSystem
 		int id;
 
 		if (!FreeEntityIds.TryTake(out id)) {
-			id = NextEntityId++;
+			id = nextEntityId++;
 		}
 
 		if (activate) {
@@ -33,7 +34,7 @@ public sealed class EntitySystem : ModSystem
 	}
 
 	/// <summary>
-	///		Removes an instance of an entity from its unique identifier.
+	///		Removes an instance of an entity from its identity.
 	/// </summary>
 	/// <param name="entityId">The identity of the entity to remove.</param>
 	/// <returns><c>true</c> if the entity was successfully removed; otherwise, <c>false</c>.</returns>
@@ -50,26 +51,36 @@ public sealed class EntitySystem : ModSystem
 		return true;
 	}
 
-	internal static bool GetActive(int entityId) {
-		if (entityId < 0) {
+	/// <summary>
+	///		Checks whether an entity is active or not from its identity.
+	/// </summary>
+	/// <param name="id">The identity of the entity to check.</param>
+	/// <returns><c>true</c> if the entity is active; otherwise, <c>false</c>.</returns>
+	internal static bool GetActive(int id) {
+		if (id < 0) {
 			return false;
 		}
 
-		return ActiveEntityIds.Contains(entityId);
+		return ActiveEntityIds.Contains(id);
 	}
 
-	internal static void SetActive(int entityId, bool value) {
-		if (entityId < 0) {
+	/// <summary>
+	///		Sets the active status of an entity from its identity.
+	/// </summary>
+	/// <param name="id">The identity of the entity to set.</param>
+	/// <param name="value">The value of the status to set.</param>
+	internal static void SetActive(int id, bool value) {
+		if (id < 0) {
 			return;
 		}
 
 		if (value) {
-			ActiveEntityIds.Add(entityId);
-			InactiveEntityIds.Remove(entityId);
+			ActiveEntityIds.Add(id);
+			InactiveEntityIds.Remove(id);
 			return;
 		}
 
-		ActiveEntityIds.Remove(entityId);
-		InactiveEntityIds.Add(entityId);
+		ActiveEntityIds.Remove(id);
+		InactiveEntityIds.Add(id);
 	}
 }

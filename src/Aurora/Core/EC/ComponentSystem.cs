@@ -60,56 +60,56 @@ public sealed class ComponentSystem : ModSystem
 		OnUpdate?.Invoke();
 	}
 
-	public static bool Has<T>(int entityId) where T : IComponent {
-		if (entityId < 0 || entityId >= ComponentData<T>.Components.Length) {
+	public static bool Has<T>(int id) where T : IComponent {
+		if (id < 0 || id >= ComponentData<T>.Components.Length) {
 			return false;
 		}
 
-		return (ComponentData<T>.Flags[entityId] & ComponentData<T>.Mask) != 0;
+		return (ComponentData<T>.Flags[id] & ComponentData<T>.Mask) != 0;
 	}
 
-	public static T Get<T>(int entityId) where T : IComponent {
-		if (entityId < 0 || entityId >= ComponentData<T>.Components.Length) {
+	public static T Get<T>(int id) where T : IComponent {
+		if (id < 0 || id >= ComponentData<T>.Components.Length) {
 			return default;
 		}
 
-		return ComponentData<T>.Components[entityId];
+		return ComponentData<T>.Components[id];
 	}
 
-	public static T Set<T>(int entityId, T? value) where T : IComponent {
-		if (entityId >= ComponentData<T>.Components.Length) {
+	public static T Set<T>(int id, T? value) where T : IComponent {
+		if (id >= ComponentData<T>.Components.Length) {
 			var newSize = Math.Max(1, ComponentData<T>.Components.Length);
 
-			while (newSize <= entityId) {
+			while (newSize <= id) {
 				newSize *= 2;
 			}
 
 			Array.Resize(ref ComponentData<T>.Components, newSize);
 		}
 
-		if (entityId >= ComponentData<T>.Flags.Length) {
+		if (id >= ComponentData<T>.Flags.Length) {
 			var newSize = Math.Max(1, ComponentData<T>.Flags.Length);
 
-			while (newSize <= entityId) {
+			while (newSize <= id) {
 				newSize *= 2;
 			}
 
 			Array.Resize(ref ComponentData<T>.Flags, newSize);
 		}
 
-		ComponentData<T>.Components[entityId] = value;
-		ComponentData<T>.Flags[entityId] |= ComponentData<T>.Mask;
+		ComponentData<T>.Components[id] = value;
+		ComponentData<T>.Flags[id] |= ComponentData<T>.Mask;
 
-		return ComponentData<T>.Components[entityId];
+		return ComponentData<T>.Components[id];
 	}
 
-	public static bool Remove<T>(int entityId) where T : IComponent {
-		if (entityId < 0 || entityId >= ComponentData<T>.Components.Length) {
+	public static bool Remove<T>(int id) where T : IComponent {
+		if (id < 0 || id >= ComponentData<T>.Components.Length) {
 			return false;
 		}
 
-		ComponentData<T>.Components[entityId] = default;
-		ComponentData<T>.Flags[entityId] &= ~ComponentData<T>.Mask;
+		ComponentData<T>.Components[id] = default;
+		ComponentData<T>.Flags[id] &= ~ComponentData<T>.Mask;
 
 		return true;
 	}
