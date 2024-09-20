@@ -5,44 +5,7 @@ namespace Aurora.Core.EC;
 
 public sealed class EntitySystem : ModSystem
 {
-	private sealed class Transform(Vector2 position, Vector2 scale, float rotation = 0f) : IComponent
-	{
-		public Vector2 Position = position;
-
-		public Vector2 Scale = scale;
-
-		public float Rotation = rotation;
-
-		public override string ToString() {
-			return $"Position: {Position} @ Scale: {Scale} @ Rotation: {Rotation}";
-		}
-
-		void IComponent.Update() { }
-
-		void IComponent.RenderUpdate() { }
-	}
-
 	private static readonly List<Entity> Entities = [];
-
-	private static Entity entity;
-
-	public override void OnWorldLoad() {
-		base.OnWorldLoad();
-
-		entity = EntitySystem.Create();
-	}
-
-	public override void PostUpdateWorld() {
-		base.PostUpdateWorld();
-
-		entity.Set(new Transform(new Vector2(500f), Vector2.One));
-
-		if (Main.keyState.IsKeyDown(Keys.F) && !Main.oldKeyState.IsKeyDown(Keys.F)) {
-			entity.Remove<Transform>();
-		}
-
-		Main.NewText(entity.Has<Transform>() + " @ " + entity.Get<Transform>());
-	}
 
 	/// <summary>
 	///		Creates a new instance of an entity.

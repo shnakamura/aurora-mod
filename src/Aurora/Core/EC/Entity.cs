@@ -6,6 +6,8 @@ public struct Entity : IEntity
 {
 	public int Id { get; }
 
+	public bool Active { get; set; }
+
 	internal Entity(int id) {
 		Id = id;
 	}

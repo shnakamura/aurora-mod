@@ -1,3 +1,5 @@
+using Aurora.Utilities;
+
 namespace Aurora.Core.EC;
 
 public sealed class ComponentSystem : ModSystem
@@ -10,9 +12,53 @@ public sealed class ComponentSystem : ModSystem
 		public static long[] Flags = [];
 
 		public static T?[] Components = [];
+
+		static ComponentData() {
+			OnUpdate += OnUpdateEvent;
+			OnRender += OnRenderEvent;
+		}
+
+		private static void OnUpdateEvent() {
+			for (var i = 0; i < Components.Length; i++) {
+				var component = Components[i];
+
+				if (!component.Parent.Active) {
+					continue;
+				}
+
+				component.Update();
+			}
+		}
+
+		private static void OnRenderEvent() {
+			for (var i = 0; i < Components.Length; i++) {
+				var component = Components[i];
+
+				if (!component.Parent.Active) {
+					continue;
+				}
+
+				component.Render();
+			}
+		}
 	}
 
 	private static int componentTypeCount;
+
+	private static event Action? OnUpdate;
+	private static event Action? OnRender;
+
+	public override void Load() {
+		base.Load();
+
+		On_Main.DrawProjectiles += DrawProjectilesHook;
+	}
+
+	public override void PostUpdateWorld() {
+		base.PostUpdateWorld();
+
+		OnUpdate?.Invoke();
+	}
 
 	public static bool Has<T>(int entityId) where T : IComponent {
 		if (entityId < 0 || entityId >= ComponentData<T>.Components.Length) {
@@ -63,8 +109,14 @@ public sealed class ComponentSystem : ModSystem
 		}
 
 		ComponentData<T>.Components[entityId] = default;
-		ComponentData<T>.Flags[entityId] &= ComponentData<T>.Mask;
+		ComponentData<T>.Flags[entityId] &= ~ComponentData<T>.Mask;
 
 		return true;
+	}
+
+	private static void DrawProjectilesHook(On_Main.orig_DrawProjectiles orig, Main self) {
+		orig(self);
+
+		OnRender?.Invoke();
 	}
 }

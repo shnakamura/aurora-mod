@@ -4,6 +4,8 @@ public interface IEntity
 {
 	int Id { get; }
 
+	bool Active { get; set; }
+
 	T Get<T>() where T : IComponent;
 
 	T Set<T>(T? value) where T : IComponent;
