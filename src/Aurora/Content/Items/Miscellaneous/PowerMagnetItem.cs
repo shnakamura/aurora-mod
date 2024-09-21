@@ -11,5 +11,7 @@ public class PowerMagnetItem : ModItem
 		Item.height = 34;
 
 		Item.value = Item.sellPrice(gold: 1);
+
+		Item.rare = ItemRarityID.Blue;
 	}
 }

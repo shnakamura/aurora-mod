@@ -12,5 +12,7 @@ public class PocketCatalystItem : ModItem
 		Item.height = 24;
 
 		Item.value = Item.sellPrice(platinum: 1);
+
+		Item.rare = ItemRarityID.Blue;
 	}
 }

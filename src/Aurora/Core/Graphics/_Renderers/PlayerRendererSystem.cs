@@ -1,7 +1,7 @@
 namespace Aurora.Core.Graphics;
 
 [Autoload(Side = ModSide.Client)]
-public sealed class PlayerRenderer : ModSystem
+public sealed class PlayerRendererSystem : ModSystem
 {
     /// <summary>
     ///     The framebuffer that contains the player's full texture.

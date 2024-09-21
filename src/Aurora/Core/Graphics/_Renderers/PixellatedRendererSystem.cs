@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using ReLogic.Content;
 
 namespace Aurora.Core.Graphics;
 
 [Autoload(Side = ModSide.Client)]
-public sealed class PixellatedRenderer : ModSystem
+public sealed class PixellatedRendererSystem : ModSystem
 {
 	private static readonly List<Action> Actions = [];
 

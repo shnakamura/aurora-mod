@@ -1,8 +1,10 @@
+using System.Linq;
+
 namespace Aurora.Core.EC;
 
 public sealed class ComponentSystem : ModSystem
 {
-	private static class ComponentData<T> where T : IComponent
+	private static class ComponentData<T> where T : class, IComponent
 	{
 		public static readonly int Id = componentTypeCount++;
 		public static readonly int Mask = 1 << Id;
@@ -20,7 +22,7 @@ public sealed class ComponentSystem : ModSystem
 			for (var i = 0; i < Components.Length; i++) {
 				var component = Components[i];
 
-				if (!component.Entity.Active) {
+				if (component == null || component.Entity.Active == false) {
 					continue;
 				}
 
@@ -32,7 +34,7 @@ public sealed class ComponentSystem : ModSystem
 			for (var i = 0; i < Components.Length; i++) {
 				var component = Components[i];
 
-				if (!component.Entity.Active) {
+				if (component == null || component.Entity.Active == false) {
 					continue;
 				}
 
@@ -46,16 +48,14 @@ public sealed class ComponentSystem : ModSystem
 	private static event Action? OnUpdate;
 	private static event Action? OnRender;
 
-	public override void Load() {
-		base.Load();
-
-		On_Main.DrawProjectiles += DrawProjectilesHook;
-	}
-
 	public override void PostUpdateWorld() {
 		base.PostUpdateWorld();
 
+		// Despite being different callbacks, render and update are called under the same hook because
+		// rendering components are meant to direct their logic to external renderers instead of executing
+		// it by themselves.
 		OnUpdate?.Invoke();
+		OnRender?.Invoke();
 	}
 
 	/// <summary>
@@ -79,7 +79,7 @@ public sealed class ComponentSystem : ModSystem
 	/// <param name="value">The value of the component.</param>
 	/// <typeparam name="T">The type of the component to set.</typeparam>
 	/// <returns>The assigned component instance.</returns>
-	public static T Set<T>(int id, T? value) where T : class, IComponent {
+	public static T Set<T>(int id, T value) where T : class, IComponent {
 		if (id >= ComponentData<T>.Components.Length) {
 			var newSize = Math.Max(1, ComponentData<T>.Components.Length);
 
@@ -131,15 +131,9 @@ public sealed class ComponentSystem : ModSystem
 			return false;
 		}
 
-		ComponentData<T>.Components[id] = default;
+		ComponentData<T>.Components[id] = null;
 		ComponentData<T>.Flags[id] &= ~ComponentData<T>.Mask;
 
 		return true;
-	}
-
-	private static void DrawProjectilesHook(On_Main.orig_DrawProjectiles orig, Main self) {
-		orig(self);
-
-		OnRender?.Invoke();
 	}
 }

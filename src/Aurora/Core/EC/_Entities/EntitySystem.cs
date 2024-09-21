@@ -34,7 +34,7 @@ public sealed class EntitySystem : ModSystem
 	/// <summary>
 	///		Removes an instance of an entity.
 	/// </summary>
-	/// <param name="entityId">The identity of the entity to remove.</param>
+	/// <param name="id">The identity of the entity to remove.</param>
 	/// <returns><c>true</c> if the entity was successfully removed; otherwise, <c>false</c>.</returns>
 	public static bool Remove(int id) {
 		if (id < 0) {
@@ -75,10 +75,10 @@ public sealed class EntitySystem : ModSystem
 		if (value) {
 			ActiveEntityIds.Add(id);
 			InactiveEntityIds.Remove(id);
-			return;
 		}
-
-		ActiveEntityIds.Remove(id);
-		InactiveEntityIds.Add(id);
+		else {
+			ActiveEntityIds.Remove(id);
+			InactiveEntityIds.Add(id);
+		}
 	}
 }

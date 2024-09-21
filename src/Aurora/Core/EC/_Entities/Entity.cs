@@ -35,6 +35,8 @@ public struct Entity : IEntity
 	/// <typeparam name="T">The type of the component to set.</typeparam>
 	/// <returns>The assigned component instance.</returns>
 	public T Set<T>(T? value) where T : class, IComponent {
+		value.Entity = this;
+
 		return ComponentSystem.Set(Id, value);
 	}
 

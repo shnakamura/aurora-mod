@@ -8,7 +8,7 @@ public interface IEntity
 
 	T Get<T>() where T : class, IComponent;
 
-	T Set<T>(T? value) where T : class, IComponent;
+	T Set<T>(T value) where T : class, IComponent;
 
 	bool Has<T>() where T : class, IComponent;
 
