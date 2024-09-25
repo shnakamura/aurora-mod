@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora", "src\Aurora\Aurora.csproj", "{B64F91CE-75DB-42AE-A665-BA08279A55F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora", "Aurora\Aurora.csproj", "{B64F91CE-75DB-42AE-A665-BA08279A55F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Generators", "src\Aurora.Generators\Aurora.Generators.csproj", "{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Generators", "Aurora.Generators\Aurora.Generators.csproj", "{EE2356DD-A0AD-49A9-BD5E-DDA43888746D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

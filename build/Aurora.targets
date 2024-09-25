@@ -3,7 +3,6 @@
 	<Import Project="..\..\tModLoader.targets" />
 
 	<Import Project="Aurora.Publicizer.targets"/>
-	<Import Project="Aurora.Usings.targets"/>
 	<Import Project="Aurora.Workflows.targets"/>
 	
 	<ItemGroup>

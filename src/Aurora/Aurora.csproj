@@ -21,4 +21,8 @@
 	  </Reference>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Core\IO\_Readers\_Prefabs\" />
+	</ItemGroup>
+
 </Project>

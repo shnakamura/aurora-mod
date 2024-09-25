@@ -37,9 +37,6 @@ public class BloomBulbProjectile : ModProjectile
 		Projectile.minionSlots = 0.5f;
 
 		Projectile.aiStyle = -1;
-
-		Projectile.TryEnable<ProjectileOwnerBuffCheck>(static c => c.Data.Type = ModContent.BuffType<BloomBulbBuff>());
-		Projectile.TryEnable<ProjectileOwnerTeleport>(static c => c.Data.SquaredTeleportRange = 100f * 16f * 100f * 16f);
 	}
 
 	public override void AI() {

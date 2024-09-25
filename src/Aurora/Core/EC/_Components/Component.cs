@@ -1,8 +1,8 @@
 namespace Aurora.Core.EC;
 
-public abstract class Component : IComponent
+public abstract class Component
 {
-	public IEntity Entity { get; set; }
+	public AuroraEntity Entity { get; set; }
 
 	public virtual void Update() { }
 
