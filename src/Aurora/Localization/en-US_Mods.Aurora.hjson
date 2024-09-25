@@ -56,7 +56,7 @@ Items: {
 
 	DoomMirrorItem: {
 		DisplayName: Doom Mirror
-		Tooltip: ""
+		Tooltip: Gaze in the mirror to return to your last death position
 	}
 
 	StickyDirtDynamiteItem: {
@@ -215,8 +215,8 @@ Items: {
 	}
 
 	PocketCatalystItem: {
-		DisplayName: Pocket Catalyst Item
-		Tooltip: ""
+		DisplayName: Pocket Catalyst
+		Tooltip: Allows you to use pylons without distance or NPC requirements
 	}
 }
 

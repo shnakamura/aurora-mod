@@ -1,30 +1,27 @@
 // This file is placed outside of the common 'Utilities/Extensions' scope for the sake of convenience when using components.
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aurora.Core.Projectiles;
 
 /// <summary>
-///     Provides basic extensions that interface with <see cref="ProjectileComponent" />.
+///     Provides <see cref="Projectile"/> extensions that interface with <see cref="ProjectileComponent" />.
 /// </summary>
 public static class ProjectileComponentExtensions
 {
-    /// <summary>
-    ///     Attempts to enable a specified component on a projectile.
-    /// </summary>
-    /// <param name="projectile">The projectile on which the component is to be enabled.</param>
-    /// <param name="initializer">An optional delegate to initialize the component after it has been enabled.</param>
-    /// <typeparam name="T">The type of the component to enable, which must inherit from <see cref="ProjectileComponent" />.</typeparam>
-    /// <returns><c>true</c> if the component was successfully enabled; otherwise, <c>false</c>.</returns>
-    public static bool TryEnableComponent<T>(this Projectile projectile, Action<T>? initializer = null) where T : ProjectileComponent {
-        var hasComponent = projectile.TryGetGlobalProjectile(out T? component);
+	public static bool TryEnable<T>(this Projectile projectile, Action<T>? initializer = null) where T : ProjectileComponent {
+		if (!projectile.TryGet<T>(out var component)) {
+			return false;
+		}
 
-        if (!hasComponent) {
-            return false;
-        }
+		component.Enabled = true;
 
-        component.Enabled = true;
+		initializer?.Invoke(component);
 
-        initializer?.Invoke(component);
+		return true;
+	}
 
-        return true;
-    }
+	public static bool TryGet<T>(this Projectile projectile, [MaybeNullWhen(false)] out T? component) where T : ProjectileComponent {
+		return projectile.TryGetGlobalProjectile(out component) && component.Enabled;
+	}
 }

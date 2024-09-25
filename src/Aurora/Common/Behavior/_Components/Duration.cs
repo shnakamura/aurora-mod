@@ -2,28 +2,26 @@ using Aurora.Core.EC;
 
 namespace Aurora.Common.Behavior;
 
-public sealed class TimeLeft(int duration) : Component
+public sealed class Duration(int timeLeft) : Component
 {
-	public float Progress => Duration / (float)DurationMax;
+	public float Progress => 1f - TimeLeft / (float)TimeLeftMax;
 
 	/// <summary>
 	///		The remaining time of the entity attached to this component in ticks.
 	/// </summary>
-	public int Duration = duration;
+	public int TimeLeft = timeLeft;
 
 	/// <summary>
 	///		The max time of the entity attached to this component in ticks.
 	/// </summary>
-	public readonly int DurationMax = duration;
-
-	private int timer;
+	public readonly int TimeLeftMax = timeLeft;
 
 	public override void Update() {
 		base.Update();
 
-		Duration--;
+		TimeLeft--;
 
-		if (Duration > 0) {
+		if (TimeLeft > 0) {
 			return;
 		}
 

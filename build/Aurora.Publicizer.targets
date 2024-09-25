@@ -2,8 +2,8 @@
 
 	<ItemGroup>
 		<Publicize Include="FNA"></Publicize>
-		<Publicize Include="Terraria"></Publicize>
 		<Publicize Include="ReLogic"></Publicize>
+		<Publicize Include="Terraria"></Publicize>
 	</ItemGroup>
 
 </Project>

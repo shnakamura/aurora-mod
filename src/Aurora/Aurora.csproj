@@ -6,58 +6,6 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-	
-	<ItemGroup>
-		<AdditionalFiles Include="**\*.track" />
-		<AdditionalFiles Include="**\*.footstep" />
-		<AdditionalFiles Remove="Content\Projectiles\Tomahawks\TungstenTomahawkProjectile.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Tomahawks\PlatinumTomahawkProjectile.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Tomahawks\SilverTomahawkProjectile.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Tomahawks\CopperTomahawkProjectile.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Daggers\GoldDaggerProjectile.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Beach\CrabPincersProjectile_Right.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Beach\CrabPincersProjectile_Left.png" />
-		<AdditionalFiles Remove="Content\Projectiles\Beach\CrabPincersProjectile.png" />
-		<AdditionalFiles Remove="Content\Items\Miscellaneous\PowerMagnetItem.png" />
-		<AdditionalFiles Remove="Content\Items\Miscellaneous\StoneBootsItem.png" />
-		<AdditionalFiles Remove="Content\Items\Miscellaneous\DoomMirrorItem.png" />
-		<AdditionalFiles Remove="Content\Items\Explosives\StickyDirtDynamiteItem.png" />
-		<AdditionalFiles Remove="Content\Items\Explosives\DirtDynamiteItem.png" />
-		<AdditionalFiles Remove="Content\Items\Tomahawks\TungstenTomahawkItem.png" />
-		<AdditionalFiles Remove="Content\Items\Tomahawks\PlatinumTomahawkItem.png" />
-		<AdditionalFiles Remove="Content\Items\Tomahawks\GoldTomahawkItem.png" />
-		<AdditionalFiles Remove="Content\Items\Tomahawks\TinTomahawkItem.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomLeggingsItem_Legs.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomHeadgearItem_Head.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomHoodItem_Head.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomLeggingsItem.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomHeadgearItem.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\EverbloomHoodItem.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\AromaticBouquet.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\BloomRosePetal.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\CarnationCane.png" />
-		<AdditionalFiles Remove="Content\Items\Everbloom\Flora.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildWarriorHelmetItem_Head.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildWarriorMaskItem_Head.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildWarriorMaskItem.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\BarkBallistaItem.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildPickaxeItem.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildNatureItem.png" />
-		<AdditionalFiles Remove="Content\Items\Wildlife\WildHammerItem.png" />
-		<AdditionalFiles Remove="Content\Items\Daggers\TungstenDaggerItem.png" />
-		<AdditionalFiles Remove="Content\Items\Daggers\CopperDaggerItem.png" />
-		<AdditionalFiles Remove="Content\Items\Daggers\TinDaggerItem.png" />
-		<AdditionalFiles Remove="Content\Items\Granite\GraniteStaffItem.png" />
-		<AdditionalFiles Remove="Content\Items\Granite\GraniteChunkItem.png" />
-		<AdditionalFiles Remove="Content\Items\Granite\StormSurgeItem.png" />
-		<AdditionalFiles Remove="Content\Items\Marble\BallistaItem.png" />
-		<AdditionalFiles Remove="Content\Items\Forest\WoodenClubItem.png" />
-		<AdditionalFiles Remove="Content\Gores\WoodPeckerNPC0.png" />
-		<AdditionalFiles Remove="Content\Gores\BulletCasing.png" />
-		<AdditionalFiles Remove="Content\Dusts\BubbleDust.png" />
-		<AdditionalFiles Remove="Content\NPCs\Forest\WoodPeckerNPC.png" />
-		<AdditionalFiles Remove="Content\NPCs\Forest\MushroomNPC.png" />
-	</ItemGroup>
 
 	<PropertyGroup>
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
@@ -65,53 +13,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Aurora.Generators\Aurora.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Content\Projectiles\Explosives\DirtDynamiteProjectile.png" />
-	  <None Remove="Content\Projectiles\Tomahawks\LeadTomahawkProjectile.png" />
-	  <None Remove="Content\Projectiles\Tomahawks\IronTomahawkProjectile.png" />
-	  <None Remove="Content\Projectiles\Tomahawks\GoldTomahawkProjectile.png" />
-	  <None Remove="Content\Projectiles\Tomahawks\TinTomahawkProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\TungstenDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\PlatinumDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\SilverDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\CopperDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\LeadDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\IronDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Daggers\TinDaggerProjectile.png" />
-	  <None Remove="Content\Projectiles\Beach\CrabPincersProjectile_Eyes.png" />
-	  <None Remove="Content\Items\Miscellaneous\PowerMagnetItem_Display.png" />
-	  <None Remove="Content\Items\Miscellaneous\PocketCatalystItem.png" />
-	  <None Remove="Content\Items\Tomahawks\SilverTomahawkItem.png" />
-	  <None Remove="Content\Items\Tomahawks\CopperTomahawkItem.png" />
-	  <None Remove="Content\Items\Tomahawks\LeadTomahawkItem.png" />
-	  <None Remove="Content\Items\Tomahawks\IronTomahawkItem.png" />
-	  <None Remove="Content\Items\Everbloom\EverbloomMantleItem_Body.png" />
-	  <None Remove="Content\Items\Everbloom\EverbloomMantleItem.png" />
-	  <None Remove="Content\Items\Everbloom\BloomRose.png" />
-	  <None Remove="Content\Items\Wildlife\WildWarriorGreavesItem_Legs.png" />
-	  <None Remove="Content\Items\Wildlife\WildWarriorGarbItem_Body.png" />
-	  <None Remove="Content\Items\Wildlife\WildWarriorGreavesItem.png" />
-	  <None Remove="Content\Items\Wildlife\WildWarriorHelmetItem.png" />
-	  <None Remove="Content\Items\Wildlife\WildlifeFragmentItem.png" />
-	  <None Remove="Content\Items\Wildlife\WildWarriorGarbItem.png" />
-	  <None Remove="Content\Items\Wildlife\WildAxeItem.png" />
-	  <None Remove="Content\Items\Daggers\PlatinumDaggerItem.png" />
-	  <None Remove="Content\Items\Daggers\SilverDaggerItem.png" />
-	  <None Remove="Content\Items\Daggers\LeadDaggerItem.png" />
-	  <None Remove="Content\Items\Daggers\IronDaggerItem.png" />
-	  <None Remove="Content\Items\Daggers\GoldDaggerItem.png" />
-	  <None Remove="Content\Items\Marble\ClaymoreItem.png" />
-	  <None Remove="Content\Items\Forest\AncientTwigItem.png" />
-	  <None Remove="Content\Items\Forest\BearClawsItem.png" />
-	  <None Remove="Content\Items\Forest\MushbatItem.png" />
-	  <None Remove="Content\Items\Forest\NutItem.png" />
-	  <None Remove="Content\Items\Beach\CrabPincersItem.png" />
-	  <None Remove="Content\Items\Guns\BigIronItem.png" />
-	  <None Remove="Content\Gores\WoodPeckerNPC1.png" />
-	  <None Remove="Content\Gores\ShellCasing.png" />
-	  <None Remove="Content\NPCs\Forest\WoodLogNPC.png" />
 	</ItemGroup>
 
 	<ItemGroup>

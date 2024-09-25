@@ -11,6 +11,6 @@ public class CopperTomahawkProjectile : ModProjectile
         Projectile.width = 16;
         Projectile.height = 16;
 
-        Projectile.TryEnableComponent<ProjectileTomahawk>();
+        Projectile.TryEnable<ProjectileTomahawk>();
     }
 }

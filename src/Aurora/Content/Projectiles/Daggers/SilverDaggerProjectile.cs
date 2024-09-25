@@ -11,6 +11,6 @@ public class SilverDaggerProjectile : ModProjectile
 		Projectile.width = 22;
 		Projectile.height = 22;
 
-		Projectile.TryEnableComponent<ProjectileDagger>();
+		Projectile.TryEnable<ProjectileDagger>();
 	}
 }

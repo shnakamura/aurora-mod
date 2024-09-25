@@ -1,12 +1,52 @@
 using System.Collections.Generic;
+using ReLogic.Content;
 using Terraria.DataStructures;
 
 namespace Aurora.Content.Projectiles.Beach;
 
 public class CrabPincersProjectile : ModProjectile
 {
-    private float leftRotation;
+	/// <summary>
+	///		The mod-qualified path to <see cref="EyesTexture"/>.
+	/// </summary>
+	public const string EyesTexturePath = $"{nameof(Aurora)}/Assets/Textures/Projectiles/Beach/{nameof(CrabPincersProjectile)}_Eyes";
+
+	/// <summary>
+	///		The mod-qualified path to <see cref="LeftPincerTexture"/>.
+	/// </summary>
+	public const string LeftPincerTexturePath = $"{nameof(Aurora)}/Assets/Textures/Projectiles/Beach/{nameof(CrabPincersProjectile)}_Left";
+
+	/// <summary>
+	///		The mod-qualified path to <see cref="RightPincerTexture"/>.
+	/// </summary>
+	public const string RightPincerTexturePath = $"{nameof(Aurora)}/Assets/Textures/Projectiles/Beach/{nameof(CrabPincersProjectile)}_Right";
+
+	/// <summary>
+	///		The asset that holds the texture used for rendering this projectile's eyes.
+	/// </summary>
+	public static Asset<Texture2D> EyesTexture { get; private set; }
+
+	/// <summary>
+	///		The asset that holds the texture used for rendering this projectile's left pincer.
+	/// </summary>
+	public static Asset<Texture2D> LeftPincerTexture { get; private set; }
+
+	/// <summary>
+	///		The asset that holds the texture used for rendering this projectile's right pincer.
+	/// </summary>
+	public static Asset<Texture2D> RightPincerTexture { get; private set; }
+
+	public override void Load() {
+		base.Load();
+
+		EyesTexture = ModContent.Request<Texture2D>(EyesTexturePath);
+		LeftPincerTexture = ModContent.Request<Texture2D>(LeftPincerTexturePath);
+		RightPincerTexture = ModContent.Request<Texture2D>(RightPincerTexturePath);
+	}
+
+	private float leftRotation;
     private float rightRotation;
+
     private float scale;
 
     public override void SetStaticDefaults() {
@@ -51,7 +91,7 @@ public class CrabPincersProjectile : ModProjectile
         base.OnSpawn(source);
 
         var tileCoordinates = Projectile.position.ToTileCoordinates();
-        var collisionPosition = new Vector2(tileCoordinates.X, tileCoordinates.Y + 1) * 16f;
+        var collisionPosition = new Vector2(tileCoordinates.X, tileCoordinates.Y + 1f) * 16f;
 
         Collision.HitTiles(collisionPosition, Projectile.velocity, Projectile.width, Projectile.height);
     }
@@ -83,43 +123,53 @@ public class CrabPincersProjectile : ModProjectile
     public override bool PreDraw(ref Color lightColor) {
         base.PreDraw(ref lightColor);
 
-        var position = Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY);
+        var offsetX = 0;
+        var offsetY = 0;
 
-        var eyes = ModContent.Request<Texture2D>(Texture + "_Eyes").Value;
+        var originX = 0f;
+
+        ProjectileLoader.DrawOffset(Projectile, ref offsetX, ref offsetY, ref originX);
+
+        var positionOffset = new Vector2(offsetX, offsetY + Projectile.gfxOffY);
+        var originOffset = new Vector2(originX, 0f);
+
+        var position = Projectile.Center - Main.screenPosition + positionOffset;
+
+        var eyesTexture = EyesTexture.Value;
 
         Main.EntitySpriteDraw(
-            eyes,
-            position + new Vector2(0f, eyes.Height),
+            eyesTexture,
+            position + new Vector2(0f, eyesTexture.Height),
             null,
             lightColor,
             0f,
-            new Vector2(eyes.Width / 2f, eyes.Height),
+            new Vector2(eyesTexture.Width / 2f, eyesTexture.Height) + originOffset,
             new Vector2(1f, scale),
             SpriteEffects.None
         );
 
-        var leftPincer = ModContent.Request<Texture2D>(Texture + "_Left").Value;
+        var leftPincerTexture = LeftPincerTexture.Value;
 
         Main.EntitySpriteDraw(
-            leftPincer,
-            position + new Vector2(-24f, leftPincer.Height / 2f),
+            leftPincerTexture,
+            position + new Vector2(-24f, leftPincerTexture.Height / 2f),
             null,
             lightColor,
             leftRotation,
-            new Vector2(leftPincer.Width / 2f, leftPincer.Height),
+            new Vector2(leftPincerTexture.Width / 2f, leftPincerTexture.Height) + originOffset,
             new Vector2(1f, scale),
             SpriteEffects.None
         );
 
-        var rightPincer = ModContent.Request<Texture2D>(Texture + "_Right").Value;
+        var rightPincerTexture = RightPincerTexture.Value;
 
         Main.EntitySpriteDraw(
-            rightPincer,
-            position + new Vector2(24f, rightPincer.Height / 2f),
+            rightPincerTexture,
+            position + new Vector2(24f, rightPincerTexture.Height / 2f),
             null,
             lightColor,
             rightRotation,
-            new Vector2(rightPincer.Width / 2f, rightPincer.Height),
+            new Vector2(rightPincerTexture.Width / 2f, rightPincerTexture.Height) + originOffset,
             new Vector2(1f, scale),
             SpriteEffects.None
         );

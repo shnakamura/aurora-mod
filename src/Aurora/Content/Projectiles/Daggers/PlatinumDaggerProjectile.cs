@@ -11,6 +11,6 @@ public class PlatinumDaggerProjectile : ModProjectile
 		Projectile.width = 24;
 		Projectile.height = 24;
 
-		Projectile.TryEnableComponent<ProjectileDagger>();
+		Projectile.TryEnable<ProjectileDagger>();
 	}
 }

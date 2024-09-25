@@ -8,11 +8,11 @@ public sealed class OpacityTimeLeft : Component
 	public override void Update() {
 		base.Update();
 
-		if (!Entity.Has<TimeLeft>() || !Entity.Has<PixellatedTextureRenderer>()) {
+		if (!Entity.Has<Duration>() || !Entity.Has<PixellatedTextureRenderer>()) {
 			return;
 		}
 
-		var timeLeft = Entity.Get<TimeLeft>();
+		var timeLeft = Entity.Get<Duration>();
 		var renderer = Entity.Get<PixellatedTextureRenderer>();
 
 		renderer.Info.Opacity = timeLeft.Progress;
