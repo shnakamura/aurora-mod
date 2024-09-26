@@ -218,6 +218,11 @@ Items: {
 		DisplayName: Pocket Catalyst
 		Tooltip: Allows you to use pylons without distance or NPC requirements
 	}
+
+	AromaticBouquet: {
+		DisplayName: Aromatic Bouquet
+		Tooltip: ""
+	}
 }
 
 NPCs.WoodPeckerNPC.DisplayName: Wood Pecker
@@ -241,6 +246,7 @@ Projectiles: {
 	TungstenTomahawkProjectile.DisplayName: Tungsten Tomahawk
 	CrabPincersProjectile.DisplayName: Crab Pincers
 	DirtDynamiteProjectile.DisplayName: Dirt Dynamite
+	BloomBulbProjectile.DisplayName: Bloom Bulb Projectile
 }
 
 Configs: {
@@ -297,4 +303,11 @@ GameTitle: {
 	8: Aurora: Whomst'd've
 	9: Aurora: DONT SAY THAT!
 	10: Aurora: NO3
+}
+
+Buffs: {
+	BloomBulbBuff: {
+		DisplayName: Bloom Bulb Buff
+		Description: Mods.Aurora.Buffs.BloomBulbBuff.Description
+	}
 }

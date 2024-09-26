@@ -215,7 +215,12 @@ Items: {
 	}
 
 	PocketCatalystItem: {
-		// DisplayName: Pocket Catalyst Item
+		// DisplayName: Pocket Catalyst
+		// Tooltip: Allows you to use pylons without distance or NPC requirements
+	}
+
+	AromaticBouquet: {
+		// DisplayName: Aromatic Bouquet
 		// Tooltip: ""
 	}
 }
@@ -241,6 +246,7 @@ Projectiles: {
 	TungstenTomahawkProjectile.DisplayName: Machadinha de Tungstênio
 	CrabPincersProjectile.DisplayName: Pinças de Caranguejo
 	// DirtDynamiteProjectile.DisplayName: Dirt Dynamite
+	// BloomBulbProjectile.DisplayName: Bloom Bulb Projectile
 }
 
 Configs: {
@@ -297,4 +303,11 @@ GameTitle: {
 	8: Aurora: Quem'd'teria
 	9: Aurora: NÃO DIGA ISSO!
 	10: Aurora: NO3
+}
+
+Buffs: {
+	BloomBulbBuff: {
+		// DisplayName: Bloom Bulb Buff
+		// Description: Mods.Aurora.Buffs.BloomBulbBuff.Description
+	}
 }
