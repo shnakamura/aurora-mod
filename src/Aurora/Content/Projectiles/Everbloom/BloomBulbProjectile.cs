@@ -1,13 +1,9 @@
-using Aurora.Common.Projectiles;
-using Aurora.Content.Buffs;
-using Aurora.Core.Projectiles;
-
 namespace Aurora.Content.Projectiles.Everbloom;
 
 public class BloomBulbProjectile : ModProjectile
 {
 	/// <summary>
-	///		The squared attack range of this projectile in pixels.
+	///     The squared attack range of this projectile in pixels.
 	/// </summary>
 	public const float SquaredAttackRange = 32f * 16f * 32f * 16f;
 

@@ -15,7 +15,7 @@ public class DirtDynamiteProjectile : ModProjectile
 
 		Projectile.timeLeft = 300;
 		Projectile.penetrate = -1;
-		
+
 		Projectile.aiStyle = ProjAIStyleID.Explosive;
 	}
 
@@ -39,15 +39,15 @@ public class DirtDynamiteProjectile : ModProjectile
 
 		ApplyExplosionEffects();
 	}
-	
+
 	public override bool PreDraw(ref Color lightColor) {
 		var texture = TextureAssets.Projectile[Type].Value;
 
 		var offsetX = 0;
 		var offsetY = 0;
-		
+
 		var originX = 0f;
-		
+
 		ProjectileLoader.DrawOffset(Projectile, ref offsetX, ref offsetY, ref originX);
 
 		var positionOffset = new Vector2(offsetX, offsetY + Projectile.gfxOffY);
@@ -55,7 +55,7 @@ public class DirtDynamiteProjectile : ModProjectile
 
 		var position = Projectile.Center - Main.screenPosition + positionOffset;
 		var origin = texture.Size() / 2f + originOffset;
-		
+
 		Main.EntitySpriteDraw(
 			texture,
 			position,
@@ -66,7 +66,7 @@ public class DirtDynamiteProjectile : ModProjectile
 			Projectile.scale,
 			SpriteEffects.None
 		);
-		
+
 		return false;
 	}
 
@@ -99,24 +99,24 @@ public class DirtDynamiteProjectile : ModProjectile
 				Color.Transparent,
 				2.2f
 			);
-			
+
 			dust.noGravity = true;
-			
+
 			dust.velocity *= 4f;
 			dust.velocity.Y -= 1.2f;
-			
+
 			dust = Dust.NewDustDirect(
 				Projectile.position,
 				Projectile.width,
-				Projectile.height, 
+				Projectile.height,
 				DustID.Dirt,
 				0f,
-				0f, 
+				0f,
 				100,
 				Color.Transparent,
 				1.3f
 			);
-			
+
 			dust.velocity *= 2f;
 			dust.velocity.Y -= 1.2f;
 		}

@@ -1,6 +1,3 @@
-using Aurora.Common.Behavior;
-using Aurora.Core.Projectiles;
-
 namespace Aurora.Content.Projectiles.Daggers;
 
 public class LeadDaggerProjectile : ModProjectile
@@ -10,7 +7,5 @@ public class LeadDaggerProjectile : ModProjectile
 
 		Projectile.width = 20;
 		Projectile.height = 20;
-
-		Projectile.TryEnable<ProjectileDagger>();
 	}
 }

@@ -2,7 +2,7 @@ using Aurora.Content.Items.Miscellaneous;
 
 namespace Aurora.Common.NPCs;
 
-public sealed class TravellingMerchant : GlobalNPC
+public sealed class TravellingMerchantShopGlobalNPC : GlobalNPC
 {
 	public override bool AppliesToEntity(NPC entity, bool lateInstantiation) {
 		return entity.type == NPCID.TravellingMerchant;

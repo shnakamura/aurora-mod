@@ -4,8 +4,8 @@ namespace Aurora.Common.NPCs;
 
 public sealed class NPCSlimeRendering : GlobalNPC
 {
-	private const float stretchSpeed = 0.05f;
-	private const float maxStretch = 1.5f;
+	private const float StretchSpeed = 0.05f;
+	private const float MaxStretch = 1.5f;
 
 	private Vector2 scale = Vector2.One;
 
@@ -19,16 +19,16 @@ public sealed class NPCSlimeRendering : GlobalNPC
 		base.AI(npc);
 
 		if (npc.velocity.Y < 0f) {
-			scale.Y = MathHelper.Clamp(scale.Y + stretchSpeed, 1f, maxStretch);
-			scale.X = MathHelper.Clamp(scale.X - stretchSpeed, 0.8f, 1f);
+			scale.Y = MathHelper.Clamp(scale.Y + StretchSpeed, 1f, MaxStretch);
+			scale.X = MathHelper.Clamp(scale.X - StretchSpeed, 0.8f, 1f);
 		}
 		else if (npc.velocity.Y > 0f) {
-			scale.Y = MathHelper.Clamp(scale.Y - stretchSpeed * 0.5f, 1f, maxStretch);
-			scale.X = MathHelper.Clamp(scale.X + stretchSpeed * 0.5f, 0.8f, 1f);
+			scale.Y = MathHelper.Clamp(scale.Y - StretchSpeed * 0.5f, 1f, MaxStretch);
+			scale.X = MathHelper.Clamp(scale.X + StretchSpeed * 0.5f, 0.8f, 1f);
 		}
 		else {
-			scale.Y = MathHelper.Lerp(scale.Y, 1f, stretchSpeed);
-			scale.X = MathHelper.Lerp(scale.X, 1f, stretchSpeed);
+			scale.Y = MathHelper.Lerp(scale.Y, 1f, StretchSpeed);
+			scale.X = MathHelper.Lerp(scale.X, 1f, StretchSpeed);
 		}
 
 		npc.rotation = npc.rotation.AngleLerp(npc.velocity.X * 0.05f, 0.3f);
